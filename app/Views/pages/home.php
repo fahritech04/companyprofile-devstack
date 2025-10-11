@@ -67,42 +67,63 @@
 <div class="h-px bg-gradient-to-r from-transparent via-blue-100 to-transparent opacity-50"></div>
 
 <!-- About Section -->
-<section id="about" class="py-32 gradient-secondary">
+<section id="about" class="py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 container-responsive">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right" class="relative">
-                <div class="card-enterprise h-96 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center shadow-medium hover-lift">
-                    <!-- Placeholder for image with modern icon -->
-                    <div class="text-center">
-                        <svg class="w-20 h-20 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H7m-1 0l-3-3m0 0H1m7 3H5m0 0h2M7 3H5m0 0h2M7 3v16M7 19l3-3m0 0h2"></path>
-                        </svg>
-                        <p class="text-blue-800/70 font-semibold">Company Vision</p>
-                    </div>
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-blue-900 mb-8">
+                About Us
+            </h2>
+            <div class="separator mx-auto mb-10"></div>
+            <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
+                We're a team of passionate innovators dedicated to transforming businesses through cutting-edge technology solutions. Our mission is to deliver exceptional digital experiences that drive measurable growth and sustainable success.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
                 </div>
-                <!-- Decorative elements -->
-                <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-200 rounded-full opacity-20 blur-xl"></div>
-                <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-indigo-200 rounded-full opacity-15 blur-xl"></div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    To be the leading innovation partner that empowers businesses to thrive in the digital age through transformative technology solutions.
+                </p>
             </div>
-            <div data-aos="fade-left" class="space-y-8">
-                <div>
-                    <h2 class="text-blue-900 mb-6 max-w-lg">
-                        <?= lang('App.about_title') ?>
-                    </h2>
-                    <div class="separator mb-8"></div>
-                    <p class="text-gray-700 text-lg leading-relaxed max-w-xl">
-                        <?= lang('App.about_description') ?>
-                    </p>
+
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="<?= base_url('about') ?>" class="btn-primary px-8 py-4 rounded-full font-semibold text-white hover-lift inline-flex items-center justify-center">
-                        <?= lang('App.learn_more') ?>
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Our Team</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    A diverse team of experts with years of experience in technology, design, and business strategy working collaboratively.
+                </p>
             </div>
+
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Our Impact</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Delivering measurable results through innovative solutions that help businesses grow and succeed in competitive markets.
+                </p>
+            </div>
+        </div>
+
+        <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
+            <a href="<?= base_url('about') ?>" class="btn-primary px-8 py-4 rounded-full font-semibold text-white hover-lift inline-flex items-center justify-center">
+                <span>Learn More About Us</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
