@@ -38,7 +38,7 @@
             
             <!-- Description -->
             <p class="max-w-2xl mx-auto text-xl md:text-2xl text-blue-800">
-                Kami membantu bisnis Anda berkembang dengan solusi digital yang inovatif
+                <?= lang('App.hero_description') ?>
             </p>
 
             <!-- CTA Buttons -->
@@ -47,7 +47,7 @@
                     <?= lang('App.learn_more') ?>
                 </a>
                 <a href="<?= base_url('contact') ?>" class="px-8 py-3 bg-white border-2 border-blue-600 text-blue-600 rounded-full font-medium hover:bg-blue-50 transform hover:-translate-y-0.5 transition-all duration-300">
-                    Hubungi Kami
+                    <?= lang('App.contact_cta') ?>
                 </a>
             </div>
 
@@ -159,10 +159,10 @@
         <!-- Heading -->
         <div class="text-center mb-12" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-extrabold text-blue-900 tracking-wide uppercase">
-                KEY STRATEGIES
+                <?= lang('App.strategies_title') ?>
             </h2>
             <p class="mt-4 text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
-                Our strategic initiatives drive innovation and growth, ensuring we deliver exceptional value to our clients while staying ahead of industry trends.
+                <?= lang('App.strategies_subtitle') ?>
             </p>
         </div>
 
@@ -171,27 +171,27 @@
             <!-- Card 1 -->
             <div class="bg-blue-600 text-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
                 <div class="text-2xl font-bold mb-6 text-center">#01</div>
-                <h3 class="text-xl font-semibold text-center mb-4">Ramp up our customer expansion program</h3>
+                <h3 class="text-xl font-semibold text-center mb-4"><?= lang('App.strategies_1_title') ?></h3>
                 <div class="mt-10 flex justify-center">
-                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors">READ MORE</a>
+                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors"><?= lang('App.learn_more') ?></a>
                 </div>
             </div>
 
             <!-- Card 2 -->
             <div class="bg-blue-600 text-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
                 <div class="text-2xl font-bold mb-6 text-center">#02</div>
-                <h3 class="text-xl font-semibold text-center mb-4">Roll out the new technology platform</h3>
+                <h3 class="text-xl font-semibold text-center mb-4"><?= lang('App.strategies_2_title') ?></h3>
                 <div class="mt-10 flex justify-center">
-                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors">READ MORE</a>
+                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors"><?= lang('App.learn_more') ?></a>
                 </div>
             </div>
 
             <!-- Card 3 -->
             <div class="bg-blue-600 text-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
                 <div class="text-2xl font-bold mb-6 text-center">#03</div>
-                <h3 class="text-xl font-semibold text-center mb-4">Complete our sustainability checklist</h3>
+                <h3 class="text-xl font-semibold text-center mb-4"><?= lang('App.strategies_3_title') ?></h3>
                 <div class="mt-10 flex justify-center">
-                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors">READ MORE</a>
+                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors"><?= lang('App.learn_more') ?></a>
                 </div>
             </div>
         </div>

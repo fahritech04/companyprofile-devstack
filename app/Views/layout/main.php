@@ -55,7 +55,7 @@
                 
                 <!-- Language Switcher Mobile -->
                 <div class="flex items-center space-x-3 py-3 px-4 border-t">
-                    <span class="text-gray-500 text-sm">Language:</span>
+                    <span class="text-gray-500 text-sm"><?= lang('App.language_label') ?></span>
                     <a href="<?= base_url('language/switch/en') ?>" class="text-sm <?= session()->get('locale') == 'en' ? 'font-bold text-blue-600' : 'text-gray-500' ?>">EN</a>
                     <a href="<?= base_url('language/switch/id') ?>" class="text-sm <?= session()->get('locale') == 'id' ? 'font-bold text-blue-600' : 'text-gray-500' ?>">ID</a>
                 </div>
@@ -117,7 +117,7 @@
                     <p class="text-gray-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in interdum ipsum, sit amet.</p>
                     <div class="pt-2">
                         <a href="<?= base_url('contact') ?>" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
-                            Learn More 
+                            <?= lang('App.learn_more') ?>
                             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
@@ -129,10 +129,10 @@
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold">Quick Links</h3>
                     <ul class="space-y-3">
-                        <li><a href="<?= base_url() ?>" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="<?= base_url('about') ?>" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="<?= base_url('services') ?>" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="<?= base_url('portfolio') ?>" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="<?= base_url() ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.home') ?></a></li>
+                        <li><a href="<?= base_url('about') ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.about') ?></a></li>
+                        <li><a href="<?= base_url('services') ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.services') ?></a></li>
+                        <li><a href="<?= base_url('portfolio') ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.portfolio') ?></a></li>
                     </ul>
                 </div>
 

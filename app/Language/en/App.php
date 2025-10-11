@@ -1,12 +1,13 @@
 <?php
 
 return [
-    // Navigation
-    'home' => 'Home',
-    'about' => 'About Us',
-    'services' => 'Services',
-    'portfolio' => 'Portfolio',
-    'contact' => 'Contact',
+    # // Navigation
+        'home' => 'Home',
+        'about' => 'About Us',
+        'services' => 'Services',
+        'portfolio' => 'Portfolio',
+        'contact' => 'Contact',
+        'language_label' => 'Language:',
     
     // Hero Section
     'hero_title' => 'Devstack',
@@ -37,10 +38,21 @@ return [
         'offer_3_title' => 'IT Consultant',
         'offer_3_desc' => 'Effective business collaboration through document management and strategic partnerships.',
     
-    // Contact Section
-    'contact_title' => 'Get in Touch',
-    'contact_address' => 'Address',
-    'contact_phone' => 'Phone',
-    'contact_email' => 'Email',
-    'send_message' => 'Send Message',
-];
+    # // Contact Section
+        'contact_title' => 'Get in Touch',
+        'contact_address' => 'Address',
+        'contact_phone' => 'Phone',
+        'contact_email' => 'Email',
+        'send_message' => 'Send Message',
+    
+        // Hero additions
+        'hero_description' => 'We help your business grow with innovative digital solutions',
+        'contact_cta' => 'Contact Us',
+    
+        // Strategies Section
+        'strategies_title' => 'KEY STRATEGIES',
+        'strategies_subtitle' => 'Our strategic initiatives drive innovation and growth, ensuring we deliver exceptional value to our clients while staying ahead of industry trends.',
+        'strategies_1_title' => 'Ramp up our customer expansion program',
+        'strategies_2_title' => 'Roll out the new technology platform',
+        'strategies_3_title' => 'Complete our sustainability checklist',
+    ];

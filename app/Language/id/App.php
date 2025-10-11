@@ -1,12 +1,13 @@
 <?php
 
 return [
-    // Navigation
-    'home' => 'Beranda',
-    'about' => 'Tentang Kami',
-    'services' => 'Layanan',
-    'portfolio' => 'Portofolio',
-    'contact' => 'Kontak',
+    # // Navigation
+        'home' => 'Beranda',
+        'about' => 'Tentang Kami',
+        'services' => 'Layanan',
+        'portfolio' => 'Portofolio',
+        'contact' => 'Kontak',
+        'language_label' => 'Bahasa:',
     
     // Hero Section
     'hero_title' => 'Selamat Datang di Perusahaan Kami',
@@ -36,10 +37,22 @@ return [
         'offer_3_title' => 'Konsultan TI',
         'offer_3_desc' => 'Kolaborasi bisnis yang efektif melalui manajemen dokumen dan kemitraan strategis.',
         
-    // Contact Section
-    'contact_title' => 'Hubungi Kami',
-    'contact_address' => 'Alamat',
-    'contact_phone' => 'Telepon',
-    'contact_email' => 'Email',
-    'send_message' => 'Kirim Pesan',
-];
+    # // Contact Section
+        'contact_title' => 'Hubungi Kami',
+        'contact_address' => 'Alamat',
+        'contact_phone' => 'Telepon',
+        'contact_email' => 'Email',
+        'send_message' => 'Kirim Pesan',
+    
+        // Hero additions
+        'hero_about' => 'Mengubah dunia satu aplikasi dalam satu waktu',
+        'hero_description' => 'Kami membantu bisnis Anda berkembang dengan solusi digital yang inovatif',
+        'contact_cta' => 'Hubungi Kami',
+    
+        // Strategies Section
+        'strategies_title' => 'STRATEGI UTAMA',
+        'strategies_subtitle' => 'Inisiatif strategis kami mendorong inovasi dan pertumbuhan, memastikan kami memberikan nilai terbaik kepada klien sekaligus tetap unggul dari tren industri.',
+        'strategies_1_title' => 'Tingkatkan program ekspansi pelanggan kami',
+        'strategies_2_title' => 'Luncurkan platform teknologi baru',
+        'strategies_3_title' => 'Selesaikan daftar periksa keberlanjutan kami',
+    ];
