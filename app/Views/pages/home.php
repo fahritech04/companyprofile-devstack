@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <!-- Spectacular Enterprise Hero Section -->
-<section class="py-32 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
+<section id="home" class="py-32 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
     <!-- Epic Enterprise Background System -->
     <div class="absolute inset-0 z-0">
         <!-- Primary Architectural Elements -->

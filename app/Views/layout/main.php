@@ -65,33 +65,80 @@
     </script>
 </head>
 <body class="font-sans">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex items-center py-4">
-                    <span class="font-semibold text-gray-500 text-lg">Devstack Logo</span>
-                </div>
+    <!-- Modern Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-xl fixed w-full z-50 border-b border-blue-200/20">
+        <!-- Subtle gradient line accent -->
+        <div class="h-1 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800"></div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center">
-                    <a href="<?= base_url() ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.home') ?></a>
-                    <a href="<?= base_url('about') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.about') ?></a>
-                    <a href="<?= base_url('services') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.services') ?></a>
-                    <a href="<?= base_url('portfolio') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.portfolio') ?></a>
-                    <a href="<?= base_url('contact') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.contact') ?></a>
-                    
-                    <!-- Language Switcher Desktop -->
-                    <div class="flex items-center space-x-3 border-l pl-4 ml-4">
-                        <a href="<?= base_url('language/switch/en') ?>" class="text-sm <?= session()->get('locale') == 'en' ? 'font-bold text-blue-600' : 'text-gray-500' ?>">EN</a>
-                        <a href="<?= base_url('language/switch/id') ?>" class="text-sm <?= session()->get('locale') == 'id' ? 'font-bold text-blue-600' : 'text-gray-500' ?>">ID</a>
+        <!-- Floating background effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-transparent to-blue-50/20 opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand/Logo -->
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">Company</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Mobile menu button -->
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="/" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600 font-medium hover:bg-blue-50/80 rounded-xl transition-all duration-300 border border-transparent hover:border-blue-200/50 group">
+                        <span>Home</span>
+                        <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-300"></div>
+                    </a>
+                    <a href="/about" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600 font-medium hover:bg-blue-50/80 rounded-xl transition-all duration-300 border border-transparent hover:border-blue-200/50 group">
+                        <span>About</span>
+                        <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-300"></div>
+                    </a>
+                    <a href="/services" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600 font-medium hover:bg-blue-50/80 rounded-xl transition-all duration-300 border border-transparent hover:border-blue-200/50 group">
+                        <span>Services</span>
+                        <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-300"></div>
+                    </a>
+                    <a href="/portfolio" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600 font-medium hover:bg-blue-50/80 rounded-xl transition-all duration-300 border border-transparent hover:border-blue-200/50 group">
+                        <span>Portfolio</span>
+                        <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-300"></div>
+                    </a>
+                    <a href="/contact" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600 font-medium hover:bg-blue-50/80 rounded-xl transition-all duration-300 border border-transparent hover:border-blue-200/50 group">
+                        <span>Contact</span>
+                        <div class="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-300"></div>
+                    </a>
+
+                    <!-- Language Switcher -->
+                    <div class="flex items-center ml-6 pl-6 border-l border-blue-200/30">
+                        <div class="flex items-center bg-blue-50/50 rounded-xl p-1 border border-blue-200/30">
+                            <a href="<?= base_url('language/switch/en') ?>" class="px-3 py-1 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'en' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-white/80' ?> font-medium">
+                                EN
+                            </a>
+                            <a href="<?= base_url('language/switch/id') ?>" class="px-3 py-1 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'id' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-white/80' ?> font-medium">
+                                ID
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium CTA Button -->
+                <div class="hidden lg:flex items-center">
+                    <a href="#contact" class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Get Started
+                        <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Modern Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button outline-none" aria-label="Menu">
-                        <svg class="w-6 h-6 text-gray-500 hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button class="mobile-menu-button w-10 h-10 bg-blue-50/50 rounded-xl flex items-center justify-center border border-blue-200/30 transition-colors hover:bg-blue-100/50">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                             <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -99,19 +146,41 @@
                 </div>
             </div>
 
-            <!-- Mobile Menu -->
-            <div class="mobile-menu hidden md:hidden">
-                <a href="<?= base_url() ?>" class="block py-3 px-4 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition duration-300"><?= lang('App.home') ?></a>
-                <a href="<?= base_url('about') ?>" class="block py-3 px-4 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition duration-300"><?= lang('App.about') ?></a>
-                <a href="<?= base_url('services') ?>" class="block py-3 px-4 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition duration-300"><?= lang('App.services') ?></a>
-                <a href="<?= base_url('portfolio') ?>" class="block py-3 px-4 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition duration-300"><?= lang('App.portfolio') ?></a>
-                <a href="<?= base_url('contact') ?>" class="block py-3 px-4 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition duration-300"><?= lang('App.contact') ?></a>
-                
-                <!-- Language Switcher Mobile -->
-                <div class="flex items-center space-x-3 py-3 px-4 border-t">
-                    <span class="text-gray-500 text-sm"><?= lang('App.language_label') ?></span>
-                    <a href="<?= base_url('language/switch/en') ?>" class="text-sm <?= session()->get('locale') == 'en' ? 'font-bold text-blue-600' : 'text-gray-500' ?>">EN</a>
-                    <a href="<?= base_url('language/switch/id') ?>" class="text-sm <?= session()->get('locale') == 'id' ? 'font-bold text-blue-600' : 'text-gray-500' ?>">ID</a>
+            <!-- Modern Mobile Menu -->
+            <div class="mobile-menu hidden md:hidden bg-white/95 backdrop-blur-md border-t border-blue-200/30">
+                <div class="px-4 py-6 space-y-1">
+                    <a href="/" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 rounded-xl transition-all duration-300 font-medium">
+                        Home
+                    </a>
+                    <a href="/about" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 rounded-xl transition-all duration-300 font-medium">
+                        About
+                    </a>
+                    <a href="/services" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 rounded-xl transition-all duration-300 font-medium">
+                        Services
+                    </a>
+                    <a href="/portfolio" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 rounded-xl transition-all duration-300 font-medium">
+                        Portfolio
+                    </a>
+                    <a href="/contact" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 rounded-xl transition-all duration-300 font-medium">
+                        Contact
+                    </a>
+
+                    <!-- CTA Button Mobile -->
+                    <div class="pt-4 border-t border-blue-200/30 mt-6">
+                        <a href="#contact" class="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl text-center hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg">
+                            Get Started
+                        </a>
+                    </div>
+
+                    <!-- Language Switcher Mobile -->
+                    <div class="flex items-center justify-center mt-4 space-x-1">
+                        <a href="<?= base_url('language/switch/en') ?>" class="px-4 py-2 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'en' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 bg-blue-50/50' ?> font-medium">
+                            English
+                        </a>
+                        <a href="<?= base_url('language/switch/id') ?>" class="px-4 py-2 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'id' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 bg-blue-50/50' ?> font-medium">
+                            Indonesia
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
