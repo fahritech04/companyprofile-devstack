@@ -152,6 +152,52 @@
         </div>
     </div>
 </section>
+
+<!-- Strategies Section -->
+<section id="strategies" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Heading -->
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-blue-900 tracking-wide uppercase">
+                KEY STRATEGIES
+            </h2>
+            <p class="mt-4 text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
+                Our strategic initiatives drive innovation and growth, ensuring we deliver exceptional value to our clients while staying ahead of industry trends.
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-blue-600 text-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-2xl font-bold mb-6 text-center">#01</div>
+                <h3 class="text-xl font-semibold text-center mb-4">Ramp up our customer expansion program</h3>
+                <div class="mt-10 flex justify-center">
+                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors">READ MORE</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-blue-600 text-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-2xl font-bold mb-6 text-center">#02</div>
+                <h3 class="text-xl font-semibold text-center mb-4">Roll out the new technology platform</h3>
+                <div class="mt-10 flex justify-center">
+                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors">READ MORE</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-blue-600 text-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-2xl font-bold mb-6 text-center">#03</div>
+                <h3 class="text-xl font-semibold text-center mb-4">Complete our sustainability checklist</h3>
+                <div class="mt-10 flex justify-center">
+                    <a href="#" class="px-6 py-3 bg-blue-500 rounded-lg font-semibold hover:bg-blue-700 transition-colors">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Services Section -->
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
