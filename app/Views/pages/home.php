@@ -33,7 +33,7 @@
             
             <!-- Heading -->
             <h1 class="text-5xl md:text-7xl font-bold text-blue-900 leading-tight tracking-tight">
-                <?= lang('App.hero_title') ?>
+                <?= lang('App.hero_about') ?>
             </h1>
             
             <!-- Description -->
@@ -101,6 +101,57 @@
     </div>
 </section>
 
+<!-- Offerings Section -->
+<section id="offerings" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Heading and description -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-blue-900 leading-tight tracking-tight">
+                    <?= lang('App.offer_title') ?>
+                </h2>
+            </div>
+            <div data-aos="fade-left">
+                <p class="text-gray-700 text-lg md:text-xl">
+                    <?= lang('App.offer_subtitle') ?>
+                </p>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 mb-4 text-blue-600">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2zm3 4h8M7 12h10M7 16h6"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2"><?= lang('App.offer_1_title') ?></h3>
+                <p class="text-gray-600"><?= lang('App.offer_1_desc') ?></p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 mb-4 text-blue-600">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12M6 12h12"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2"><?= lang('App.offer_2_title') ?></h3>
+                <p class="text-gray-600"><?= lang('App.offer_2_desc') ?></p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 mb-4 text-blue-600">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M4 6h16v12H4z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2"><?= lang('App.offer_3_title') ?></h3>
+                <p class="text-gray-600"><?= lang('App.offer_3_desc') ?></p>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Services Section -->
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
