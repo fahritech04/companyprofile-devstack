@@ -1,63 +1,81 @@
 <?= $this->extend('layout/main') ?>
 
 <?= $this->section('content') ?>
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden gradient-primary">
-    <!-- Background Elements -->
+<!-- Spectacular Enterprise Hero Section -->
+<section class="py-32 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
+    <!-- Epic Enterprise Background System -->
     <div class="absolute inset-0 z-0">
-        <!-- Primary gradient background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-white via-blue-50/80 to-blue-100/60"></div>
+        <!-- Primary Architectural Elements -->
+        <div class="absolute inset-0 bg-enterprise-geometric"></div>
+        <div class="absolute inset-0 bg-professional-waves opacity-20"></div>
+        <div class="absolute inset-0 bg-business-architecture opacity-30"></div>
 
-        <!-- Subtle pattern overlay -->
-        <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230066ff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\');"></div>
+        <!-- Advanced Particle System -->
+        <div class="absolute inset-0 bg-enterprise-particles"></div>
+        <div class="absolute inset-0 bg-network-effect opacity-10"></div>
+
+        <!-- Premium Metallic Highlights -->
+        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-100/10 to-transparent"></div>
+
+        <!-- Sophisticated Grid Overlay -->
+        <div class="absolute inset-0 bg-professional-mesh opacity-5"></div>
+
+        <!-- Corporate Flow Networks -->
+        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-15"></div>
     </div>
 
-    <!-- Clean Geometric Elements -->
-    <div class="absolute inset-0 z-0 overflow-hidden">
-        <div class="absolute -left-20 top-20 w-48 h-48 bg-blue-200/30 rounded-full blur-2xl"></div>
-        <div class="absolute -right-20 bottom-20 w-56 h-56 bg-indigo-200/25 rounded-full blur-2xl"></div>
-        <div class="absolute left-1/2 bottom-32 w-40 h-40 bg-sky-200/20 rounded-full blur-2xl"></div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 text-center" data-aos="fade-up">
-        <div class="space-y-16">
-            <!-- Professional Badge -->
-            <div class="inline-flex items-center px-8 py-3 rounded-full glass-effect shadow-soft">
-                <span class="text-sm text-blue-900 font-semibold tracking-wide">✨ <?= lang('App.hero_subtitle') ?></span>
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center space-y-16" data-aos="fade-up">
+            <!-- Modern Badge -->
+            <div class="inline-flex items-center px-6 py-2.5 rounded-full bg-blue-50/70 border border-blue-100/50 backdrop-blur-sm">
+                <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span class="text-sm text-blue-900 font-medium">Digital Innovation Leaders</span>
             </div>
 
-            <!-- Main Heading -->
+            <!-- Main Content -->
             <div class="space-y-8">
-                <h1 class="text-blue-900 leading-tight max-w-6xl mx-auto">
-                    <?= lang('App.hero_about') ?>
+                <h1 class="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight max-w-6xl mx-auto">
+                    Transform Your Digital Future
                 </h1>
-                <p class="text-xl md:text-2xl text-blue-800/80 leading-relaxed max-w-4xl mx-auto font-medium">
-                    <?= lang('App.hero_description') ?>
+                <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
+                    We combine cutting-edge technology with strategic insights to deliver exceptional digital solutions that drive measurable business growth and innovation.
                 </p>
+
+                <!-- Modern Metric Badges -->
+                <div class="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
+                    <div class="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-sm rounded-full border border-blue-100/50">
+                        <span class="text-2xl font-bold text-blue-600">250+</span>
+                        <span class="text-blue-900 font-medium">Projects Completed</span>
+                    </div>
+                    <div class="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-sm rounded-full border border-blue-100/50">
+                        <span class="text-2xl font-bold text-blue-600">99.9%</span>
+                        <span class="text-blue-900 font-medium">Client Satisfaction</span>
+                    </div>
+                    <div class="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-sm rounded-full border border-blue-100/50">
+                        <span class="text-2xl font-bold text-blue-600">5+</span>
+                        <span class="text-blue-900 font-medium">Years Experience</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Call-to-Action Buttons -->
+            <!-- Modern CTA Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-                <a href="#about" class="btn-primary px-12 py-5 rounded-2xl font-semibold text-white hover-lift inline-flex items-center justify-center">
-                    <span class="text-lg mr-2">Explore Solutions</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="#contact" class="group px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
+                    <span class="text-lg mr-2">Start Your Digital Journey</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </a>
-                <a href="<?= base_url('contact') ?>" class="btn-secondary px-12 py-5 rounded-2xl font-semibold text-blue-600 hover-lift inline-flex items-center justify-center">
-                    <span class="text-lg mr-2">Start Project</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                <a href="#about" class="group px-12 py-5 bg-white/80 backdrop-blur-sm text-blue-600 border border-blue-200 rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
+                    <span class="text-lg mr-2">Explore Our Work</span>
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                     </svg>
                 </a>
-            </div>
-
-            <!-- Minimal Scroll Indicator -->
-            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <svg class="w-6 h-6 text-blue-600/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
             </div>
         </div>
     </div>
@@ -67,7 +85,7 @@
 <div class="h-px bg-gradient-to-r from-transparent via-blue-100 to-transparent opacity-50"></div>
 
 <!-- About Section -->
-<section id="about" class="py-32 bg-white">
+<section id="about" class="py-32 bg-white bg-professional-waves relative">
     <div class="max-w-7xl mx-auto px-4 container-responsive">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-blue-900 mb-8">
@@ -180,198 +198,64 @@
     </div>
 </section>
 
-<!-- Key Strategies Section -->
-<section id="strategies" class="py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 relative">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 opacity-[0.03]">
-        <div class="absolute top-20 left-10 w-32 h-32 bg-blue-600 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-40 h-40 bg-indigo-600 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-blue-500 rounded-full blur-3xl"></div>
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 container-responsive">
-        <!-- Strategic Leadership Heading -->
-        <div class="text-center mb-24" data-aos="fade-up">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl mb-8 shadow-lg">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                </svg>
-            </div>
-            <h2 class="text-blue-900 leading-tight uppercase tracking-wider mb-8 text-5xl font-bold">
+<!-- Strategic Approach Section -->
+<section id="strategies" class="py-32 bg-white bg-enterprise-geometric relative">
+    <div class="max-w-7xl mx-auto px-4 container-responsive">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-blue-900 mb-8">
                 Strategic Approach
             </h2>
             <div class="separator mx-auto mb-10"></div>
-            <p class="text-gray-700 text-xl max-w-4xl mx-auto leading-relaxed font-medium">
-                Our proven methodology transforms vision into reality through strategic implementation, cutting-edge technology, and data-driven decision making that delivers measurable business growth.
+            <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
+                Our proven methodology combines strategic insight, innovative technology, and data-driven decisions to deliver exceptional business results and sustainable growth.
             </p>
         </div>
 
-        <!-- Strategic Framework Cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <!-- Strategic Pillar 1: Vision & Innovation -->
-            <div class="group relative" data-aos="fade-up" data-aos-delay="100">
-                <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-10 h-full border border-blue-100/50 hover:border-blue-300/50 relative overflow-hidden">
-                    <!-- Number Badge -->
-                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg transform group-hover:scale-110 transition-transform">
-                        #01
-                    </div>
-
-                    <!-- Strategic Icon -->
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl flex items-center justify-center mb-8 shadow-lg transform group-hover:scale-105 transition-all duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Content -->
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-900 leading-tight">Vision-Driven Innovation</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            We craft forward-thinking strategies that align your business vision with market opportunities, leveraging cutting-edge innovation to drive sustainable competitive advantage.
-                        </p>
-
-                        <!-- Strategic Metrics -->
-                        <div class="border-t border-gray-100 pt-6">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600 mb-1">85%</div>
-                                    <div class="text-sm font-medium text-gray-500">Success Rate</div>
-                                </div>
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600 mb-1">2.5x</div>
-                                    <div class="text-sm font-medium text-gray-500">ROI Growth</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="w-full btn-primary py-4 rounded-2xl font-semibold text-white hover-lift inline-flex items-center justify-center group">
-                            <span>Explore Strategy</span>
-                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Decorative Elements -->
-                    <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-blue-100 rounded-full opacity-60 blur-xl group-hover:opacity-80 transition-opacity"></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Strategic Innovation</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Forward-thinking strategies that align your vision with market opportunities and cutting-edge technology solutions.
+                </p>
             </div>
 
-            <!-- Strategic Pillar 2: Technology Excellence -->
-            <div class="group relative" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-10 h-full border border-blue-100/50 hover:border-blue-300/50 relative overflow-hidden">
-                    <!-- Number Badge -->
-                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg transform group-hover:scale-110 transition-transform">
-                        #02
-                    </div>
-
-                    <!-- Strategic Icon -->
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl flex items-center justify-center mb-8 shadow-lg transform group-hover:scale-105 transition-all duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Content -->
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-900 leading-tight">Technology Excellence</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            Leveraging cloud-first architecture, AI-powered analytics, and scalable platforms to build robust, future-ready solutions that grow with your business.
-                        </p>
-
-                        <!-- Strategic Metrics -->
-                        <div class="border-t border-gray-100 pt-6">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600 mb-1">99.9%</div>
-                                    <div class="text-sm font-medium text-gray-500">Uptime SLA</div>
-                                </div>
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600 mb-1">50%</div>
-                                    <div class="text-sm font-medium text-gray-500">Cost Savings</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="w-full btn-primary py-4 rounded-2xl font-semibold text-white hover-lift inline-flex items-center justify-center group">
-                            <span>Explore Technology</span>
-                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Decorative Elements -->
-                    <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-blue-100 rounded-full opacity-60 blur-xl group-hover:opacity-80 transition-opacity"></div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Technical Excellence</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Robust, scalable solutions built with cloud-first architecture, AI capabilities, and enterprise-grade security.
+                </p>
             </div>
 
-            <!-- Strategic Pillar 3: Results & Impact -->
-            <div class="group relative" data-aos="fade-up" data-aos-delay="300">
-                <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-10 h-full border border-blue-100/50 hover:border-blue-300/50 relative overflow-hidden">
-                    <!-- Number Badge -->
-                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg transform group-hover:scale-110 transition-transform">
-                        #03
-                    </div>
-
-                    <!-- Strategic Icon -->
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl flex items-center justify-center mb-8 shadow-lg transform group-hover:scale-105 transition-all duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.506 3.435 3.435 0 001.445-2.49L10.04 2.85a1.5 1.5 0 00-.848.508 1.5 1.5 0 00.08.992l1.72.93a.5.5 0 01.348.57L6.65 8.75a3.5 3.5 0 00-.245 4.58l3.21 1.61a1.5 1.5 0 01.628.95l2.22 2.92a1.5 1.5 0 01-.134 1.51 3.42 3.42 0 01-1.945.724 3.422 3.422 0 01-2.39-.999L3.62 11.5a3.5 3.5 0 00.352-5.13l2.92-.51a1.5 1.5 0 01.95-.627l.11-3.21a3.42 3.42 0 014.58-.245z"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Content -->
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-900 leading-tight">Measurable Results</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            We deliver quantifiable outcomes through data-driven approaches, agile execution, and continuous optimization that directly impact your bottom line and market position.
-                        </p>
-
-                        <!-- Strategic Metrics -->
-                        <div class="border-t border-gray-100 pt-6">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600 mb-1">250%</div>
-                                    <div class="text-sm font-medium text-gray-500">Growth Achieved</div>
-                                </div>
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600 mb-1">6mo</div>
-                                    <div class="text-sm font-medium text-gray-500">Time to Market</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="w-full btn-primary py-4 rounded-2xl font-semibold text-white hover-lift inline-flex items-center justify-center group">
-                            <span>Explore Results</span>
-                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Decorative Elements -->
-                    <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-blue-100 rounded-full opacity-60 blur-xl group-hover:opacity-80 transition-opacity"></div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
                 </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Measurable Impact</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Data-driven results that optimize performance, reduce costs, and accelerate your path to market success.
+                </p>
             </div>
         </div>
 
-        <!-- Strategic Call to Action -->
-        <div class="text-center mt-20" data-aos="fade-up" data-aos-delay="400">
-            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-12 shadow-2xl">
-                <h3 class="text-3xl font-bold text-white mb-6">
-                    Ready to Execute Your Vision?
-                </h3>
-                <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-                    Let's discuss how our strategic approach can transform your business objectives into tangible results.
-                </p>
-                <button class="btn-secondary px-10 py-4 rounded-2xl font-semibold text-xl shadow-lg hover-lift inline-flex items-center">
-                    <span>Schedule Strategic Consultation</span>
-                    <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                    </svg>
-                </button>
-            </div>
+        <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
+            <a href="#contact" class="btn-primary px-8 py-4 rounded-full font-semibold text-white hover-lift inline-flex items-center justify-center">
+                <span>Start Your Strategic Journey</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
         </div>
     </div>
 </section>

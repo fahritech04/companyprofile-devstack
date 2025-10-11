@@ -155,7 +155,13 @@
     <?= $this->renderSection('content') ?>
 
     <!-- Footer -->
-    <footer class="bg-white text-gray-800">
+    <footer class="bg-white text-gray-800 section-enterprise-premium relative overflow-hidden">
+        <!-- Enterprise Background System -->
+        <div class="absolute inset-0 z-0">
+            <div class="bg-enterprise-geometric"></div>
+            <div class="bg-professional-waves opacity-15"></div>
+            <div class="bg-professional-mesh opacity-3"></div>
+        </div>
         <!-- Subtle Blue Accent Line -->
         <div class="h-1 bg-gradient-to-r from-blue-600 to-blue-700"></div>
 
