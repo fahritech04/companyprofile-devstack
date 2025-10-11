@@ -2,96 +2,232 @@
 
 <?= $this->section('content') ?>
 <!-- Portfolio Hero Section -->
-<section class="pt-32 pb-20 bg-gradient-to-r from-blue-600 to-indigo-700">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4"><?= lang('App.portfolio') ?></h1>
-            <p class="text-xl md:text-2xl">Karya-karya Terbaik Kami</p>
+<section class="py-32 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
+    <!-- Epic Enterprise Background System -->
+    <div class="absolute inset-0 z-0">
+        <!-- Primary Architectural Elements -->
+        <div class="absolute inset-0 bg-enterprise-geometric"></div>
+        <div class="absolute inset-0 bg-professional-waves opacity-20"></div>
+        <div class="absolute inset-0 bg-business-architecture opacity-30"></div>
+
+        <!-- Advanced Particle System -->
+        <div class="absolute inset-0 bg-enterprise-particles"></div>
+        <div class="absolute inset-0 bg-network-effect opacity-10"></div>
+
+        <!-- Premium Metallic Highlights -->
+        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-100/10 to-transparent"></div>
+
+        <!-- Sophisticated Grid Overlay -->
+        <div class="absolute inset-0 bg-professional-mesh opacity-5"></div>
+
+        <!-- Corporate Flow Networks -->
+        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-15"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center space-y-16" data-aos="fade-up">
+            <!-- Modern Badge -->
+            <div class="inline-flex items-center px-6 py-2.5 rounded-full bg-blue-50/70 border border-blue-100/50 backdrop-blur-sm">
+                <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span class="text-sm text-blue-900 font-medium">Portfolio Showcase</span>
+            </div>
+
+            <!-- Main Content -->
+            <div class="space-y-8">
+                <h1 class="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight max-w-6xl mx-auto">
+                    <?= lang('App.portfolio') ?>
+                </h1>
+                <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
+                    Menampilkan karya-karya terbaik kami yang menggabungkan inovasi teknologi dengan desain yang memukau untuk memberikan hasil luar biasa bagi klien kami.
+                </p>
+            </div>
+
+            <!-- Modern CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6 pt-4">
+                <a href="#portfolio-grid" class="group px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
+                    <span class="text-lg mr-2">Lihat Portfolio</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <a href="#contact" class="group px-12 py-5 bg-white/80 backdrop-blur-sm text-blue-600 border border-blue-200 rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
+                    <span class="text-lg mr-2">Diskusi Project</span>
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Portfolio Grid -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
+<section id="portfolio-grid" class="py-32 bg-white bg-professional-waves relative">
+    <div class="max-w-7xl mx-auto px-4 container-responsive">
+        <!-- Section Header -->
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-blue-900 mb-8">
+                Portfolio Kami
+            </h2>
+            <div class="separator mx-auto mb-10"></div>
+            <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
+                Berbagai project inovatif yang telah kami kerjakan dengan dedikasi tinggi untuk memberikan solusi terbaik bagi klien kami.
+            </p>
+        </div>
+
         <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">All</button>
-            <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300">Web Design</button>
-            <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300">Mobile App</button>
-            <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300">Branding</button>
+        <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="100">
+            <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl hover-lift font-semibold transition-all duration-300">All</button>
+            <button class="px-8 py-3 bg-blue-50 text-blue-700 border border-blue-200 rounded-2xl hover:bg-blue-100 hover-lift font-semibold transition-all duration-300">Web Design</button>
+            <button class="px-8 py-3 bg-blue-50 text-blue-700 border border-blue-200 rounded-2xl hover:bg-blue-100 hover-lift font-semibold transition-all duration-300">Mobile App</button>
+            <button class="px-8 py-3 bg-blue-50 text-blue-700 border border-blue-200 rounded-2xl hover:bg-blue-100 hover-lift font-semibold transition-all duration-300">Branding</button>
         </div>
 
         <!-- Portfolio Items -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Portfolio Item 1 -->
-            <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up">
-                <div class="bg-gray-200 h-64"></div> <!-- Placeholder for project image -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-xl font-bold mb-2">E-Commerce Website</h3>
-                        <p class="mb-4">Website Development</p>
-                        <a href="#" class="text-blue-400 hover:text-blue-300">View Project →</a>
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up">
+                <div class="bg-gradient-to-br from-blue-100 to-indigo-100 h-64 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 01-9-9m9 9a9 9 0 00-9 9m9-9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h.01M12 12h4.01M12 12h.01M12 12h.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-300 transition-colors">E-Commerce Website</h3>
+                        <p class="mb-4 text-blue-100 font-medium">Website Development</p>
+                        <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold">
+                            <span>View Project</span>
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Portfolio Item 2 -->
-            <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                <div class="bg-gray-200 h-64"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-xl font-bold mb-2">Mobile Banking App</h3>
-                        <p class="mb-4">Mobile Application</p>
-                        <a href="#" class="text-blue-400 hover:text-blue-300">View Project →</a>
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gradient-to-br from-indigo-100 to-purple-100 h-64 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-300 transition-colors">Mobile Banking App</h3>
+                        <p class="mb-4 text-indigo-100 font-medium">Mobile Application</p>
+                        <a href="#" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold">
+                            <span>View Project</span>
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Portfolio Item 3 -->
-            <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-gray-200 h-64"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-xl font-bold mb-2">Brand Identity Design</h3>
-                        <p class="mb-4">Branding</p>
-                        <a href="#" class="text-blue-400 hover:text-blue-300">View Project →</a>
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-purple-600/20 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-300 transition-colors">Brand Identity Design</h3>
+                        <p class="mb-4 text-purple-100 font-medium">Branding</p>
+                        <a href="#" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold">
+                            <span>View Project</span>
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Portfolio Item 4 -->
-            <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up">
-                <div class="bg-gray-200 h-64"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-xl font-bold mb-2">Educational Platform</h3>
-                        <p class="mb-4">Web Application</p>
-                        <a href="#" class="text-blue-400 hover:text-blue-300">View Project →</a>
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up">
+                <div class="bg-gradient-to-br from-green-100 to-teal-100 h-64 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-green-300 transition-colors">Educational Platform</h3>
+                        <p class="mb-4 text-green-100 font-medium">Web Application</p>
+                        <a href="#" class="inline-flex items-center text-green-400 hover:text-green-300 font-semibold">
+                            <span>View Project</span>
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Portfolio Item 5 -->
-            <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                <div class="bg-gray-200 h-64"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-xl font-bold mb-2">Restaurant App</h3>
-                        <p class="mb-4">Mobile Application</p>
-                        <a href="#" class="text-blue-400 hover:text-blue-300">View Project →</a>
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gradient-to-br from-orange-100 to-red-100 h-64 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-orange-600/20 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4 0V2a2 2 0 012-2h4a2 2 0 012 2v2m-8 0h8"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-300 transition-colors">Restaurant App</h3>
+                        <p class="mb-4 text-orange-100 font-medium">Mobile Application</p>
+                        <a href="#" class="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold">
+                            <span>View Project</span>
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Portfolio Item 6 -->
-            <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-gray-200 h-64"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-0 p-6 text-white">
-                        <h3 class="text-xl font-bold mb-2">Corporate Branding</h3>
-                        <p class="mb-4">Branding</p>
-                        <a href="#" class="text-blue-400 hover:text-blue-300">View Project →</a>
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gradient-to-br from-teal-100 to-cyan-100 h-64 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-teal-600/20 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-teal-300 transition-colors">Corporate Branding</h3>
+                        <p class="mb-4 text-teal-100 font-medium">Branding</p>
+                        <a href="#" class="inline-flex items-center text-teal-400 hover:text-teal-300 font-semibold">
+                            <span>View Project</span>
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -100,14 +236,73 @@
 </section>
 
 <!-- Call to Action -->
-<section class="py-20 bg-blue-600">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center text-white">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Punya Project yang Ingin Didiskusikan?</h2>
-            <p class="text-xl mb-8">Mari bicara tentang ide Anda</p>
-            <a href="<?= base_url('contact') ?>" class="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300">
-                Hubungi Kami
-            </a>
+<section class="py-32 gradient-secondary relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 bg-enterprise-geometric opacity-10"></div>
+    <div class="absolute inset-0 bg-professional-waves opacity-5"></div>
+
+    <div class="max-w-7xl mx-auto px-4 container-responsive relative z-10">
+        <div class="text-center" data-aos="fade-up">
+            <!-- Section Header -->
+            <div class="mb-16">
+                <h2 class="text-blue-900 mb-8 text-4xl lg:text-5xl font-bold leading-tight">
+                    Siap Memulai Project Anda?
+                </h2>
+                <div class="separator mx-auto mb-8"></div>
+                <p class="text-gray-700 text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+                    Mari diskusikan ide dan visi Anda. Tim kami siap membantu mewujudkan solusi digital inovatif yang akan membawa bisnis Anda ke level berikutnya.
+                </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+                <a href="<?= base_url('contact') ?>" class="group px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300 text-lg">
+                    <span class="mr-3">Mulai Konsultasi</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                </a>
+                <a href="#portfolio-grid" class="group px-12 py-5 bg-white/80 backdrop-blur-sm text-blue-600 border border-blue-200 rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300 text-lg">
+                    <span class="mr-3">Lihat Portfolio Lain</span>
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Telepon</h3>
+                    <p class="text-gray-600">+62 812-3456-7890</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Email</h3>
+                    <p class="text-gray-600">info@company.com</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Lokasi</h3>
+                    <p class="text-gray-600">Jakarta, Indonesia</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
