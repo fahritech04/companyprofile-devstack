@@ -5,10 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= lang('App.hero_title') ?></title>
     
+    <!-- SEO & Performance Optimization -->
+    <meta name="description" content="Leading enterprise solutions for digital transformation, web development, mobile apps, and strategic technology implementation.">
+    <meta name="keywords" content="enterprise solutions, web development, mobile apps, digital transformation, technology consulting">
+    <meta name="author" content="Company Name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <link rel="canonical" href="<?= current_url() ?>">
+
+    <!-- Performance Preloads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+    <!-- Enterprise Fonts with preload -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+
     <!-- Modern UI Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+
+    <!-- Performance & PWA -->
+    <link rel="manifest" href="<?= base_url('manifest.json') ?>">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Company Name">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= current_url() ?>">
+    <meta property="og:title" content="<?= lang('App.hero_title') ?>">
+    <meta property="og:description" content="Leading enterprise solutions for digital transformation">
+    <meta property="og:image" content="<?= base_url('favicon.ico') ?>">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Company Name",
+      "url": "<?= base_url() ?>",
+      "logo": "<?= base_url('favicon.ico') ?>",
+      "sameAs": [
+        "#",
+        "#",
+        "#",
+        "#"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-234-567-890",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Indonesian"]
+      }
+    }
+    </script>
 </head>
 <body class="font-sans">
     <!-- Navigation -->
@@ -20,12 +74,12 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="<?= base_url() ?>" class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"><?= lang('App.home') ?></a>
-                    <a href="<?= base_url('about') ?>" class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"><?= lang('App.about') ?></a>
-                    <a href="<?= base_url('services') ?>" class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"><?= lang('App.services') ?></a>
-                    <a href="<?= base_url('portfolio') ?>" class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"><?= lang('App.portfolio') ?></a>
-                    <a href="<?= base_url('contact') ?>" class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"><?= lang('App.contact') ?></a>
+                <div class="hidden md:flex items-center">
+                    <a href="<?= base_url() ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.home') ?></a>
+                    <a href="<?= base_url('about') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.about') ?></a>
+                    <a href="<?= base_url('services') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.services') ?></a>
+                    <a href="<?= base_url('portfolio') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.portfolio') ?></a>
+                    <a href="<?= base_url('contact') ?>" class="nav-link text-gray-600 hover:text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-all duration-300"><?= lang('App.contact') ?></a>
                     
                     <!-- Language Switcher Desktop -->
                     <div class="flex items-center space-x-3 border-l pl-4 ml-4">
@@ -101,113 +155,280 @@
     <?= $this->renderSection('content') ?>
 
     <!-- Footer -->
-    <footer class="relative bg-gradient-to-b from-gray-900 to-black text-white py-16">
-        <!-- Decorative Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full filter blur-2xl"></div>
-            <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full filter blur-2xl"></div>
-        </div>
+    <footer class="bg-white text-gray-800">
+        <!-- Subtle Blue Accent Line -->
+        <div class="h-1 bg-gradient-to-r from-blue-600 to-blue-700"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4">
-            <!-- Main Footer Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- Company Info -->
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Company Name</h3>
-                    <p class="text-gray-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in interdum ipsum, sit amet.</p>
-                    <div class="pt-2">
-                        <a href="<?= base_url('contact') ?>" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
-                            <?= lang('App.learn_more') ?>
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+        <div class="relative max-w-7xl mx-auto px-4 container-responsive">
+            <!-- Minimal Newsletter -->
+            <div class="py-16 border-b border-blue-200/30">
+                <div class="max-w-2xl mx-auto text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-900">Stay Updated</h3>
+                    <p class="text-blue-700 mb-8 text-lg">
+                        Get exclusive insights delivered to your inbox
+                    </p>
+                    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 bg-white/70 backdrop-blur-sm border border-blue-200/50 rounded-lg text-blue-900 placeholder-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 font-semibold transition-all shadow-md">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
+            </div>
 
-                <!-- Quick Links -->
-                <div class="space-y-4">
-                    <h3 class="text-lg font-semibold">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="<?= base_url() ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.home') ?></a></li>
-                        <li><a href="<?= base_url('about') ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.about') ?></a></li>
-                        <li><a href="<?= base_url('services') ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.services') ?></a></li>
-                        <li><a href="<?= base_url('portfolio') ?>" class="text-gray-400 hover:text-white transition-colors"><?= lang('App.portfolio') ?></a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="space-y-4">
-                    <h3 class="text-lg font-semibold"><?= lang('App.contact') ?></h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start space-x-3">
-                            <svg class="w-5 h-5 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            <span class="text-gray-400">123 Street Name, City, Country</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <svg class="w-5 h-5 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span class="text-gray-400">info@company.com</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <svg class="w-5 h-5 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                            <span class="text-gray-400">+1 234 567 890</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Social Media & Newsletter -->
-                <div class="space-y-4">
-                    <h3 class="text-lg font-semibold">Stay Connected</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-600 transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-400 transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-700 transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
-                        </a>
+            <!-- Compact Footer Content -->
+            <div class="py-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Company -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-blue-900">Company Name</h3>
+                        <p class="text-blue-800 text-lg leading-relaxed font-medium">
+                            Leading enterprise solutions for digital transformation with innovative technology and strategic thinking.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-white/50 hover:bg-blue-600 rounded-xl flex items-center justify-center transition-all shadow-sm border border-blue-200/30">
+                                <svg class="w-5 h-5 text-blue-900 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/50 hover:bg-blue-600 rounded-xl flex items-center justify-center transition-all shadow-sm border border-blue-200/30">
+                                <svg class="w-5 h-5 text-blue-900 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white/50 hover:bg-blue-600 rounded-xl flex items-center justify-center transition-all shadow-sm border border-blue-200/30">
+                                <svg class="w-5 h-5 text-blue-900 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Newsletter -->
-                    <div class="mt-6">
-                        <h4 class="text-sm font-semibold mb-3">Subscribe to our newsletter</h4>
-                        <form class="flex">
-                            <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-800 text-gray-200 px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition-colors">
-                                Subscribe
-                            </button>
-                        </form>
+                    <!-- Services -->
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-semibold text-blue-800">Services</h4>
+                        <ul class="space-y-3">
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Web Development</a></li>
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Mobile Apps</a></li>
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Cloud Solutions</a></li>
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Consulting</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-semibold text-blue-800">Company</h4>
+                        <ul class="space-y-3">
+                            <li><a href="<?= base_url('about') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">About Us</a></li>
+                            <li><a href="<?= base_url('portfolio') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Our Work</a></li>
+                            <li><a href="#" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Careers</a></li>
+                            <li><a href="<?= base_url('contact') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-semibold text-blue-800">Contact</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                </svg>
+                                <div class="text-blue-800">
+                                    <p class="font-medium">123 Business Street</p>
+                                    <p class="text-blue-700">City, Country</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span class="text-blue-800 font-medium">info@company.com</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom Bar -->
-            <div class="pt-8 mt-8 border-t border-gray-800">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm">© 2025 Company Name. All rights reserved.</p>
-                    <div class="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+            <!-- Clean Bottom Bar -->
+            <div class="border-t border-blue-200/30 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-blue-600 text-sm font-medium">© 2025 Company Name. All rights reserved.</p>
+                    <div class="flex space-x-8 text-sm">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Privacy</a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Terms</a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Cookies</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Performance Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        AOS.init();
+        // Initialize AOS with optimized settings
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 600,
+            easing: 'ease-out-cubic'
+        });
+
+        // Performance optimizations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preload critical resources
+            const preloadLinks = [
+                '<?= base_url("favicon.ico") ?>',
+                'https://fonts.gstatic.com'
+            ];
+
+            preloadLinks.forEach(url => {
+                if (url) {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.href = url;
+                    if (url.includes('.ico')) link.as = 'image';
+                    else link.as = 'font';
+                    document.head.appendChild(link);
+                }
+            });
+
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for performance
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '50px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe strategic cards for advanced animations
+            document.querySelectorAll('.card-enterprise, .hover-lift').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Mobile menu enhancements
+            const mobileMenuBtn = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            const closeIcon = document.querySelector('.close-icon');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    menuIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                });
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (mobileMenuBtn && !mobileMenuBtn.contains(e.target) && mobileMenu && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+
+            // Responsive menu handling
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768 && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+
+            // Newsletter form enhancement
+            const newsletterForm = document.querySelector('footer form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    if (email) {
+                        // Simulate success
+                        const button = this.querySelector('button');
+                        const originalText = button.textContent;
+                        button.textContent = '✓ Subscribed!';
+                        button.disabled = true;
+                        button.classList.add('bg-green-500', 'text-white');
+
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.disabled = false;
+                            button.classList.remove('bg-green-500', 'text-white');
+                        }, 3000);
+                    }
+                });
+            }
+
+            // Add loading animations
+            const addLoadingEffect = (element) => {
+                element.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            };
+
+            document.querySelectorAll('[data-aos]').forEach(el => addLoadingEffect(el));
+        });
+
+        // Advanced interaction effects
+        document.addEventListener('mousemove', function(e) {
+            const cards = document.querySelectorAll('.card-enterprise');
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                card.style.transform = `perspective(1000px) rotateY(${x * 0.001}deg) rotateX(${y * 0.001}deg) scale(${card.matches(':hover') ? '1.02' : '1'})`;
+            });
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            // Measure LCP
+            if ('PerformanceObserver' in window) {
+                try {
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        const lastEntry = entries[entries.length - 1];
+
+                        // Use LCP data for performance monitoring
+                        if (lastEntry.startTime) {
+                            console.log('LCP:', lastEntry.startTime, 'ms');
+                        }
+                    });
+
+                    observer.observe({entryTypes: ['largest-contentful-paint']});
+                } catch (e) {
+                    console.log('LCP monitoring not supported');
+                }
+            }
+        });
     </script>
+
+    <!-- Defer non-critical scripts -->
+    <script async src="//platform.twitter.com/widgets.js"></script>
+</body>
+</html>
 </body>
 </html>
