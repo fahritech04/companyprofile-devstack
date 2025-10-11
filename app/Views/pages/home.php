@@ -44,21 +44,7 @@
                     We combine cutting-edge technology with strategic insights to deliver exceptional digital solutions that drive measurable business growth and innovation.
                 </p>
 
-                <!-- Modern Metric Badges -->
-                <div class="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
-                    <div class="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-sm rounded-full border border-blue-100/50">
-                        <span class="text-2xl font-bold text-blue-600">250+</span>
-                        <span class="text-blue-900 font-medium">Projects Completed</span>
-                    </div>
-                    <div class="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-sm rounded-full border border-blue-100/50">
-                        <span class="text-2xl font-bold text-blue-600">99.9%</span>
-                        <span class="text-blue-900 font-medium">Client Satisfaction</span>
-                    </div>
-                    <div class="flex items-center space-x-2 px-4 py-2 bg-white/40 backdrop-blur-sm rounded-full border border-blue-100/50">
-                        <span class="text-2xl font-bold text-blue-600">5+</span>
-                        <span class="text-blue-900 font-medium">Years Experience</span>
-                    </div>
-                </div>
+
             </div>
 
             <!-- Modern CTA Buttons -->
@@ -301,87 +287,5 @@
     </div>
 </section>
 
-<!-- Contact Section -->
-<section class="py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-4 container-responsive">
-        <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-blue-900 mb-6">
-                <?= lang('App.contact_title') ?>
-            </h2>
-            <div class="separator mx-auto"></div>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div data-aos="fade-right" class="space-y-8">
-                <div>
-                    <p class="text-gray-700 text-lg leading-relaxed max-w-md">
-                        Ready to start your next project? Get in touch with us and let's discuss how we can help bring your vision to life.
-                    </p>
-                </div>
-                <form class="space-y-8">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <input type="text" placeholder="Your Name" class="form-input w-full px-6 py-4 text-lg">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Your Email" class="form-input w-full px-6 py-4 text-lg">
-                        </div>
-                    </div>
-                    <div>
-                        <textarea placeholder="Your Message" rows="6" class="form-input w-full px-6 py-4 text-lg resize-none"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn-primary px-10 py-4 rounded-full font-semibold text-white text-lg hover-lift w-full sm:w-auto">
-                            <?= lang('App.send_message') ?>
-                            <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <div data-aos="fade-left" class="space-y-12">
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-8">Get in Touch</h3>
 
-                    <div class="flex items-start space-x-6 group hover-lift p-6 rounded-2xl transition-all">
-                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2"><?= lang('App.contact_address') ?></h4>
-                            <p class="text-gray-600 leading-relaxed">123 Business Street, City, Country</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-6 group hover-lift p-6 rounded-2xl transition-all">
-                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2"><?= lang('App.contact_email') ?></h4>
-                            <p class="text-gray-600 leading-relaxed">info@company.com</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-6 group hover-lift p-6 rounded-2xl transition-all">
-                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2"><?= lang('App.contact_phone') ?></h4>
-                            <p class="text-gray-600 leading-relaxed">+1 234 567 890</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <?= $this->endSection() ?>
