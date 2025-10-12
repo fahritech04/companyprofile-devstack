@@ -216,7 +216,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <!-- Company -->
                     <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-blue-900">Company Name</h3>
+                        <h3 class="text-2xl font-bold text-blue-900">DevStack</h3>
                         <p class="text-blue-800 text-lg leading-relaxed font-medium">
                             Leading enterprise solutions for digital transformation with innovative technology and strategic thinking.
                         </p>
@@ -288,7 +288,7 @@
             <!-- Clean Bottom Bar -->
             <div class="border-t border-blue-200/30 py-8">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <p class="text-blue-600 text-sm font-medium">© 2025 Company Name. All rights reserved.</p>
+                    <p class="text-blue-600 text-sm font-medium">© 2025 DevStack. All rights reserved.</p>
                     <div class="flex space-x-8 text-sm">
                         <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Privacy</a>
                         <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Terms</a>
