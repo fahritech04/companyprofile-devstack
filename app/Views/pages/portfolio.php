@@ -90,19 +90,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Portfolio Item 1 -->
             <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up">
-                <div class="bg-gradient-to-br from-blue-100 to-indigo-100 h-64 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                <div class="h-64 relative overflow-hidden">
+                    <img src="<?= base_url('images/eCommerce_website.jpeg') ?>" alt="E-Commerce Website" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-black opacity-50"></div>
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-10"></div>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 01-9-9m9 9a9 9 0 00-9 9m9-9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h.01M12 12h4.01M12 12h.01M12 12h.01"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-300 transition-colors">E-Commerce Website</h3>
-                        <p class="mb-4 text-blue-100 font-medium">Website Development</p>
-                        <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-white transition-colors">E-Commerce Website</h3>
+                        <p class="mb-4 text-white font-medium">Website Development</p>
+                        <a href="#" class="inline-flex items-center text-gray-900 hover:text-white font-semibold">
                             <span>View Project</span>
                             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -114,19 +116,21 @@
 
             <!-- Portfolio Item 2 -->
             <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="100">
-                <div class="bg-gradient-to-br from-indigo-100 to-purple-100 h-64 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                <div class="h-64 relative overflow-hidden">
+                    <img src="<?= base_url('images/mobile_banking_app.jpeg') ?>" alt="Mobile Banking App" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-black opacity-50"></div>
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-10"></div>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <div class="w-12 h-12 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-300 transition-colors">Mobile Banking App</h3>
-                        <p class="mb-4 text-indigo-100 font-medium">Mobile Application</p>
-                        <a href="#" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-white transition-colors">Mobile Banking App</h3>
+                        <p class="mb-4 text-white font-medium">Mobile Application</p>
+                        <a href="#" class="inline-flex items-center text-gray-900 hover:text-white font-semibold">
                             <span>View Project</span>
                             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -138,19 +142,21 @@
 
             <!-- Portfolio Item 3 -->
             <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                <div class="h-64 relative overflow-hidden">
+                    <img src="<?= base_url('images/brand_identity_design.jpeg') ?>" alt="Brand Identity Design" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-black opacity-50"></div>
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-10"></div>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <div class="w-12 h-12 bg-purple-600/20 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-300 transition-colors">Brand Identity Design</h3>
-                        <p class="mb-4 text-purple-100 font-medium">Branding</p>
-                        <a href="#" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-white transition-colors">Brand Identity Design</h3>
+                        <p class="mb-4 text-white font-medium">Branding</p>
+                        <a href="#" class="inline-flex items-center text-gray-900 hover:text-white font-semibold">
                             <span>View Project</span>
                             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -162,19 +168,21 @@
 
             <!-- Portfolio Item 4 -->
             <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up">
-                <div class="bg-gradient-to-br from-green-100 to-teal-100 h-64 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                <div class="h-64 relative overflow-hidden">
+                    <img src="<?= base_url('images/educational_platform.jpeg') ?>" alt="Educational Platform" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-black opacity-50"></div>
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-10"></div>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-green-300 transition-colors">Educational Platform</h3>
-                        <p class="mb-4 text-green-100 font-medium">Web Application</p>
-                        <a href="#" class="inline-flex items-center text-green-400 hover:text-green-300 font-semibold">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-white transition-colors">Educational Platform</h3>
+                        <p class="mb-4 text-white font-medium">Web Application</p>
+                        <a href="#" class="inline-flex items-center text-gray-900 hover:text-white font-semibold">
                             <span>View Project</span>
                             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -186,19 +194,21 @@
 
             <!-- Portfolio Item 5 -->
             <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="100">
-                <div class="bg-gradient-to-br from-orange-100 to-red-100 h-64 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                <div class="h-64 relative overflow-hidden">
+                    <img src="<?= base_url('images/restaurant_app.jpeg') ?>" alt="Restaurant App" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-black opacity-50"></div>
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-10"></div>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <div class="w-12 h-12 bg-orange-600/20 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4 0V2a2 2 0 012-2h4a2 2 0 012 2v2m-8 0h8"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-300 transition-colors">Restaurant App</h3>
-                        <p class="mb-4 text-orange-100 font-medium">Mobile Application</p>
-                        <a href="#" class="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-white transition-colors">Restaurant App</h3>
+                        <p class="mb-4 text-white font-medium">Mobile Application</p>
+                        <a href="#" class="inline-flex items-center text-gray-900 hover:text-white font-semibold">
                             <span>View Project</span>
                             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -210,19 +220,21 @@
 
             <!-- Portfolio Item 6 -->
             <div class="group relative overflow-hidden rounded-2xl shadow-lg card-enterprise hover-lift" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-gradient-to-br from-teal-100 to-cyan-100 h-64 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-enterprise-particles opacity-20"></div>
+                <div class="h-64 relative overflow-hidden">
+                    <img src="<?= base_url('images/corporate_branding.jpeg') ?>" alt="Corporate Branding" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-black opacity-50"></div>
+                    <div class="absolute inset-0 bg-enterprise-particles opacity-10"></div>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <div class="w-12 h-12 bg-teal-600/20 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-teal-300 transition-colors">Corporate Branding</h3>
-                        <p class="mb-4 text-teal-100 font-medium">Branding</p>
-                        <a href="#" class="inline-flex items-center text-teal-400 hover:text-teal-300 font-semibold">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-white transition-colors">Corporate Branding</h3>
+                        <p class="mb-4 text-white font-medium">Branding</p>
+                        <a href="#" class="inline-flex items-center text-gray-900 hover:text-white font-semibold">
                             <span>View Project</span>
                             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
