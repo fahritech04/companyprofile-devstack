@@ -34,12 +34,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Company Name">
 
+    <!-- Favicons -->
+    <link rel="icon" href="<?= base_url('images/devstack_icon.svg') ?>" type="image/svg+xml" sizes="any">
+    <link rel="mask-icon" href="<?= base_url('images/devstack_icon.svg') ?>" color="#2563eb">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= current_url() ?>">
     <meta property="og:title" content="<?= lang('App.hero_title') ?>">
     <meta property="og:description" content="Leading enterprise solutions for digital transformation">
-    <meta property="og:image" content="<?= base_url('favicon.ico') ?>">
+    <meta property="og:image" content="<?= base_url('images/devstack_icon.svg') ?>">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -48,7 +52,7 @@
       "@type": "Organization",
       "name": "Company Name",
       "url": "<?= base_url() ?>",
-      "logo": "<?= base_url('favicon.ico') ?>",
+      "logo": "<?= base_url('images/devstack_icon.svg') ?>",
       "sameAs": [
         "#",
         "#",
@@ -314,7 +318,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Preload critical resources
             const preloadLinks = [
-                '<?= base_url("favicon.ico") ?>',
+                '<?= base_url("images/devstack_icon.svg") ?>',
                 'https://fonts.gstatic.com'
             ];
 
@@ -323,7 +327,7 @@
                     const link = document.createElement('link');
                     link.rel = 'preload';
                     link.href = url;
-                    if (url.includes('.ico')) link.as = 'image';
+                    if (/\.(ico|svg|png|jpg|jpeg|webp)$/i.test(url)) link.as = 'image';
                     else link.as = 'font';
                     document.head.appendChild(link);
                 }
