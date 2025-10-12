@@ -159,8 +159,8 @@
                     </a>
 
                     <!-- CTA Button Mobile -->
-                    <div class="pt-4 border-t border-blue-200/30 mt-6">
-                        <a href="#contact" class="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl text-center hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg">
+                    <div class="pt-4 border-t border-blue-200/30 mt-6 px-4">
+                        <a href="#contact" class="mobile-cta block w-full max-w-sm mx-auto px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg text-center hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 btn-responsive">
                             Get Started
                         </a>
                     </div>
@@ -179,39 +179,6 @@
         </div>
     </nav>
 
-    <!-- Add JavaScript for mobile menu toggle -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-button');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const menuIcon = document.querySelector('.menu-icon');
-            const closeIcon = document.querySelector('.close-icon');
-
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                menuIcon.classList.toggle('hidden');
-                closeIcon.classList.toggle('hidden');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                }
-            });
-
-            // Close menu when window is resized to desktop view
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                }
-            });
-        });
-    </script>
 
     <!-- Content -->
     <?= $this->renderSection('content') ?>
@@ -496,7 +463,5 @@
 
     <!-- Defer non-critical scripts -->
     <script async src="//platform.twitter.com/widgets.js"></script>
-</body>
-</html>
 </body>
 </html>
