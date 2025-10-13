@@ -47,7 +47,7 @@ return [
         'get_started' => 'Get Started',
     
     // Hero Section
-    'hero_title' => 'Devstack',
+    'hero_title' => 'DevStack',
     'hero_about' => 'Changing the world one app at a time',
     'hero_subtitle' => 'We Create Innovative Solutions',
     'learn_more' => 'Learn More',

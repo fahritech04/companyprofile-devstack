@@ -48,7 +48,7 @@ return [
         'lets_connect' => 'Mari Terhubung',
     
     // Hero Section
-    'hero_title' => 'Devstack',
+    'hero_title' => 'DevStack',
     'hero_subtitle' => 'Kami Menciptakan Solusi Inovatif',
     'hero_about' => 'Mengubah dunia satu aplikasi pada satu waktu',
     'hero_description' => 'Kami membantu bisnis Anda berkembang dengan solusi digital inovatif',
