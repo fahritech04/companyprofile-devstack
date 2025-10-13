@@ -32,7 +32,7 @@
                 <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                 </svg>
-                <span class="text-sm text-blue-900 font-medium">Let's Connect</span>
+                <span class="text-sm text-blue-900 font-medium"><?= lang('App.lets_connect') ?></span>
             </div>
 
             <!-- Main Content -->
@@ -41,20 +41,20 @@
                     <?= lang('App.contact_title') ?>
                 </h1>
                 <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
-                    Siap untuk mendiskusikan project Anda? Tim kami siap membantu mewujudkan visi digital Anda dengan solusi inovatif dan terpercaya.
+                    <?= lang('App.contact_description') ?>
                 </p>
             </div>
 
             <!-- Modern CTA Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-6 pt-4">
                 <a href="#contact-form" class="group px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
-                    <span class="text-lg mr-2">Kirim Pesan</span>
+                    <span class="text-lg mr-2"><?= lang('App.send_message') ?></span>
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                     </svg>
                 </a>
                 <a href="tel:+6281234567890" class="group px-12 py-5 bg-white/80 backdrop-blur-sm text-blue-600 border border-blue-200 rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
-                    <span class="text-lg mr-2">Hubungi Langsung</span>
+                    <span class="text-lg mr-2"><?= lang('App.contact_direct') ?></span>
                     <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                     </svg>
@@ -70,11 +70,11 @@
         <!-- Section Header -->
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-blue-900 mb-8">
-                Hubungi Kami
+                <?= lang('App.contact_us') ?>
             </h2>
             <div class="separator mx-auto mb-10"></div>
             <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
-                Ada pertanyaan atau ingin mendiskusikan project? Jangan ragu untuk menghubungi kami. Tim kami siap membantu Anda.
+                <?= lang('App.contact_form_desc') ?>
             </p>
         </div>
 
@@ -87,13 +87,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Kirim Pesan</h3>
-                    <p class="text-gray-600">Isi formulir di bawah ini dan kami akan segera menghubungi Anda</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2"><?= lang('App.send_message') ?></h3>
+                    <p class="text-gray-600"><?= lang('App.fill_form') ?></p>
                 </div>
 
                 <form class="space-y-6">
                     <div class="group">
-                        <label for="name" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                        <label for="name" class="block text-gray-700 font-medium mb-2"><?= lang('App.full_name') ?></label>
                         <div class="relative">
                             <input type="text" id="name" name="name"
                                    class="w-full px-4 py-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 bg-gray-50 focus:bg-white">
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="group">
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                        <label for="email" class="block text-gray-700 font-medium mb-2"><?= lang('App.email') ?></label>
                         <div class="relative">
                             <input type="email" id="email" name="email"
                                    class="w-full px-4 py-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 bg-gray-50 focus:bg-white">
@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="group">
-                        <label for="subject" class="block text-gray-700 font-medium mb-2">Subjek</label>
+                        <label for="subject" class="block text-gray-700 font-medium mb-2"><?= lang('App.subject') ?></label>
                         <div class="relative">
                             <input type="text" id="subject" name="subject"
                                    class="w-full px-4 py-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 bg-gray-50 focus:bg-white">
@@ -126,13 +126,13 @@
                     </div>
 
                     <div class="group">
-                        <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                        <label for="message" class="block text-gray-700 font-medium mb-2"><?= lang('App.message') ?></label>
                         <textarea id="message" name="message" rows="6"
                                   class="w-full px-4 py-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-300 bg-gray-50 focus:bg-white resize-none"></textarea>
                     </div>
 
                     <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-2xl hover-lift font-semibold text-lg transition-all duration-300 group">
-                        <span class="mr-2">Kirim Pesan</span>
+                        <span class="mr-2"><?= lang('App.send_message') ?></span>
                         <svg class="w-5 h-5 inline group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                         </svg>
@@ -151,12 +151,12 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Alamat</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><?= lang('App.contact_address') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Jl. PGA No.106, Lengkong<br>
-                            Kec. Bojongsoang<br>
-                            Kabupaten Bandung<br>
-                            Jawa Barat 40257
+                            <?= lang('App.full_location_address') ?><br>
+                            <?= lang('App.location_subdistrict') ?><br>
+                            <?= lang('App.location_district') ?><br>
+                            <?= lang('App.location_city') ?>
                         </p>
                     </div>
 
@@ -166,10 +166,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Telepon</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><?= lang('App.contact_phone') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            <a href="tel:+6281234567890" class="hover:text-green-600 transition-colors">
-                                +62 812-3456-7890
+                            <a href="tel:<?= lang('App.phone_office') ?>" class="hover:text-green-600 transition-colors">
+                                <?= lang('App.phone_office') ?>
                             </a>
                         </p>
                     </div>
@@ -180,10 +180,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><?= lang('App.contact_email') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            <a href="mailto:info@company.com" class="hover:text-purple-600 transition-colors">
-                                info@company.com
+                            <a href="mailto:<?= lang('App.email_office') ?>" class="hover:text-purple-600 transition-colors">
+                                <?= lang('App.email_office') ?>
                             </a>
                         </p>
                     </div>
@@ -191,26 +191,26 @@
 
                 <!-- Business Hours -->
                 <div class="card-enterprise p-8 hover-lift">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Jam Operasional</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center"><?= lang('App.business_hours') ?></h3>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="text-gray-600 font-medium">Senin - Jumat</span>
-                            <span class="text-gray-900 font-semibold">08:00 - 17:00</span>
+                            <span class="text-gray-600 font-medium"><?= lang('App.monday_friday') ?></span>
+                            <span class="text-gray-900 font-semibold"><?= lang('App.office_hours.weekday') ?></span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="text-gray-600 font-medium">Sabtu</span>
-                            <span class="text-gray-900 font-semibold">08:00 - 15:00</span>
+                            <span class="text-gray-600 font-medium"><?= lang('App.saturday') ?></span>
+                            <span class="text-gray-900 font-semibold"><?= lang('App.office_hours.saturday') ?></span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600 font-medium">Minggu</span>
-                            <span class="text-red-600 font-semibold">Tutup</span>
+                            <span class="text-gray-600 font-medium"><?= lang('App.sunday') ?></span>
+                            <span class="text-red-600 font-semibold"><?= lang('App.office_hours.sunday') ?></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Social Media Links -->
                 <div class="card-enterprise p-8 text-center hover-lift">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Ikuti Kami</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6"><?= lang('App.follow_us') ?></h3>
                     <div class="flex justify-center space-x-6">
                         <a href="#" class="group">
                             <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
@@ -257,11 +257,11 @@
         <!-- Section Header -->
         <div class="text-center mb-16" data-aos="fade-up">
             <h2 class="text-blue-900 mb-8">
-                Lokasi Kami
+                <?= lang('App.our_location') ?>
             </h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-700 text-xl leading-relaxed max-w-3xl mx-auto">
-                Kunjungi kantor kami untuk konsultasi langsung atau diskusi project secara tatap muka dengan tim kami.
+                <?= lang('App.location_desc') ?>
             </p>
         </div>
 
@@ -287,7 +287,7 @@
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
                             <div class="flex items-center space-x-2">
                                 <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                                <span class="text-sm font-medium text-gray-900">Lokasi Kami</span>
+                                <span class="text-sm font-medium text-gray-900"><?= lang('App.live_location') ?></span>
                             </div>
                         </div>
                     </div>
@@ -313,7 +313,7 @@
                                     <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                     </svg>
-                                    Buka di Google Maps
+                                    <?= lang('App.open_maps') ?>
                                 </a>
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=Gg.+PGA+No.106,+Lengkong,+Kec.+Bojongsoang,+Kabupaten+Bandung"
                                    target="_blank"
@@ -321,7 +321,7 @@
                                     <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
                                     </svg>
-                                    Petunjuk Arah
+                                    <?= lang('App.get_directions') ?>
                                 </a>
                             </div>
                         </div>
@@ -333,7 +333,7 @@
             <div class="space-y-8" data-aos="fade-left">
                 <!-- Quick Info -->
                 <div class="card-enterprise p-8 hover-lift">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Informasi Lokasi</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center"><?= lang('App.full_location_title') ?></h3>
                     <div class="space-y-6">
                         <div class="flex items-start space-x-4">
                             <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -342,12 +342,12 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900 mb-1">Alamat Lengkap</h4>
+                                <h4 class="font-bold text-gray-900 mb-1"><?= lang('App.full_address') ?></h4>
                                 <p class="text-gray-600 text-sm leading-relaxed">
-                                    Gang PGA Nomor 106, RT/RW 001/002<br>
-                                    Kelurahan Lengkong<br>
-                                    Kecamatan Bojongsoang<br>
-                                    Kabupaten Bandung - 40257
+                                    <?= lang('App.full_location_address') ?><br>
+                                    <?= lang('App.location_subdistrict') ?><br>
+                                    <?= lang('App.location_district') ?><br>
+                                    <?= lang('App.location_city') ?>
                                 </p>
                             </div>
                         </div>
@@ -359,11 +359,11 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900 mb-1">Aksesibilitas</h4>
+                                <h4 class="font-bold text-gray-900 mb-1"><?= lang('App.accessibility_text') ?></h4>
                                 <p class="text-gray-600 text-sm leading-relaxed">
-                                    • Akses mudah dari jalan raya<br>
-                                    • Parkir tersedia<br>
-                                    • Transportasi umum terdekat
+                                    <?= lang('App.nearby_description.easy_access') ?><br>
+                                    <?= lang('App.nearby_description.parking') ?><br>
+                                    <?= lang('App.nearby_description.transport') ?>
                                 </p>
                             </div>
                         </div>
@@ -375,11 +375,11 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900 mb-1">Fasilitas Sekitar</h4>
+                                <h4 class="font-bold text-gray-900 mb-1"><?= lang('App.nearby_facilities_text') ?></h4>
                                 <p class="text-gray-600 text-sm leading-relaxed">
-                                    • Restoran dan cafe terdekat<br>
-                                    • ATM dan bank<br>
-                                    • Toko dan minimarket
+                                    <?= lang('App.nearby_description.restaurants') ?><br>
+                                    <?= lang('App.nearby_description.atm') ?><br>
+                                    <?= lang('App.nearby_description.shops') ?>
                                 </p>
                             </div>
                         </div>
@@ -394,12 +394,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Kunjungi Kami</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4"><?= lang('App.visit_us') ?></h3>
                     <p class="text-gray-700 mb-6 leading-relaxed">
-                        Jadwalkan kunjungan untuk konsultasi mendalam tentang project Anda dengan tim kami secara langsung.
+                        <?= lang('App.visit_desc') ?>
                     </p>
                     <a href="#contact-form" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl hover-lift font-semibold transition-all duration-300 group">
-                        <span class="mr-2">Jadwalkan Kunjungan</span>
+                        <span class="mr-2"><?= lang('App.schedule_visit') ?></span>
                         <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 9l6-6m0 0v6m0-6h-6"></path>
                         </svg>

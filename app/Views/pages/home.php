@@ -32,16 +32,16 @@
                 <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
-                <span class="text-sm text-blue-900 font-medium">Digital Innovation Leaders</span>
+                <span class="text-sm text-blue-900 font-medium"><?= lang('App.digital_innovation_leaders') ?></span>
             </div>
 
             <!-- Main Content -->
             <div class="space-y-8">
                 <h1 class="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight max-w-6xl mx-auto">
-                    Transform Your Digital Future
+                    <?= lang('App.transform_digital_future') ?>
                 </h1>
                 <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
-                    We combine cutting-edge technology with strategic insights to deliver exceptional digital solutions that drive measurable business growth and innovation.
+                    <?= lang('App.hero_main_description') ?>
                 </p>
 
 
@@ -50,13 +50,13 @@
             <!-- Modern CTA Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-6 pt-4">
                 <a href="#contact" class="group px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
-                    <span class="text-lg mr-2">Start Your Digital Journey</span>
+                    <span class="text-lg mr-2"><?= lang('App.start_digital_journey') ?></span>
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </a>
                 <a href="#about" class="group px-12 py-5 bg-white/80 backdrop-blur-sm text-blue-600 border border-blue-200 rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
-                    <span class="text-lg mr-2">Explore Our Work</span>
+                    <span class="text-lg mr-2"><?= lang('App.explore_our_work') ?></span>
                     <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -75,11 +75,11 @@
     <div class="max-w-7xl mx-auto px-4 container-responsive">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-blue-900 mb-8">
-                About Us
+                <?= lang('App.about_heading') ?>
             </h2>
             <div class="separator mx-auto mb-10"></div>
             <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
-                We're a team of passionate innovators dedicated to transforming businesses through cutting-edge technology solutions. Our mission is to deliver exceptional digital experiences that drive measurable growth and sustainable success.
+                <?= lang('App.about_description') ?>
             </p>
         </div>
 
@@ -90,9 +90,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.our_vision_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    To be the leading innovation partner that empowers businesses to thrive in the digital age through transformative technology solutions.
+                    <?= lang('App.our_vision_desc') ?>
                 </p>
             </div>
 
@@ -102,9 +102,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Our Team</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.our_team_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    A diverse team of experts with years of experience in technology, design, and business strategy working collaboratively.
+                    <?= lang('App.our_team_desc') ?>
                 </p>
             </div>
 
@@ -114,16 +114,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Our Impact</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.our_impact_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Delivering measurable results through innovative solutions that help businesses grow and succeed in competitive markets.
+                    <?= lang('App.our_impact_desc') ?>
                 </p>
             </div>
         </div>
 
         <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
             <a href="<?= base_url('about') ?>" class="btn-primary px-8 py-4 rounded-full font-semibold text-white hover-lift inline-flex items-center justify-center">
-                <span>Learn More About Us</span>
+                <span><?= lang('App.learn_more_about_us') ?></span>
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -189,11 +189,11 @@
     <div class="max-w-7xl mx-auto px-4 container-responsive">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-blue-900 mb-8">
-                Strategic Approach
+                <?= lang('App.strategic_approach_title') ?>
             </h2>
             <div class="separator mx-auto mb-10"></div>
             <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
-                Our proven methodology combines strategic insight, innovative technology, and data-driven decisions to deliver exceptional business results and sustainable growth.
+                <?= lang('App.strategic_approach_desc') ?>
             </p>
         </div>
 
@@ -204,9 +204,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Strategic Innovation</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.strategic_innovation_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Forward-thinking strategies that align your vision with market opportunities and cutting-edge technology solutions.
+                    <?= lang('App.strategic_innovation_desc') ?>
                 </p>
             </div>
 
@@ -216,9 +216,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Technical Excellence</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.technical_excellence_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Robust, scalable solutions built with cloud-first architecture, AI capabilities, and enterprise-grade security.
+                    <?= lang('App.technical_excellence_desc') ?>
                 </p>
             </div>
 
@@ -228,16 +228,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Measurable Impact</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.measurable_impact_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Data-driven results that optimize performance, reduce costs, and accelerate your path to market success.
+                    <?= lang('App.measurable_impact_desc') ?>
                 </p>
             </div>
         </div>
 
         <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
             <a href="#contact" class="btn-primary px-8 py-4 rounded-full font-semibold text-white hover-lift inline-flex items-center justify-center">
-                <span>Start Your Strategic Journey</span>
+                <span><?= lang('App.start_strategic_journey') ?></span>
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>

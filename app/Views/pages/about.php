@@ -32,31 +32,31 @@
                 <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                 </svg>
-                <span class="text-sm text-blue-900 font-medium">Meet Our Team</span>
+                <span class="text-sm text-blue-900 font-medium"><?= lang('App.meet_our_team') ?></span>
             </div>
 
             <!-- Main Content -->
             <div class="space-y-8">
                 <h1 class="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight max-w-6xl mx-auto">
-                    About Our Company
+                    <?= lang('App.about_title') ?>
                 </h1>
                 <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
-                    We are innovators and digital transformation experts committed to delivering exceptional results through strategic technology solutions and creative excellence.
+                    <?= lang('App.about_description') ?>
                 </p>
 
                 <!-- Achievement Badges -->
                 <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
                     <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
                         <span class="text-2xl font-bold text-blue-600">5+</span>
-                        <span class="text-blue-900 font-medium">Years of Excellence</span>
+                        <span class="text-blue-900 font-medium"><?= lang('App.years_excellence') ?></span>
                     </div>
                     <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
                         <span class="text-2xl font-bold text-blue-600">50+</span>
-                        <span class="text-blue-900 font-medium">Projects Completed</span>
+                        <span class="text-blue-900 font-medium"><?= lang('App.projects_completed') ?></span>
                     </div>
                     <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
                         <span class="text-2xl font-bold text-blue-600">100%</span>
-                        <span class="text-blue-900 font-medium">Client Satisfaction</span>
+                        <span class="text-blue-900 font-medium"><?= lang('App.client_satisfaction') ?></span>
                     </div>
                 </div>
             </div>
@@ -72,11 +72,11 @@
     <div class="max-w-7xl mx-auto px-4 container-responsive">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-blue-900 mb-8">
-                Our Story
+                <?= lang('App.our_story_title') ?>
             </h2>
             <div class="separator mx-auto mb-10"></div>
             <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
-                Founded with a vision to bridge the gap between innovative technology and business success, our journey has been defined by commitment to excellence, client-centric solutions, and continuous evolution.
+                <?= lang('App.our_story_desc') ?>
             </p>
         </div>
 
@@ -87,9 +87,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Innovation First</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.innovation_first_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    We embrace cutting-edge technologies and forward-thinking strategies to deliver solutions that drive real business transformation and competitive advantage.
+                    <?= lang('App.innovation_first_desc') ?>
                 </p>
             </div>
 
@@ -99,9 +99,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Expert Team</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.expert_team_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Our diverse team brings extensive experience in technology, design, and business strategy, united by passion for delivering exceptional results.
+                    <?= lang('App.expert_team_desc') ?>
                 </p>
             </div>
 
@@ -111,84 +111,11 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Proven Results</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><?= lang('App.proven_results_title') ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    We measure success by our clients' achievements, with a track record of delivering measurable business value and sustainable growth.
+                    <?= lang('App.proven_results_desc') ?>
                 </p>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Enhanced Team Section -->
-<section class="py-32 gradient-secondary relative">
-    <!-- Subtle background effects -->
-    <div class="absolute inset-0 bg-enterprise-particles opacity-5"></div>
-
-    <div class="max-w-7xl mx-auto px-4 container-responsive relative z-10">
-        <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-blue-900 mb-8">
-                Leadership Team
-            </h2>
-            <div class="separator mx-auto mb-10"></div>
-            <p class="text-gray-700 text-xl leading-relaxed max-w-3xl mx-auto">
-                Meet the visionaries and experts who drive our mission of delivering innovative technology solutions that transform businesses and create lasting impact.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Team Member 1 -->
-            <div class="card-enterprise p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-2 text-gray-900">Alexandra Chen</h3>
-                <p class="text-blue-600 font-semibold mb-4">CEO & Co-Founder</p>
-                <p class="text-gray-600 leading-relaxed">
-                    Leading our vision with over 15 years of experience in enterprise technology and digital transformation strategies.
-                </p>
-            </div>
-
-            <!-- Team Member 2 -->
-            <div class="card-enterprise p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-24 h-24 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-2 text-gray-900">Marcus Rodriguez</h3>
-                <p class="text-blue-600 font-semibold mb-4">CTO & Co-Founder</p>
-                <p class="text-gray-600 leading-relaxed">
-                    Architecting scalable solutions with expertise in cloud infrastructure, AI, and cutting-edge development technologies.
-                </p>
-            </div>
-
-            <!-- Team Member 3 -->
-            <div class="card-enterprise p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-24 h-24 rounded-2xl overflow-hidden ring-1 ring-blue-200 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-2 text-gray-900">Sarah Kim</h3>
-                <p class="text-blue-600 font-semibold mb-4">Creative Director</p>
-                <p class="text-gray-600 leading-relaxed">
-                    Leading user experience excellence with a background in behavioral design, UX strategy, and innovative interfaces.
-                </p>
-            </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
-            <p class="text-gray-600 mb-8">Want to join our innovative team?</p>
-            <a href="<?= base_url('contact') ?>" class="btn-primary px-8 py-4 rounded-full font-semibold text-white hover-lift inline-flex items-center justify-center">
-                <span>Join Our Team</span>
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                </svg>
-            </a>
         </div>
     </div>
 </section>
@@ -198,11 +125,11 @@
     <div class="max-w-7xl mx-auto px-4 container-responsive">
         <div class="text-center mb-20" data-aos="fade-up">
             <h2 class="text-blue-900 mb-8">
-                Our Vision for Tomorrow
+                <?= lang('App.vision_tomorrow_title') ?>
             </h2>
             <div class="separator mx-auto mb-10"></div>
             <p class="text-gray-700 text-xl leading-relaxed max-w-4xl mx-auto">
-                We're dedicated to shaping the future of digital innovation by combining human insight with technological excellence to create solutions that matter.
+                <?= lang('App.vision_tomorrow_desc') ?>
             </p>
         </div>
 
@@ -215,8 +142,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Innovation & Excellence</h3>
-                        <p class="text-gray-600">We push boundaries and embrace emerging technologies to deliver exceptional value to our clients.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><?= lang('App.innovation_excellence_title') ?></h3>
+                        <p class="text-gray-600"><?= lang('App.innovation_excellence_desc') ?></p>
                     </div>
                 </div>
 
@@ -227,8 +154,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Client Centric</h3>
-                        <p class="text-gray-600">Every solution is tailored to our clients' unique needs, ensuring maximum impact and satisfaction.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><?= lang('App.client_centric_title') ?></h3>
+                        <p class="text-gray-600"><?= lang('App.client_centric_desc') ?></p>
                     </div>
                 </div>
 
@@ -239,14 +166,14 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Global Impact</h3>
-                        <p class="text-gray-600">Our solutions transcend boundaries, creating positive change across industries and communities worldwide.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><?= lang('App.global_impact_title') ?></h3>
+                        <p class="text-gray-600"><?= lang('App.global_impact_desc') ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="bg-gradient-to-br from-blue-50/50 to-indigo-50/50 p-8 rounded-3xl border border-blue-100/30" data-aos="fade-left">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Why Choose Us</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-6"><?= lang('App.why_choose_title') ?></h3>
                 <div class="space-y-4">
                     <div class="flex items-center space-x-3">
                         <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
@@ -254,7 +181,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-                        <span class="text-gray-700">Proven track record of success</span>
+                        <span class="text-gray-700"><?= lang('App.proven_track_record') ?></span>
                     </div>
                     <div class="flex items-center space-x-3">
                         <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
@@ -262,7 +189,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-                        <span class="text-gray-700">Expert team with diverse backgrounds</span>
+                        <span class="text-gray-700"><?= lang('App.expert_diverse_team') ?></span>
                     </div>
                     <div class="flex items-center space-x-3">
                         <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
@@ -270,7 +197,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-                        <span class="text-gray-700">Customized solutions for every client</span>
+                        <span class="text-gray-700"><?= lang('App.customized_solutions') ?></span>
                     </div>
                     <div class="flex items-center space-x-3">
                         <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
@@ -278,7 +205,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-                        <span class="text-gray-700">Continuous innovation and improvement</span>
+                        <span class="text-gray-700"><?= lang('App.continuous_innovation') ?></span>
                     </div>
                 </div>
             </div>

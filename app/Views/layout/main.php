@@ -110,15 +110,16 @@
                     </a>
 
                     <!-- Language Switcher -->
-                    <div class="flex items-center ml-6 pl-6 border-l border-blue-200/30">
-                        <div class="flex items-center bg-blue-50/50 rounded-xl p-1 border border-blue-200/30">
-                            <a href="<?= base_url('language/switch/en') ?>" class="px-3 py-1 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'en' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-white/80' ?> font-medium">
-                                EN
-                            </a>
-                            <a href="<?= base_url('language/switch/id') ?>" class="px-3 py-1 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'id' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-white/80' ?> font-medium">
-                                ID
-                            </a>
-                        </div>
+                    <div class="flex items-center space-x-2 ml-4">
+                        <a href="<?= base_url('language/switch/en') ?>" class="<?= (session()->get('locale') === 'en' || !session()->get('locale')) ? 'bg-blue-100 text-blue-600' : 'text-gray-600' ?> px-2 py-1 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center space-x-1.5" title="<?= lang('App.lang_en') ?>">
+                            <img src="<?= base_url('images/flags/english.svg') ?>" alt="English" class="w-5 h-5">
+                            <span>EN</span>
+                        </a>
+                        <span class="text-gray-300">|</span>
+                        <a href="<?= base_url('language/switch/id') ?>" class="<?= session()->get('locale') === 'id' ? 'bg-blue-100 text-blue-600' : 'text-gray-600' ?> px-2 py-1 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center space-x-1.5" title="<?= lang('App.lang_id') ?>">
+                            <img src="<?= base_url('images/flags/indonesia.svg') ?>" alt="Indonesia" class="w-5 h-5">
+                            <span>ID</span>
+                        </a>
                     </div>
                 </div>
 
@@ -170,12 +171,15 @@
                     </div>
 
                     <!-- Language Switcher Mobile -->
-                    <div class="flex items-center justify-center mt-4 space-x-1">
-                        <a href="<?= base_url('language/switch/en') ?>" class="px-4 py-2 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'en' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 bg-blue-50/50' ?> font-medium">
-                            English
+                    <div class="flex items-center justify-center mt-4 space-x-2">
+                        <a href="<?= base_url('language/switch/en') ?>" class="<?= (session()->get('locale') === 'en' || !session()->get('locale')) ? 'bg-blue-100 text-blue-600' : 'text-gray-600' ?> px-3 py-2 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center space-x-2">
+                            <img src="<?= base_url('images/flags/english.svg') ?>" alt="English" class="w-6 h-6">
+                            <span><?= lang('App.lang_en') ?></span>
                         </a>
-                        <a href="<?= base_url('language/switch/id') ?>" class="px-4 py-2 text-sm rounded-lg transition-all duration-300 <?= session()->get('locale') == 'id' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 bg-blue-50/50' ?> font-medium">
-                            Indonesia
+                        <span class="text-gray-300">|</span>
+                        <a href="<?= base_url('language/switch/id') ?>" class="<?= session()->get('locale') === 'id' ? 'bg-blue-100 text-blue-600' : 'text-gray-600' ?> px-3 py-2 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center space-x-2">
+                            <img src="<?= base_url('images/flags/indonesia.svg') ?>" alt="Indonesia" class="w-6 h-6">
+                            <span><?= lang('App.lang_id') ?></span>
                         </a>
                     </div>
                 </div>
@@ -202,14 +206,14 @@
             <!-- Minimal Newsletter -->
             <div class="py-16 border-b border-blue-200/30">
                 <div class="max-w-2xl mx-auto text-center">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-900">Stay Updated</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-900"><?= lang('App.stay_updated') ?></h3>
                     <p class="text-blue-700 mb-8 text-lg">
-                        Get exclusive insights delivered to your inbox
+                        <?= lang('App.get_insights') ?>
                     </p>
                     <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 bg-white/70 backdrop-blur-sm border border-blue-200/50 rounded-lg text-blue-900 placeholder-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                        <input type="email" placeholder="<?= lang('App.enter_email') ?>" class="flex-1 px-4 py-3 bg-white/70 backdrop-blur-sm border border-blue-200/50 rounded-lg text-blue-900 placeholder-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
                         <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 font-semibold transition-all shadow-md">
-                            Subscribe
+                            <?= lang('App.subscribe') ?>
                         </button>
                     </form>
                 </div>
@@ -222,7 +226,7 @@
                     <div class="space-y-6">
                         <h3 class="text-2xl font-bold text-blue-900">DevStack</h3>
                         <p class="text-blue-800 text-lg leading-relaxed font-medium">
-                            Leading enterprise solutions for digital transformation with innovative technology and strategic thinking.
+                            <?= lang('App.company_description') ?>
                         </p>
                         <div class="flex space-x-4">
                             <a href="#" class="w-10 h-10 bg-white/50 hover:bg-blue-600 rounded-xl flex items-center justify-center transition-all shadow-sm border border-blue-200/30">
@@ -245,44 +249,44 @@
 
                     <!-- Services -->
                     <div class="space-y-4">
-                        <h4 class="text-xl font-semibold text-blue-800">Services</h4>
+                        <h4 class="text-xl font-semibold text-blue-800"><?= lang('App.services_footer_title') ?></h4>
                         <ul class="space-y-3">
-                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Web Development</a></li>
-                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Mobile Apps</a></li>
-                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Cloud Solutions</a></li>
-                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Consulting</a></li>
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.web_development') ?></a></li>
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.mobile_apps') ?></a></li>
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.cloud_solutions') ?></a></li>
+                            <li><a href="<?= base_url('services') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.consulting') ?></a></li>
                         </ul>
                     </div>
 
                     <!-- Company -->
                     <div class="space-y-4">
-                        <h4 class="text-xl font-semibold text-blue-800">Company</h4>
+                        <h4 class="text-xl font-semibold text-blue-800"><?= lang('App.company_footer_title') ?></h4>
                         <ul class="space-y-3">
-                            <li><a href="<?= base_url('about') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">About Us</a></li>
-                            <li><a href="<?= base_url('portfolio') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Our Work</a></li>
-                            <li><a href="#" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Careers</a></li>
-                            <li><a href="<?= base_url('contact') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg">Contact</a></li>
+                            <li><a href="<?= base_url('about') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.about_us') ?></a></li>
+                            <li><a href="<?= base_url('portfolio') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.our_work') ?></a></li>
+                            <li><a href="#" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.careers') ?></a></li>
+                            <li><a href="<?= base_url('contact') ?>" class="text-blue-700 hover:text-blue-900 transition-colors text-lg"><?= lang('App.contact_us') ?></a></li>
                         </ul>
                     </div>
 
                     <!-- Contact -->
                     <div class="space-y-4">
-                        <h4 class="text-xl font-semibold text-blue-800">Contact</h4>
+                        <h4 class="text-xl font-semibold text-blue-800"><?= lang('App.contact') ?></h4>
                         <div class="space-y-4">
                             <div class="flex items-start space-x-3">
                                 <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 </svg>
                                 <div class="text-blue-800">
-                                    <p class="font-medium">123 Business Street</p>
-                                    <p class="text-blue-700">City, Country</p>
+                                    <p class="font-medium"><?= lang('App.address_line') ?></p>
+                                    <p class="text-blue-700"><?= lang('App.city_country') ?></p>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
-                                <span class="text-blue-800 font-medium">info@company.com</span>
+                                <span class="text-blue-800 font-medium"><?= lang('App.email_contact') ?></span>
                             </div>
                         </div>
                     </div>
@@ -292,11 +296,11 @@
             <!-- Clean Bottom Bar -->
             <div class="border-t border-blue-200/30 py-8">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <p class="text-blue-600 text-sm font-medium">© 2025 DevStack. All rights reserved.</p>
+                    <p class="text-blue-600 text-sm font-medium"><?= lang('App.copyright') ?></p>
                     <div class="flex space-x-8 text-sm">
-                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Privacy</a>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Terms</a>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Cookies</a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium"><?= lang('App.privacy') ?></a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium"><?= lang('App.terms') ?></a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 transition-colors font-medium"><?= lang('App.cookies') ?></a>
                     </div>
                 </div>
             </div>
