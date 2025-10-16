@@ -801,6 +801,16 @@ nav {
      padding-bottom: 2rem !important;
    }
 
+   /* Footer responsive improvements */
+   footer .grid {
+     grid-template-columns: repeat(2, 1fr) !important;
+     gap: 2rem !important;
+   }
+
+   footer .space-y-6 > .space-y-4 {
+     space-y: 1.5rem !important;
+   }
+
    /* Reduce font sizes further */
    h1 {
      font-size: 2rem;
