@@ -141,7 +141,7 @@
 
                 <!-- Premium CTA Button -->
                 <div class="hidden lg:flex items-center">
-                    <a href="#contact" class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <a href="<?= base_url('login') ?>" class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         Get Started
                         <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
@@ -181,7 +181,7 @@
 
                     <!-- CTA Button Mobile -->
                     <div class="pt-4 border-t border-blue-200/30 mt-6 px-4">
-                        <a href="#contact" class="mobile-cta block w-full max-w-sm mx-auto px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg text-center hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 btn-responsive">
+                        <a href="<?= base_url('login') ?>" class="mobile-cta block w-full max-w-sm mx-auto px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg text-center hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 btn-responsive">
                             Get Started
                         </a>
                     </div>
