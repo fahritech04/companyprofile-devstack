@@ -88,10 +88,28 @@ p {
 
 /* Smooth transitions for all interactive elements */
 * {
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
+   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   transition-duration: 300ms;
+ }
+
+/* Reduce transition overhead on mobile */
+@media (max-width: 768px) {
+   * {
+     transition-duration: 200ms;
+     transition-property: background-color, border-color, color, opacity;
+   }
+
+   /* Disable transform and box-shadow transitions on mobile for better performance */
+   .hover-lift,
+   .card-enterprise,
+   .btn-primary,
+   .btn-secondary,
+   .nav-link {
+     transition-property: background-color, border-color, color, opacity;
+     transition-duration: 150ms;
+   }
+ }
 
 /* Enhanced hover effects */
 .hover-lift {
@@ -587,83 +605,161 @@ nav {
 
 /* Responsive improvements */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 1.875rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-  }
+   h1 {
+     font-size: 2.5rem;
+   }
+   h2 {
+     font-size: 1.875rem;
+   }
+   h3 {
+     font-size: 1.5rem;
+   }
 
-  .container-responsive {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+   .container-responsive {
+     padding-left: 1.5rem;
+     padding-right: 1.5rem;
+   }
 
-  .btn-responsive {
-    width: 100%;
-    justify-content: center;
-  }
+   .btn-responsive {
+     width: 100%;
+     justify-content: center;
+   }
 
-  /* Reduce background effects on mobile for performance */
-  .bg-enterprise-geometric::before,
-  .bg-enterprise-geometric::after,
-  .bg-corporate-flow::before,
-  .bg-corporate-flow::after {
-    display: none;
-  }
-}
+   /* Reduce background effects on mobile for performance */
+   .bg-enterprise-geometric::before,
+   .bg-enterprise-geometric::after,
+   .bg-corporate-flow::before,
+   .bg-corporate-flow::after,
+   .bg-professional-waves::before,
+   .bg-professional-waves::after,
+   .bg-business-architecture::before,
+   .bg-network-effect::after {
+     display: none;
+   }
+
+   /* Ensure sections remain visible on tablets */
+   .section-enterprise-premium {
+     background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%) !important;
+   }
+
+   /* Disable complex animations on tablets */
+   .animate-blob-custom {
+     animation: none;
+   }
+
+   /* Reduce particle effects */
+   .bg-enterprise-particles::before,
+   .bg-enterprise-particles::after {
+     animation: none;
+   }
+ }
 
 @media (max-width: 640px) {
-  .mobile-stack > * + * {
-    margin-top: 1.5rem;
-  }
+   .mobile-stack > * + * {
+     margin-top: 1.5rem;
+   }
 
-  /* Completely hide complex backgrounds on small screens */
-  .bg-enterprise-particles,
-  .bg-enterprise-geometric,
-  .bg-corporate-flow,
-  .bg-professional-waves,
-  .bg-business-architecture,
-  .bg-network-effect {
-    background: transparent !important;
-  }
+   /* Completely hide complex backgrounds on small screens but keep base backgrounds */
+   .bg-enterprise-particles,
+   .bg-enterprise-geometric,
+   .bg-corporate-flow,
+   .bg-professional-waves,
+   .bg-business-architecture,
+   .bg-network-effect {
+     background: transparent !important;
+   }
 
-  .bg-enterprise-particles::before,
-  .bg-enterprise-particles::after,
-  .section-enterprise-premium::after {
-    display: none;
-  }
-}
+   /* Keep section backgrounds visible on mobile */
+   .section-enterprise-premium {
+     background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%) !important;
+   }
+
+   .bg-enterprise-particles::before,
+   .bg-enterprise-particles::after,
+   .bg-enterprise-geometric::before,
+   .bg-enterprise-geometric::after,
+   .bg-corporate-flow::before,
+   .bg-corporate-flow::after,
+   .bg-professional-waves::before,
+   .bg-professional-waves::after,
+   .bg-business-architecture::before,
+   .bg-network-effect::after,
+   .section-enterprise-premium::before,
+   .section-enterprise-premium::after {
+     display: none !important;
+   }
+
+   /* Ensure gradient backgrounds remain visible */
+   .gradient-secondary {
+     background: linear-gradient(135deg, rgba(249, 250, 251, 0.9) 0%, rgba(243, 244, 246, 0.8) 100%) !important;
+   }
+
+   /* Disable all animations on mobile */
+   .animate-blob-custom,
+   .fade-in,
+   .slide-up {
+     animation: none !important;
+     opacity: 1 !important;
+     transform: translateY(0) !important;
+   }
+
+   /* Disable hover effects on touch devices */
+   .hover-lift:hover,
+   .card-enterprise:hover {
+     transform: none !important;
+     box-shadow: inherit !important;
+   }
+
+   /* Ensure all content is visible */
+   [data-aos] {
+     opacity: 1 !important;
+     transform: translateY(0) !important;
+   }
+ }
+
+/* Mobile menu button optimization */
+.mobile-menu-button {
+   min-height: 44px;
+   min-width: 44px;
+   touch-action: manipulation;
+ }
+
+.mobile-menu-button:active {
+   transform: scale(0.95);
+   transition-duration: 0.1s;
+ }
 
 /* Mobile menu CTA refinement */
 .mobile-cta {
-  display: block;
-  width: auto;
-  max-width: 20rem;
-  margin: 0.75rem auto;
-  padding: 0.875rem 1rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.25);
-  line-height: 1.25;
-  font-weight: 600;
-}
+   display: block;
+   width: auto;
+   max-width: 20rem;
+   margin: 0.75rem auto;
+   padding: 0.875rem 1rem;
+   border-radius: 0.75rem;
+   box-shadow: 0 8px 22px rgba(37, 99, 235, 0.25);
+   line-height: 1.25;
+   font-weight: 600;
+   /* Optimize for touch */
+   min-height: 44px;
+   min-width: 44px;
+   touch-action: manipulation;
+ }
 
 .mobile-cta:hover {
-  transform: translateY(-1px);
-}
+   transform: translateY(-1px);
+ }
 
 .mobile-cta:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.22);
-}
+   transform: translateY(0);
+   box-shadow: 0 6px 18px rgba(37, 99, 235, 0.22);
+   transition-duration: 0.1s;
+ }
 
 .mobile-cta:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35), 0 8px 22px rgba(37, 99, 235, 0.25);
-}
+   outline: none;
+   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35), 0 8px 22px rgba(37, 99, 235, 0.25);
+ }
 
 /* Ensure tidy layout inside the mobile menu list */
 .mobile-menu .pt-4 {
@@ -676,11 +772,81 @@ nav {
 
 /* Make CTA full-width on very small screens */
 @media (max-width: 640px) {
-  .mobile-cta {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    border-radius: 0.75rem;
-  }
-}
+   .mobile-cta {
+     width: 100%;
+     max-width: 100%;
+     margin-left: 0;
+     margin-right: 0;
+     border-radius: 0.75rem;
+   }
+ }
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+   /* Disable all transitions for better performance */
+   * {
+     transition-duration: 0.15s !important;
+   }
+
+   /* Ensure content is always visible */
+   section, div, p, h1, h2, h3, h4, h5, h6 {
+     opacity: 1 !important;
+     visibility: visible !important;
+   }
+
+   /* Ensure sections have proper spacing even without backgrounds */
+   section {
+     min-height: auto !important;
+     padding-top: 2rem !important;
+     padding-bottom: 2rem !important;
+   }
+
+   /* Reduce font sizes further */
+   h1 {
+     font-size: 2rem;
+   }
+   h2 {
+     font-size: 1.5rem;
+   }
+   h3 {
+     font-size: 1.25rem;
+   }
+
+   /* Disable all decorative elements but keep section backgrounds */
+   .bg-professional-mesh,
+   .bg-enterprise-grid,
+   .bg-professional-dots {
+     background: transparent !important;
+   }
+
+   /* Ensure sections with these backgrounds remain visible */
+   .bg-professional-waves {
+     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(243, 244, 246, 0.8) 100%) !important;
+   }
+
+   .bg-enterprise-geometric {
+     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%) !important;
+   }
+
+   /* Simplify card styles */
+   .card-enterprise::before {
+     display: none;
+   }
+
+   .card-enterprise:hover {
+     transform: none !important;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+   }
+
+   /* Optimize for mobile performance */
+   body {
+     -webkit-text-size-adjust: none;
+     text-size-adjust: none;
+   }
+
+   /* Reduce repaint operations */
+   .glass-effect {
+     backdrop-filter: none;
+     background-color: rgba(255, 255, 255, 0.95);
+   }
+ }

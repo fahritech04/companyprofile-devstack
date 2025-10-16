@@ -34,6 +34,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Company Name">
 
+    <!-- Mobile Performance Optimizations -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
     <!-- Favicons -->
     <link rel="icon" href="<?= base_url('images/devstack_icon.svg') ?>" type="image/svg+xml" sizes="any">
     <link rel="mask-icon" href="<?= base_url('images/devstack_icon.svg') ?>" color="#2563eb">
@@ -82,7 +87,7 @@
                 <!-- Brand/Logo -->
                 <div class="flex items-center">
                     <div class="flex items-center space-x-3">
-                        <img src="<?= base_url('images/devstack_logo.svg') ?>" alt="Company Logo" class="w-20 h-20" loading="eager" decoding="async">
+                        <img src="<?= base_url('images/devstack_logo.svg') ?>" alt="Company Logo" class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" loading="eager" decoding="async">
                     </div>
                 </div>
 
@@ -310,13 +315,28 @@
     <!-- Performance Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS with optimized settings
-        AOS.init({
-            once: true,
-            offset: 50,
-            duration: 600,
-            easing: 'ease-out-cubic'
-        });
+        // Initialize AOS with mobile-optimized settings
+        if (window.innerWidth <= 480) {
+            // Disable AOS completely on very small screens for better performance
+            console.log('AOS disabled for mobile performance');
+
+            // Ensure content is visible even without AOS
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('[data-aos]').forEach(function(element) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                });
+            });
+        } else {
+            AOS.init({
+                once: true,
+                offset: 50,
+                duration: window.innerWidth <= 768 ? 400 : 600,
+                easing: 'ease-out-cubic',
+                disable: false,
+                throttleDelay: window.innerWidth <= 768 ? 100 : 50
+            });
+        }
 
         // Performance optimizations
         document.addEventListener('DOMContentLoaded', function() {
@@ -351,24 +371,26 @@
                 });
             });
 
-            // Intersection Observer for performance
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '50px'
-            };
+            // Intersection Observer for performance - disabled on mobile for better performance
+            if (window.innerWidth > 768) {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '50px'
+                };
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                    }
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe strategic cards for advanced animations
+                document.querySelectorAll('.card-enterprise, .hover-lift').forEach(card => {
+                    observer.observe(card);
                 });
-            }, observerOptions);
-
-            // Observe strategic cards for advanced animations
-            document.querySelectorAll('.card-enterprise, .hover-lift').forEach(card => {
-                observer.observe(card);
-            });
+            }
 
             // Mobile menu enhancements
             const mobileMenuBtn = document.querySelector('.mobile-menu-button');
@@ -433,18 +455,20 @@
             document.querySelectorAll('[data-aos]').forEach(el => addLoadingEffect(el));
         });
 
-        // Advanced interaction effects
-        document.addEventListener('mousemove', function(e) {
-            const cards = document.querySelectorAll('.card-enterprise');
+        // Advanced interaction effects - disabled on touch devices for performance
+        if (!('ontouchstart' in window) && window.innerWidth > 768) {
+            document.addEventListener('mousemove', function(e) {
+                const cards = document.querySelectorAll('.card-enterprise');
 
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
 
-                card.style.transform = `perspective(1000px) rotateY(${x * 0.001}deg) rotateX(${y * 0.001}deg) scale(${card.matches(':hover') ? '1.02' : '1'})`;
+                    card.style.transform = `perspective(1000px) rotateY(${x * 0.001}deg) rotateX(${y * 0.001}deg) scale(${card.matches(':hover') ? '1.02' : '1'})`;
+                });
             });
-        });
+        }
 
         // Performance monitoring
         window.addEventListener('load', function() {
