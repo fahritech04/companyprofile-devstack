@@ -15,6 +15,17 @@ body {
   color: #334155;
 }
 
+/* Main content wrapper with navbar spacing */
+.main-content {
+  padding-top: 5rem; /* Space for fixed navbar */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 4rem; /* Slightly less on mobile */
+  }
+}
+
 /* Code font */
 code {
   font-family: "JetBrains Mono", "SF Mono", Monaco, Inconsolata, "Roboto Mono", monospace;

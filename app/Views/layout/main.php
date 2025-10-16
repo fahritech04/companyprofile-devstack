@@ -205,7 +205,9 @@
 
 
     <!-- Content -->
-    <?= $this->renderSection('content') ?>
+    <div class="main-content">
+        <?= $this->renderSection('content') ?>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-white text-gray-800 section-enterprise-premium relative overflow-hidden">
