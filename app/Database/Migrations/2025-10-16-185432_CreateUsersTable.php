@@ -65,8 +65,6 @@ class CreateUsersTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
-        $this->forge->addKey('email');
-        $this->forge->addKey('username');
         $this->forge->createTable('users');
     }
 

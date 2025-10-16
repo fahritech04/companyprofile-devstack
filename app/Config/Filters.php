@@ -79,7 +79,7 @@ class Filters extends BaseFilters
             // 'honeypot',
             'csrf',
             'language',
-            // 'invalidchars',
+            // 'invalidchars', // Disabled to allow @ in email verification URLs
         ],
         'after' => [
             'toolbar',
@@ -112,5 +112,11 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        'invalidchars' => [
+            'except' => [
+                'auth/verify/*' // Allow @ symbol in email verification URLs
+            ]
+        ]
+    ];
 }

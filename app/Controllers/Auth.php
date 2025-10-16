@@ -31,6 +31,11 @@ class Auth extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
+        // Clear verification_required flashdata to prevent loops
+        if (session()->getFlashdata('verification_required')) {
+            session()->setFlashdata('verification_required', null);
+        }
+
         return view('auth/login', $data);
     }
 
@@ -51,28 +56,22 @@ class Auth extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        // Simple demo authentication for testing
-        if ($email === 'demo@devstack.com' && $password === 'demo123456') {
-            // Set session data for demo user
-            session()->set([
-                'user_id' => 1,
-                'username' => 'demo',
-                'email' => 'demo@devstack.com',
-                'first_name' => 'Demo',
-                'last_name' => 'User',
-                'isLoggedIn' => true
-            ]);
-
-            return redirect()->to('/dashboard')->with('success', 'Welcome to DevStack SaaS!');
-        }
-
-        // Database authentication (when database is ready)
         try {
             // Find user by email
             $user = $this->userModel->where('email', $email)->where('is_active', 1)->first();
 
-            if (!$user || !password_verify($password, $user['password'])) {
+            if (!$user) {
                 return redirect()->back()->withInput()->with('error', 'Invalid email or password.');
+            }
+
+            if (!password_verify($password, $user['password'])) {
+                return redirect()->back()->withInput()->with('error', 'Invalid email or password.');
+            }
+
+            // Check if email is verified
+            if (empty($user['email_verified_at'])) {
+                session()->setFlashdata('verification_required', true);
+                return redirect()->to('/login')->with('error', 'Please verify your email address before logging in. Check your inbox for the verification link.');
             }
 
             // Set session data
@@ -86,9 +85,13 @@ class Auth extends BaseController
             ]);
 
             return redirect()->to('/dashboard')->with('success', 'Welcome back!');
+
         } catch (\Exception $e) {
-            // Fallback to demo if database not available
-            return redirect()->back()->withInput()->with('error', 'Database not configured. Use demo@devstack.com / demo123456 for testing.');
+            // Log the error for debugging
+            log_message('error', 'Authentication error: ' . $e->getMessage());
+
+            // Return generic error message
+            return redirect()->back()->withInput()->with('error', 'Login failed. Please try again.');
         }
     }
 
@@ -137,7 +140,7 @@ class Auth extends BaseController
         $userData = [
             'username' => $this->request->getPost('username'),
             'email' => $this->request->getPost('email'),
-            'password' => $this->request->getPost('password'),
+            'password' => $this->request->getPost('password'), // Password will be hashed by User model callback
             'first_name' => $this->request->getPost('first_name'),
             'last_name' => $this->request->getPost('last_name'),
             'is_active' => 1,
@@ -147,12 +150,18 @@ class Auth extends BaseController
         ];
 
         try {
-            $this->userModel->insert($userData);
+             $this->userModel->insert($userData);
 
-            return redirect()->to('/login')->with('success', 'Registration successful! Please login with your credentials.');
-        } catch (\Exception $e) {
-            return redirect()->back()->withInput()->with('error', 'Registration failed. Please try again.');
-        }
+             // Send verification email after successful registration
+             $this->sendVerificationEmail($this->request->getPost('email'), $this->request->getPost('first_name'));
+
+             return redirect()->to('/login')->with('success', 'Registration successful! Please check your email and click the verification link before logging in.');
+         } catch (\Exception $e) {
+             // Log the error for debugging
+             log_message('error', 'Registration error: ' . $e->getMessage());
+
+             return redirect()->back()->withInput()->with('error', 'Registration failed. Please try again.');
+         }
     }
 
     /**
@@ -174,6 +183,16 @@ class Auth extends BaseController
             return redirect()->to('/login')->with('error', 'Please login to access your dashboard.');
         }
 
+        // Check if email is verified
+        $userEmail = session()->get('email');
+        $user = $this->userModel->where('email', $userEmail)->first();
+
+        if (empty($user['email_verified_at'])) {
+            // Destroy session and redirect to login with verification message
+            session()->destroy();
+            return redirect()->to('/login')->with('error', 'Your session has expired. Please verify your email address first.');
+        }
+
         $data = [
             'title' => 'Dashboard - SaaS Platform',
             'user' => [
@@ -185,5 +204,146 @@ class Auth extends BaseController
         ];
 
         return view('auth/dashboard', $data);
+    }
+
+    /**
+     * Verify email address
+     */
+    public function verify($token = null)
+    {
+        if (empty($token)) {
+            return redirect()->to('/login')->with('error', 'Invalid verification token.');
+        }
+
+        try {
+            // Handle URL decoding - try multiple methods
+            $email = rawurldecode($token);
+
+            // If rawurldecode doesn't produce a valid email, try urldecode
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $email = urldecode($token);
+            }
+
+            // Final validation
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                log_message('error', 'Invalid email format in verification. Token: ' . $token . ', Decoded: ' . $email);
+                return redirect()->to('/login')->with('error', 'Invalid email format in verification link.');
+            }
+
+            log_message('info', 'Processing email verification for: ' . $email);
+
+            // Find user by email
+            $user = $this->userModel->where('email', $email)->where('email_verified_at', null)->first();
+
+            if (!$user) {
+                log_message('error', 'User not found or already verified for email: ' . $email);
+                return redirect()->to('/login')->with('error', 'Invalid or expired verification token. User may already be verified or not exist.');
+            }
+
+            // Mark email as verified
+            $this->userModel->update($user['id'], [
+                'email_verified_at' => date('Y-m-d H:i:s')
+            ]);
+
+            log_message('info', 'Email verified successfully for: ' . $email);
+            return redirect()->to('/login')->with('success', 'Email verified successfully! You can now login with your credentials.');
+
+        } catch (\Exception $e) {
+            log_message('error', 'Email verification error: ' . $e->getMessage());
+            log_message('error', 'Stack trace: ' . $e->getTraceAsString());
+            return redirect()->to('/login')->with('error', 'Email verification failed. Please try again or contact support.');
+        }
+    }
+
+    /**
+     * Send verification email
+     */
+    private function sendVerificationEmail($email, $firstName = 'User')
+    {
+        try {
+            // Get email configuration
+            $config = new \Config\Email();
+
+            // Check if SMTP password is set
+            $smtpPassword = getenv('email.smtpPassword');
+            if (empty($smtpPassword) || strlen($smtpPassword) < 3) {
+                log_message('error', 'SMTP password not properly set. Length: ' . strlen($smtpPassword ?? ''));
+                log_message('error', 'Please set email.smtpPassword in .env file with your real email password');
+                return false;
+            }
+
+            $config->SMTPPass = $smtpPassword;
+
+            $emailService = \Config\Services::email();
+            $emailService->initialize($config);
+
+            $emailService->setFrom('info@dev-stack.id', 'DevStack');
+            $emailService->setTo($email);
+            $emailService->setSubject('Verify Your Email Address - DevStack');
+
+            // Prepare email template data
+            $userData = [
+                'firstName' => $firstName,
+                'verificationUrl' => base_url('auth/verify/' . rawurlencode($email))
+            ];
+
+            // Use the email template
+            $emailTemplate = view('emails/email_verification', $userData);
+            $emailService->setMessage($emailTemplate);
+
+            if ($emailService->send()) {
+                log_message('info', 'Verification email sent successfully to: ' . $email);
+                return true;
+            } else {
+                $error = $emailService->printDebugger(['headers', 'subject', 'body']);
+                log_message('error', 'Email sending failed with CodeIgniter error: ' . $error);
+                return false;
+            }
+
+        } catch (\Exception $e) {
+            log_message('error', 'Exception in sendVerificationEmail: ' . $e->getMessage());
+            log_message('error', 'Exception trace: ' . $e->getTraceAsString());
+            return false;
+        }
+    }
+
+
+    /**
+     * Resend email verification
+     */
+    public function resendVerification()
+    {
+        // Check if user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login')->with('error', 'Please login to access this page.');
+        }
+
+        $userEmail = session()->get('email');
+
+        try {
+            // Check if email is already verified
+            $user = $this->userModel->where('email', $userEmail)->first();
+
+            if ($user && !empty($user['email_verified_at'])) {
+                return redirect()->to('/dashboard')->with('info', 'Your email is already verified.');
+            }
+
+            // Get user data for email template
+            $userData = [
+                'firstName' => $user['first_name'] ?? 'User',
+                'verificationUrl' => base_url('auth/verify/' . rawurlencode($userEmail))
+            ];
+
+            // Send verification email using the new method
+            if ($this->sendVerificationEmail($userEmail, $user['first_name'] ?? 'User')) {
+                return redirect()->to('/dashboard')->with('success', 'Verification email sent! Please check your inbox.');
+            } else {
+                return redirect()->to('/dashboard')->with('error', 'Failed to send verification email. Please check your SMTP configuration.');
+            }
+
+        } catch (\Exception $e) {
+            log_message('error', 'Resend verification error: ' . $e->getMessage());
+            return redirect()->to('/dashboard')->with('error', 'Failed to send verification email. Please try again.');
+        }
     }
 }

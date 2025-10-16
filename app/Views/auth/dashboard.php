@@ -5,22 +5,55 @@
 <section class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Dashboard Header -->
-        <div class="mb-8">
-            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                    <div class="flex items-center space-x-4">
-                        <div class="h-16 w-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center">
-                            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold text-gray-900">
-                                Welcome back, <?= $user['first_name'] ?? $user['username'] ?>! 👋
-                            </h1>
-                            <p class="text-gray-600">Ready to collaborate on amazing projects?</p>
-                        </div>
-                    </div>
+         <div class="mb-8">
+             <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+                 <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                     <div class="flex items-center space-x-4">
+                         <div class="h-16 w-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center">
+                             <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                             </svg>
+                         </div>
+                         <div>
+                             <h1 class="text-2xl font-bold text-gray-900">
+                                 Welcome back, <?= $user['first_name'] ?? $user['username'] ?>! 👋
+                             </h1>
+                             <p class="text-gray-600">Ready to collaborate on amazing projects?</p>
+                         </div>
+                     </div>
+
+                     <!-- Email Verification Status -->
+                     <div class="mt-4 md:mt-0">
+                         <?php
+                         $userModel = new \App\Models\User();
+                         $currentUser = $userModel->where('email', session()->get('email'))->first();
+                         $isVerified = !empty($currentUser['email_verified_at']);
+                         ?>
+
+                         <?php if ($isVerified): ?>
+                             <div class="flex items-center space-x-2 px-4 py-2 bg-green-50 rounded-2xl">
+                                 <svg class="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                 </svg>
+                                 <span class="text-sm font-medium text-green-800">Email Verified</span>
+                             </div>
+                         <?php else: ?>
+                             <div class="space-y-2">
+                                 <div class="flex items-center space-x-2 px-4 py-2 bg-yellow-50 rounded-2xl">
+                                     <svg class="h-5 w-5 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                     </svg>
+                                     <span class="text-sm font-medium text-yellow-800">Email Not Verified</span>
+                                 </div>
+                                 <form action="<?= base_url('auth/resend-verification') ?>" method="post" class="inline">
+                                     <?= csrf_field() ?>
+                                     <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white text-sm rounded-xl hover:bg-blue-700 transition-colors">
+                                         Resend Verification
+                                     </button>
+                                 </form>
+                             </div>
+                         <?php endif; ?>
+                     </div>
 
                     <!-- User Menu -->
                     <div class="mt-4 md:mt-0 flex items-center space-x-4">

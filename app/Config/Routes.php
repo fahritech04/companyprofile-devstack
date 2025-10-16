@@ -20,6 +20,13 @@ $routes->post('auth/store', 'Auth::store');
 $routes->get('logout', 'Auth::logout');
 $routes->get('dashboard', 'Auth::dashboard');
 
+// Email Verification Routes
+$routes->get('auth/verify/(.+)', 'Auth::verify/$1');
+$routes->get('auth/resend-verification', 'Auth::resendVerification');
+$routes->post('auth/resend-verification', 'Auth::resendVerification');
+
+// Email verification routes removed for production
+
 // Protected Routes (require authentication)
 $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('communication', 'Communication::index');
