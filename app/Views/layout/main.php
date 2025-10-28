@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 
+    <!-- 3D & Particle Effects Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     <!-- Performance & PWA -->
     <link rel="manifest" href="<?= base_url('manifest.json') ?>">
     <meta name="theme-color" content="#2563eb">

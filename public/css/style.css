@@ -792,6 +792,247 @@ nav {
    }
  }
 
+/* SpaceX-Style Premium Transitions & Effects */
+
+/* Smooth page transitions */
+* {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+:root {
+    --spacex-animation-duration: 0.8s;
+    --spacex-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hero section parallax and smooth reveals */
+section#home {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Card reveal animations - SpaceX style */
+.card-enterprise {
+    will-change: transform, opacity;
+}
+
+@keyframes spacexCardReveal {
+    from {
+        transform: translateY(60px) scale(0.95);
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.card-enterprise.card-reveal {
+    animation: spacexCardReveal 0.8s backwards;
+}
+
+/* Button premium hover effects */
+.btn-primary, .mobile-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before,
+.mobile-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%);
+}
+
+.btn-primary:hover::before,
+.mobile-cta:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s var(--spacex-easing);
+}
+
+/* Smooth navigation transitions */
+.nav-link, .mobile-menu a {
+    transition: all 0.4s var(--spacex-easing);
+}
+
+.nav-link:hover {
+    transform: translateX(2px);
+}
+
+/* 3D & Particle Effects */
+
+/* Floating 3D Elements */
+.floating-3d-element {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: float3D 6s ease-in-out infinite;
+}
+
+.floating-3d-element::before,
+.floating-3d-element::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.2));
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+  transform: rotateY(0deg);
+  animation: rotate3D 8s linear infinite;
+}
+
+.floating-3d-element::after {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(147, 197, 253, 0.2));
+  animation-duration: 10s;
+  animation-direction: reverse;
+}
+
+.floating-sphere::before {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.25));
+  border-radius: 50%;
+}
+
+.floating-cube::before {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(96, 165, 250, 0.25));
+  border-radius: 10px;
+  clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+}
+
+.floating-cylinder::before {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(147, 197, 253, 0.25));
+  border-radius: 50%/25px;
+  height: 60px;
+}
+
+.floating-torus::before {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.25));
+  border-radius: 50%;
+}
+
+.floating-torus::after {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(147, 197, 253, 0.2));
+  border-radius: 100% 30%;
+}
+
+/* 3D Animation Keyframes */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateZ(0px) rotateY(0deg);
+  }
+  25% {
+    transform: translateZ(20px) rotateY(90deg);
+  }
+  50% {
+    transform: translateZ(40px) rotateY(180deg);
+  }
+  75% {
+    transform: translateZ(20px) rotateY(270deg);
+  }
+}
+
+@keyframes rotate3D {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/* Particle System Enhancement */
+#particles-js {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* 3D Canvas Background */
+#hero-3d-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+/* Advanced 3D Text Effects */
+.hero-3d-text {
+  text-shadow:
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: text3D 4s ease-in-out infinite;
+}
+
+@keyframes text3D {
+  0%, 100% {
+    transform: perspective(1000px) translateZ(0px);
+  }
+  50% {
+    transform: perspective(1000px) translateZ(5px);
+  }
+}
+
+/* Enhanced Card 3D Hover Effects */
+.card-enterprise:hover {
+  transform: translateY(-8px) rotateX(5deg) rotateY(0deg);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 50px 100px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.card-enterprise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+}
+
+.card-enterprise:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Very small mobile devices */
 @media (max-width: 480px) {
    /* Disable all transitions for better performance */
