@@ -79,22 +79,24 @@ p {
 
 /* Modern glassmorphism effects */
 .glass-effect {
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Enhanced shadows and depth */
+/* Enhanced shadows and depth - Ultra Smooth */
 .shadow-soft {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
 }
 
 .shadow-medium {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .shadow-strong {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 16px 64px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Smooth transitions for all interactive elements */
@@ -195,35 +197,40 @@ p {
 
 /* Card styles */
 .card-enterprise {
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .card-enterprise::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.card-enterprise:hover::before {
-  transform: scaleX(1);
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(255, 255, 255, 0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 
 .card-enterprise:hover {
-  border-color: rgba(37, 99, 235, 0.15);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 15px rgba(37, 99, 235, 0.1);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: 0 20px 40px -5px rgba(37, 99, 235, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-5px);
+}
+
+.card-enterprise:hover::before {
+  opacity: 1;
 }
 
 /* Navigation enhancements */
@@ -1006,32 +1013,7 @@ section#home {
 }
 
 /* Enhanced Card 3D Hover Effects */
-.card-enterprise:hover {
-  transform: translateY(-8px) rotateX(5deg) rotateY(0deg);
-  box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.15),
-    0 50px 100px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.card-enterprise::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
-  border-radius: 12px;
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: all 0.3s ease;
-}
-
-.card-enterprise:hover::before {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Removed conflicting hover effects to maintain cleaner look defined above */
 
 /* Very small mobile devices */
 @media (max-width: 480px) {

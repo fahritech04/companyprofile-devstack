@@ -2,60 +2,64 @@
 
 <?= $this->section('content') ?>
 <!-- Portfolio Hero Section -->
-<section class="py-32 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
+<section class="min-h-[60vh] flex items-center pt-32 pb-20 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
     <!-- Epic Enterprise Background System -->
-    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0 pointer-events-none">
         <!-- Primary Architectural Elements -->
-        <div class="absolute inset-0 bg-enterprise-geometric"></div>
-        <div class="absolute inset-0 bg-professional-waves opacity-20"></div>
-        <div class="absolute inset-0 bg-business-architecture opacity-30"></div>
+        <div class="absolute inset-0 bg-enterprise-geometric opacity-60"></div>
+        <div class="absolute inset-0 bg-professional-waves opacity-10"></div>
+        <div class="absolute inset-0 bg-business-architecture opacity-20"></div>
 
         <!-- Advanced Particle System -->
         <div class="absolute inset-0 bg-enterprise-particles"></div>
-        <div class="absolute inset-0 bg-network-effect opacity-10"></div>
+        <div class="absolute inset-0 bg-network-effect opacity-5"></div>
 
         <!-- Premium Metallic Highlights -->
-        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-100/10 to-transparent"></div>
+        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-50/20 to-transparent"></div>
 
         <!-- Sophisticated Grid Overlay -->
         <div class="absolute inset-0 bg-professional-mesh opacity-5"></div>
 
         <!-- Corporate Flow Networks -->
-        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-15"></div>
+        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-10"></div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center space-y-16" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
+        <div class="text-center space-y-12 max-w-5xl mx-auto" data-aos="fade-up">
             <!-- Modern Badge -->
-            <div class="inline-flex items-center px-6 py-2.5 rounded-full bg-blue-50/70 border border-blue-100/50 backdrop-blur-sm">
-                <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-                <span class="text-sm text-blue-900 font-medium"><?= lang('App.portfolio_showcase') ?></span>
+            <div class="inline-flex items-center px-5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-sm backdrop-blur-md mb-4 hover:scale-105 transition-transform duration-300 cursor-default">
+                <span class="flex h-2 w-2 relative mr-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span class="text-sm text-blue-900 font-semibold tracking-wide uppercase"><?= lang('App.portfolio_showcase') ?></span>
             </div>
 
             <!-- Main Content -->
             <div class="space-y-8">
-                <h1 class="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight max-w-6xl mx-auto">
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-blue-900 leading-tight tracking-tight drop-shadow-sm">
                     <?= lang('App.portfolio_title') ?>
                 </h1>
-                <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
+                <p class="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light">
                     <?= lang('App.portfolio_description') ?>
                 </p>
             </div>
 
             <!-- Modern CTA Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-                <a href="#portfolio-grid" class="group px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
-                    <span class="text-lg mr-2"><?= lang('App.view_portfolio') ?></span>
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 pt-8">
+                <a href="#portfolio-grid" class="group relative px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/30 hover:shadow-blue-600/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative flex items-center justify-center">
+                        <span class="text-lg mr-2"><?= lang('App.view_portfolio') ?></span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
                 </a>
-                <a href="#contact" class="group px-12 py-5 bg-white/80 backdrop-blur-sm text-blue-600 border border-blue-200 rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
+                <a href="#contact" class="group px-8 py-4 bg-white/60 backdrop-blur-md text-slate-700 border border-white/50 rounded-xl font-semibold shadow-sm hover:bg-white/80 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
                     <span class="text-lg mr-2"><?= lang('App.discuss_project_btn') ?></span>
-                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                     </svg>
                 </a>

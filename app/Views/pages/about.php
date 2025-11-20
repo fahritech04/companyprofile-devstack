@@ -2,61 +2,62 @@
 
 <?= $this->section('content') ?>
 <!-- Spectacular About Hero Section -->
-<section class="pt-32 pb-32 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
+<section class="min-h-[60vh] flex items-center pt-32 pb-20 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
     <!-- Epic Enterprise Background System -->
-    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0 pointer-events-none">
         <!-- Primary Architectural Elements -->
-        <div class="absolute inset-0 bg-enterprise-geometric"></div>
-        <div class="absolute inset-0 bg-professional-waves opacity-20"></div>
-        <div class="absolute inset-0 bg-business-architecture opacity-30"></div>
+        <div class="absolute inset-0 bg-enterprise-geometric opacity-60"></div>
+        <div class="absolute inset-0 bg-professional-waves opacity-10"></div>
+        <div class="absolute inset-0 bg-business-architecture opacity-20"></div>
 
         <!-- Advanced Particle System -->
         <div class="absolute inset-0 bg-enterprise-particles"></div>
-        <div class="absolute inset-0 bg-network-effect opacity-10"></div>
+        <div class="absolute inset-0 bg-network-effect opacity-5"></div>
 
         <!-- Premium Metallic Highlights -->
-        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-100/10 to-transparent"></div>
+        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-50/20 to-transparent"></div>
 
         <!-- Sophisticated Grid Overlay -->
         <div class="absolute inset-0 bg-professional-mesh opacity-5"></div>
 
         <!-- Corporate Flow Networks -->
-        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-15"></div>
+        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-10"></div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center space-y-12" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
+        <div class="text-center space-y-12 max-w-5xl mx-auto" data-aos="fade-up">
             <!-- Professional Badge -->
-            <div class="inline-flex items-center px-6 py-2.5 rounded-full bg-blue-50/70 border border-blue-100/50 backdrop-blur-sm">
-                <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-                <span class="text-sm text-blue-900 font-medium"><?= lang('App.meet_our_team') ?></span>
+            <div class="inline-flex items-center px-5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-sm backdrop-blur-md mb-4 hover:scale-105 transition-transform duration-300 cursor-default">
+                <span class="flex h-2 w-2 relative mr-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span class="text-sm text-blue-900 font-semibold tracking-wide uppercase"><?= lang('App.meet_our_team') ?></span>
             </div>
 
             <!-- Main Content -->
             <div class="space-y-8">
-                <h1 class="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight max-w-6xl mx-auto">
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-blue-900 leading-tight tracking-tight drop-shadow-sm">
                     <?= lang('App.about_title') ?>
                 </h1>
-                <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
+                <p class="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light">
                     <?= lang('App.about_description') ?>
                 </p>
 
                 <!-- Achievement Badges -->
-                <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-                    <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
-                        <span class="text-2xl font-bold text-blue-600">5+</span>
-                        <span class="text-blue-900 font-medium"><?= lang('App.years_excellence') ?></span>
+                <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto pt-8">
+                    <div class="flex flex-col items-center px-8 py-4 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <span class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">5+</span>
+                        <span class="text-sm text-slate-600 font-medium uppercase tracking-wider mt-1"><?= lang('App.years_excellence') ?></span>
                     </div>
-                    <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
-                        <span class="text-2xl font-bold text-blue-600">50+</span>
-                        <span class="text-blue-900 font-medium"><?= lang('App.projects_completed') ?></span>
+                    <div class="flex flex-col items-center px-8 py-4 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <span class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">50+</span>
+                        <span class="text-sm text-slate-600 font-medium uppercase tracking-wider mt-1"><?= lang('App.projects_completed') ?></span>
                     </div>
-                    <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
-                        <span class="text-2xl font-bold text-blue-600">100%</span>
-                        <span class="text-blue-900 font-medium"><?= lang('App.client_satisfaction') ?></span>
+                    <div class="flex flex-col items-center px-8 py-4 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <span class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">100%</span>
+                        <span class="text-sm text-slate-600 font-medium uppercase tracking-wider mt-1"><?= lang('App.client_satisfaction') ?></span>
                     </div>
                 </div>
             </div>

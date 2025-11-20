@@ -2,81 +2,85 @@
 
 <?= $this->section('content') ?>
 <!-- Spectacular Services Hero Section -->
-<section class="pt-32 pb-32 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
+<section class="min-h-[60vh] flex items-center pt-32 pb-20 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30 relative overflow-hidden section-enterprise-premium">
     <!-- Epic Enterprise Background System -->
-    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0 pointer-events-none">
         <!-- Primary Architectural Elements -->
-        <div class="absolute inset-0 bg-enterprise-geometric"></div>
-        <div class="absolute inset-0 bg-professional-waves opacity-20"></div>
-        <div class="absolute inset-0 bg-business-architecture opacity-30"></div>
+        <div class="absolute inset-0 bg-enterprise-geometric opacity-60"></div>
+        <div class="absolute inset-0 bg-professional-waves opacity-10"></div>
+        <div class="absolute inset-0 bg-business-architecture opacity-20"></div>
 
         <!-- Advanced Particle System -->
         <div class="absolute inset-0 bg-enterprise-particles"></div>
-        <div class="absolute inset-0 bg-network-effect opacity-10"></div>
+        <div class="absolute inset-0 bg-network-effect opacity-5"></div>
 
         <!-- Premium Metallic Highlights -->
-        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-100/10 to-transparent"></div>
+        <div class="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-50/20 to-transparent"></div>
 
         <!-- Sophisticated Grid Overlay -->
         <div class="absolute inset-0 bg-professional-mesh opacity-5"></div>
 
         <!-- Corporate Flow Networks -->
-        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-15"></div>
+        <div class="hidden lg:block absolute inset-0 bg-corporate-flow opacity-10"></div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center space-y-12" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
+        <div class="text-center space-y-12 max-w-5xl mx-auto" data-aos="fade-up">
             <!-- Professional Badge -->
-            <div class="inline-flex items-center px-6 py-2.5 rounded-full bg-blue-50/70 border border-blue-100/50 backdrop-blur-sm">
-                <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243 4.242 3 3 0 004.243-4.243m4.242 4.242L3 3"></path>
-                </svg>
-                <span class="text-sm text-blue-900 font-medium"><?= lang('App.expertise_areas') ?></span>
+            <div class="inline-flex items-center px-5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-sm backdrop-blur-md mb-4 hover:scale-105 transition-transform duration-300 cursor-default">
+                <span class="flex h-2 w-2 relative mr-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span class="text-sm text-blue-900 font-semibold tracking-wide uppercase"><?= lang('App.expertise_areas') ?></span>
             </div>
 
             <!-- Main Content -->
             <div class="space-y-8">
-                <h1 class="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight max-w-6xl mx-auto">
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-blue-900 leading-tight tracking-tight drop-shadow-sm">
                     <?= lang('App.services_main_title') ?>
                 </h1>
-                <p class="text-xl text-blue-800/90 leading-relaxed max-w-4xl mx-auto font-medium">
+                <p class="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-light">
                     <?= lang('App.services_main_description') ?>
                 </p>
 
                 <!-- Service Stats Badges -->
-                <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
-                    <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
-                        <span class="text-2xl font-bold text-blue-600">50+</span>
-                        <span class="text-blue-900 font-medium"><?= lang('App.projects_delivered') ?></span>
+                <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto pt-8">
+                    <div class="flex flex-col items-center px-8 py-4 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <span class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">50+</span>
+                        <span class="text-sm text-slate-600 font-medium uppercase tracking-wider mt-1"><?= lang('App.projects_delivered') ?></span>
                     </div>
-                    <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
-                        <span class="text-2xl font-bold text-blue-600">25+</span>
-                        <span class="text-blue-900 font-medium"><?= lang('App.happy_clients') ?></span>
+                    <div class="flex flex-col items-center px-8 py-4 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <span class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">25+</span>
+                        <span class="text-sm text-slate-600 font-medium uppercase tracking-wider mt-1"><?= lang('App.happy_clients') ?></span>
                     </div>
-                    <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
-                        <span class="text-2xl font-bold text-blue-600">99.9%</span>
-                        <span class="text-blue-900 font-medium"><?= lang('App.success_rate') ?></span>
+                    <div class="flex flex-col items-center px-8 py-4 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <span class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">99.9%</span>
+                        <span class="text-sm text-slate-600 font-medium uppercase tracking-wider mt-1"><?= lang('App.success_rate') ?></span>
                     </div>
-                    <div class="flex items-center space-x-2 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-2xl border border-blue-100/50 shadow-sm">
-                        <span class="text-2xl font-bold text-blue-600">24/7</span>
-                        <span class="text-blue-900 font-medium"><?= lang('App.expert_support') ?></span>
+                    <div class="flex flex-col items-center px-8 py-4 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <span class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">24/7</span>
+                        <span class="text-sm text-slate-600 font-medium uppercase tracking-wider mt-1"><?= lang('App.expert_support') ?></span>
                     </div>
                 </div>
             </div>
 
             <!-- Service CTA Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-                <a href="<?= base_url('contact') ?>" class="group px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
-                    <span class="text-lg mr-2"><?= lang('App.discuss_project') ?></span>
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 pt-8">
+                <a href="<?= base_url('contact') ?>" class="group relative px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/30 hover:shadow-blue-600/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative flex items-center justify-center">
+                        <span class="text-lg mr-2"><?= lang('App.discuss_project') ?></span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </div>
                 </a>
-                <a href="#services-list" class="group px-12 py-5 bg-white/80 backdrop-blur-sm text-blue-600 border border-blue-200 rounded-2xl font-semibold hover-lift inline-flex items-center justify-center transition-all duration-300">
+                <a href="#services-list" class="group px-8 py-4 bg-white/60 backdrop-blur-md text-slate-700 border border-white/50 rounded-xl font-semibold shadow-sm hover:bg-white/80 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
                     <span class="text-lg mr-2"><?= lang('App.explore_services') ?></span>
-                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </a>
             </div>

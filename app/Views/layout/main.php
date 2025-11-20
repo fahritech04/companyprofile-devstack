@@ -90,15 +90,14 @@
 </head>
 <body class="font-sans">
     <!-- Modern Navigation -->
-    <nav class="bg-white/90 backdrop-blur-md shadow-xl fixed w-full z-50 border-b border-blue-200/20">
+    <nav class="fixed w-full z-50 transition-all duration-300" id="main-navbar">
+        <div class="absolute inset-0 bg-white/70 backdrop-blur-xl border-b border-white/40 shadow-sm transition-all duration-300" id="navbar-bg"></div>
+        
         <!-- Subtle gradient line accent -->
-        <div class="h-1 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800"></div>
+        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 opacity-0 transition-opacity duration-300" id="navbar-accent"></div>
 
-        <!-- Floating background effect -->
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-transparent to-blue-50/20 opacity-50"></div>
-
-        <div class="max-w-7xl mx-auto px-4 relative">
-            <div class="flex justify-between items-center h-16">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="flex justify-between items-center h-20 transition-all duration-300" id="navbar-container">
                 <!-- Brand/Logo -->
                 <div class="flex items-center">
                     <div class="flex items-center space-x-3">
@@ -214,17 +213,16 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white text-gray-800 section-enterprise-premium relative overflow-hidden">
+    <footer class="bg-white/80 backdrop-blur-xl text-gray-800 relative overflow-hidden border-t border-blue-100/50">
         <!-- Enterprise Background System -->
-        <div class="absolute inset-0 z-0">
-            <div class="bg-enterprise-geometric"></div>
-            <div class="bg-professional-waves opacity-15"></div>
-            <div class="bg-professional-mesh opacity-3"></div>
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="bg-enterprise-geometric opacity-40"></div>
+            <div class="bg-professional-waves opacity-10"></div>
+            <div class="bg-professional-mesh opacity-5"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
         </div>
-        <!-- Subtle Blue Accent Line -->
-        <div class="h-1 bg-gradient-to-r from-blue-600 to-blue-700"></div>
-
-        <div class="relative max-w-7xl mx-auto px-4 container-responsive">
+        
+        <div class="relative max-w-7xl mx-auto px-4 container-responsive pt-12">
             <!-- Minimal Newsletter -->
             <div class="py-16 border-b border-blue-200/30">
                 <div class="max-w-2xl mx-auto text-center">
@@ -346,6 +344,28 @@
     <!-- Performance Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('main-navbar');
+        const navbarBg = document.getElementById('navbar-bg');
+        const navbarContainer = document.getElementById('navbar-container');
+        const navbarAccent = document.getElementById('navbar-accent');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbarBg.classList.add('shadow-md', 'bg-white/90');
+                navbarBg.classList.remove('bg-white/70');
+                navbarContainer.classList.remove('h-20');
+                navbarContainer.classList.add('h-16');
+                navbarAccent.classList.remove('opacity-0');
+            } else {
+                navbarBg.classList.remove('shadow-md', 'bg-white/90');
+                navbarBg.classList.add('bg-white/70');
+                navbarContainer.classList.add('h-20');
+                navbarContainer.classList.remove('h-16');
+                navbarAccent.classList.add('opacity-0');
+            }
+        });
+
         // Initialize AOS with mobile-optimized settings
         if (window.innerWidth <= 480) {
             // Disable AOS completely on very small screens for better performance
