@@ -64,59 +64,79 @@
 
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100">
-            <button class="btn-glow text-sm px-6 py-2.5"><?= lang('App.all_projects') ?></button>
-            <button class="btn-glass text-sm px-6 py-2.5"><?= lang('App.web_design') ?></button>
-            <button class="btn-glass text-sm px-6 py-2.5"><?= lang('App.mobile_app') ?></button>
-            <button class="btn-glass text-sm px-6 py-2.5"><?= lang('App.branding') ?></button>
+            <button class="btn-glow text-sm px-6 py-2.5 portfolio-filter active"
+                data-filter="all"><?= lang('App.all_projects') ?></button>
+            <?php if (!empty($portfolios)):
+                $categories = array_unique(array_column($portfolios, 'category'));
+                foreach ($categories as $cat): ?>
+                    <button class="btn-glass text-sm px-6 py-2.5 portfolio-filter"
+                        data-filter="<?= esc($cat) ?>"><?= esc(ucwords(str_replace('_', ' ', $cat))) ?></button>
+                <?php endforeach; endif; ?>
         </div>
 
         <!-- Portfolio Items -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <?php
-            $portfolioItems = [
-                ['img' => 'eCommerce_website.jpeg', 'alt' => 'E-Commerce Website', 'title' => 'ecommerce_website', 'cat' => 'website_dev', 'icon' => 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 01-9-9m9 9a9 9 0 00-9 9'],
-                ['img' => 'mobile_banking_app.jpeg', 'alt' => 'Mobile Banking App', 'title' => 'mobile_banking', 'cat' => 'mobile_application', 'icon' => 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z'],
-                ['img' => 'brand_identity_design.jpeg', 'alt' => 'Brand Identity Design', 'title' => 'brand_identity', 'cat' => 'branding', 'icon' => 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z'],
-                ['img' => 'educational_platform.jpeg', 'alt' => 'Educational Platform', 'title' => 'educational_platform', 'cat' => 'web_application', 'icon' => 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'],
-                ['img' => 'restaurant_app.jpeg', 'alt' => 'Restaurant App', 'title' => 'restaurant_app', 'cat' => 'mobile_application', 'icon' => 'M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4 0V2a2 2 0 012-2h4a2 2 0 012 2v2m-8 0h8'],
-                ['img' => 'corporate_branding.jpeg', 'alt' => 'Corporate Branding', 'title' => 'corporate_branding', 'cat' => 'branding', 'icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
-            ];
-            $delay = 0;
-            foreach ($portfolioItems as $item):
-                ?>
-                <div class="group relative overflow-hidden rounded-2xl card-dark" data-aos="fade-up"
-                    data-aos-delay="<?= $delay ?>">
-                    <div class="h-64 relative overflow-hidden">
-                        <img src="<?= base_url('images/' . $item['img']) ?>" alt="<?= $item['alt'] ?>"
-                            class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-                            loading="lazy">
-                        <div class="absolute inset-0 bg-navy-900/60"></div>
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid-items">
+            <?php if (!empty($portfolios)): ?>
+                <?php $delay = 0;
+                foreach ($portfolios as $item): ?>
+                    <div class="group relative overflow-hidden rounded-2xl card-dark portfolio-item"
+                        data-category="<?= esc($item['category'] ?? '') ?>" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
+                        <div class="h-64 relative overflow-hidden">
+                            <?php if (!empty($item['image'])): ?>
+                                <img src="<?= base_url('uploads/portfolio/' . $item['image']) ?>" alt="<?= esc($item['title']) ?>"
+                                    class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                    loading="lazy">
+                            <?php else: ?>
+                                <div
+                                    class="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-900/40 to-navy-900/60 flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-blue-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            <?php endif; ?>
+                            <div class="absolute inset-0 bg-navy-900/60"></div>
+                        </div>
                         <div
-                            class="absolute bottom-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                            <div class="icon-box-dark mb-3">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="<?= $item['icon'] ?>"></path>
-                                </svg>
+                            class="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400">
+                            <div
+                                class="absolute bottom-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-lg font-bold mb-1"><?= esc($item['title']) ?></h3>
+                                <p class="text-sm text-blue-300 mb-2">
+                                    <?= esc(ucwords(str_replace('_', ' ', $item['category'] ?? ''))) ?></p>
+                                <?php if (!empty($item['client_name'])): ?>
+                                    <p class="text-xs text-gray-400 mb-3">Client: <?= esc($item['client_name']) ?></p>
+                                <?php endif; ?>
+                                <?php if (!empty($item['demo_url'])): ?>
+                                    <a href="<?= esc($item['demo_url']) ?>" target="_blank"
+                                        class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                        <span><?= lang('App.view_project') ?></span>
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                <?php endif; ?>
                             </div>
-                            <h3 class="text-lg font-bold mb-1"><?= lang('App.' . $item['title']) ?></h3>
-                            <p class="text-sm text-blue-300 mb-3"><?= lang('App.' . $item['cat']) ?></p>
-                            <a href="#"
-                                class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium">
-                                <span><?= lang('App.view_project') ?></span>
-                                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                    </path>
-                                </svg>
-                            </a>
                         </div>
                     </div>
+                    <?php $delay += 100; endforeach; ?>
+            <?php else: ?>
+                <!-- Fallback: no portfolios yet -->
+                <div class="col-span-full text-center py-16">
+                    <div class="icon-box-dark mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-lg font-semibold mb-2">Coming Soon</h3>
+                    <p class="text-gray-400">Our portfolio is being updated. Check back soon!</p>
                 </div>
-                <?php $delay += 100; endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 </section>

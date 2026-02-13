@@ -2,11 +2,22 @@
 
 namespace App\Controllers;
 
+use App\Models\ServiceModel;
+use App\Models\PortfolioModel;
+
 class Home extends BaseController
 {
     public function index()
     {
-        return view('pages/home');
+        $serviceModel = new ServiceModel();
+        $portfolioModel = new PortfolioModel();
+
+        $data = [
+            'services' => $serviceModel->getActive(),
+            'portfolios' => $portfolioModel->getFeatured(),
+        ];
+
+        return view('pages/home', $data);
     }
 
     public function about()
@@ -16,12 +27,24 @@ class Home extends BaseController
 
     public function services()
     {
-        return view('pages/services');
+        $serviceModel = new ServiceModel();
+
+        $data = [
+            'services' => $serviceModel->getActive(),
+        ];
+
+        return view('pages/services', $data);
     }
 
     public function portfolio()
     {
-        return view('pages/portfolio');
+        $portfolioModel = new PortfolioModel();
+
+        $data = [
+            'portfolios' => $portfolioModel->orderBy('sort_order', 'ASC')->findAll(),
+        ];
+
+        return view('pages/portfolio', $data);
     }
 
     public function contact()
