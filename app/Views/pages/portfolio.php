@@ -5,13 +5,41 @@
 <!-- Portfolio Hero Section -->
 <section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
+    <!-- Netdata-style Hero Background Grid -->
+    <div class="landing-hero-bg-grid"></div>
+
+    <!-- Netdata-style Floating Squares -->
+    <div class="landing-hero-bg-squares">
+        <div class="landing-hero-bg-square" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="landing-hero-bg-square" style="top: 20%; left: 15%; animation-delay: 0.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 30%; left: 25%; animation-delay: 1s;"></div>
+        <div class="landing-hero-bg-square" style="top: 40%; left: 35%; animation-delay: 1.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 50%; left: 45%; animation-delay: 2s;"></div>
+        <div class="landing-hero-bg-square" style="top: 60%; left: 55%; animation-delay: 2.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 70%; left: 65%; animation-delay: 3s;"></div>
+        <div class="landing-hero-bg-square" style="top: 80%; left: 75%; animation-delay: 3.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 15%; left: 85%; animation-delay: 0.3s;"></div>
+        <div class="landing-hero-bg-square" style="top: 25%; left: 95%; animation-delay: 0.8s;"></div>
+    </div>
+
     <div class="grid-bg"></div>
     <div class="dot-grid-dark"></div>
     <div class="hex-grid"></div>
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
     <div class="glow-orb glow-orb-3"></div>
-    <div class="particle"></div>
+
+    <!-- Floating Dots -->
+    <div class="floating-dot" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-dot" style="top: 25%; left: 30%; animation-delay: 0.5s;"></div>
+    <div class="floating-dot" style="top: 35%; left: 50%; animation-delay: 1s;"></div>
+    <div class="floating-dot" style="top: 45%; left: 70%; animation-delay: 1.5s;"></div>
+    <div class="floating-dot" style="top: 55%; left: 90%; animation-delay: 2s;"></div>
+    <div class="floating-dot" style="top: 65%; left: 20%; animation-delay: 2.5s;"></div>
+    <div class="floating-dot" style="top: 75%; left: 40%; animation-delay: 3s;"></div>
+    <div class="floating-dot" style="top: 85%; left: 60%; animation-delay: 3.5s;"></div>
+
+    <!-- Particles -->
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
@@ -31,6 +59,9 @@
     <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
     <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
     <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
+
+    <!-- Scan Line Effect -->
+    <div class="scan-line" style="animation-delay: 0s;"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">
@@ -63,7 +94,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
                         </path>
-                    </svg>
+                    </</svg>
                 </a>
             </div>
         </div>
@@ -120,7 +151,7 @@
                                     class="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-900/40 to-navy-900/60 flex items-center justify-center">
                                     <svg class="w-16 h-16 text-blue-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2-2v12a2 2 0 002 2z">
                                         </path>
                                     </svg>
                                 </div>
@@ -150,7 +181,7 @@
                                         </span>
                                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002 2v-4M14 4h6m0 0v6m0-6L10 14">
                                             </path>
                                         </svg>
                                     </a>
@@ -165,7 +196,7 @@
                     <div class="icon-box-dark mx-auto mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012-2v2M7 7h10">
                             </path>
                         </svg>
                     </div>

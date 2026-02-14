@@ -338,3 +338,272 @@
 .stagger-grid-item:nth-child(4) { animation-delay: 0.4s; }
 .stagger-grid-item:nth-child(5) { animation-delay: 0.5s; }
 .stagger-grid-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* ================================================================
+   NETDATA-SPECIFIC ANIMATIONS
+   ================================================================ */
+
+/* Text shine effect */
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.text-shine {
+  background: linear-gradient(90deg, #ffffff 0%, rgba(96, 165, 250, 0.5) 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 3s linear infinite;
+}
+
+/* Lamp effect - like a blinking indicator */
+@keyframes lamp {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scaleY(1) translateY(0);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.05) translateY(-4px);
+    filter: brightness(1.8);
+  }
+}
+
+.lamp-indicator { animation: lamp 2s infinite; }
+
+/* Squeeze effect */
+@keyframes squeezeLeft {
+  0%, 100% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(4px); opacity: 1; }
+}
+
+@keyframes squeezeRight {
+  0%, 100% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(-4px); opacity: 1; }
+}
+
+.squeeze-left { animation: squeezeLeft 1s infinite; }
+.squeeze-right { animation: squeezeRight 1s infinite; }
+
+/* Rollup animation for cards/lists */
+@keyframes rollup_1 {
+  0% { transform: translateY(72px); opacity: 0; }
+  8.5% { transform: translateY(0); opacity: 1; }
+  24.5% { transform: translateY(0); opacity: 1; }
+  25% { transform: translateY(-72px); opacity: 0; }
+  100% { transform: translateY(-72px); opacity: 0; }
+}
+
+@keyframes rollup_2 {
+  0%, 33% { transform: translateY(72px); opacity: 0; }
+  41.5% { transform: translateY(0); opacity: 1; }
+  57.5% { transform: translateY(0); opacity: 1; }
+  58.5% { transform: translateY(-72px); opacity: 0; }
+  100% { transform: translateY(-72px); opacity: 0; }
+}
+
+@keyframes rollup_3 {
+  0%, 66% { transform: translateY(72px); opacity: 0; }
+  74.5% { transform: translateY(0); opacity: 1; }
+  90.5% { transform: translateY(0); opacity: 1; }
+  91.5% { transform: translateY(-72px); opacity: 0; }
+  100% { transform: translateY(-72px); opacity: 0; }
+}
+
+.rollup-item-1 { animation: rollup_1 10s infinite linear; }
+.rollup-item-2 { animation: rollup_2 10s infinite linear; }
+.rollup-item-3 { animation: rollup_3 10s infinite linear; }
+
+/* Grid pulse effect */
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+}
+
+.grid-pulse { animation: gridPulse 2s ease-in-out infinite; }
+
+/* Health status animation */
+@keyframes health {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.health-indicator { animation: health 1s linear infinite; }
+
+/* Simple fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in { animation: fadeIn 0.7s ease-in forwards; }
+
+/* Marquee scroll effect */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-scroll { animation: marqueeScroll 30s linear infinite; }
+
+/* Breathing animation */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.02); opacity: 1; }
+}
+
+.breathe { animation: breathe 4s ease-in-out infinite; }
+
+/* Typing cursor */
+@keyframes typingCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: typingCursor 1s infinite;
+}
+
+/* Wave animation */
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  75% { transform: translateY(5px); }
+}
+
+.wave-anim { animation: wave 2s ease-in-out infinite; }
+
+/* ================================================================
+   NETDATA HERO BACKGROUND ELEMENTS
+   ================================================================ */
+
+/* Hero background grid with pulse */
+.landing-hero-bg-grid {
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(96, 165, 250, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.05) 1px, transparent 1px);
+  background-size: 12px 12px, 12px 12px, 12px 12px, 12px 12px;
+  background-position: 0 0, 6px 6px, 0 0, 0 0;
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.landing-hero-bg-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: inherit;
+  animation: gridPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Hero background squares */
+.landing-hero-bg-squares {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landing-hero-bg-square {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(96, 165, 250, 0.4);
+  transition: none;
+  z-index: 0;
+  animation: squarePulse 3s ease-in-out infinite;
+}
+
+@keyframes squarePulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+/* Hero separator line */
+.landing-hero-separator {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(96, 165, 250, 0) 0%, rgba(96, 165, 250, 0.3) 50%, rgba(96, 165, 250, 0) 100%);
+  width: 100%;
+  position: relative;
+}
+
+.landing-hero-separator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 1px;
+  background: rgba(96, 165, 250, 0.8);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* Floating dots pattern */
+@keyframes floatDot {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-20px) scale(1.5); opacity: 1; }
+}
+
+.floating-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(96, 165, 250, 0.6);
+  border-radius: 50%;
+  animation: floatDot 4s ease-in-out infinite;
+}
+
+/* Scan line effect */
+@keyframes scanLine {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.5), transparent);
+  animation: scanLine 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Glow line effect */
+@keyframes glowLine {
+  0%, 100% { box-shadow: 0 0 5px rgba(96, 165, 250, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.6), 0 0 40px rgba(96, 165, 250, 0.3); }
+}
+
+.glow-line {
+  animation: glowLine 2s ease-in-out infinite;
+}
+
+/* Matrix rain effect */
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.matrix-column {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(96, 165, 250, 0.3), transparent);
+  animation: matrixRain 10s linear infinite;
+}

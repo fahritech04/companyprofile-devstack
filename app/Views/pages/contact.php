@@ -4,12 +4,40 @@
 <!-- Contact Hero Section -->
 <section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
+    <!-- Netdata-style Hero Background Grid -->
+    <div class="landing-hero-bg-grid"></div>
+
+    <!-- Netdata-style Floating Squares -->
+    <div class="landing-hero-bg-squares">
+        <div class="landing-hero-bg-square" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="landing-hero-bg-square" style="top: 20%; left: 15%; animation-delay: 0.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 30%; left: 25%; animation-delay: 1s;"></div>
+        <div class="landing-hero-bg-square" style="top: 40%; left: 35%; animation-delay: 1.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 50%; left: 45%; animation-delay: 2s;"></div>
+        <div class="landing-hero-bg-square" style="top: 60%; left: 55%; animation-delay: 2.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 70%; left: 65%; animation-delay: 3s;"></div>
+        <div class="landing-hero-bg-square" style="top: 80%; left: 75%; animation-delay: 3.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 15%; left: 85%; animation-delay: 0.3s;"></div>
+        <div class="landing-hero-bg-square" style="top: 25%; left: 95%; animation-delay: 0.8s;"></div>
+    </div>
+
     <div class="grid-bg"></div>
     <div class="dot-grid-dark"></div>
     <div class="hex-grid"></div>
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
     <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Floating Dots -->
+    <div class="floating-dot" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-dot" style="top: 25%; left: 30%; animation-delay: 0.5s;"></div>
+    <div class="floating-dot" style="top: 35%; left: 50%; animation-delay: 1s;"></div>
+    <div class="floating-dot" style="top: 45%; left: 70%; animation-delay: 1.5s;"></div>
+    <div class="floating-dot" style="top: 55%; left: 90%; animation-delay: 2s;"></div>
+    <div class="floating-dot" style="top: 65%; left: 20%; animation-delay: 2.5s;"></div>
+    <div class="floating-dot" style="top: 75%; left: 40%; animation-delay: 3s;"></div>
+    <div class="floating-dot" style="top: 85%; left: 60%; animation-delay: 3.5s;"></div>
+
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
@@ -30,6 +58,9 @@
     <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
     <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
     <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
+
+    <!-- Scan Line Effect -->
+    <div class="scan-line" style="animation-delay: 0s;"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">
@@ -297,7 +328,7 @@
                 <div class="card-dark overflow-hidden card-glow-hover">
                     <div class="h-96 w-full relative">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d457.70649255784986!2d107.63274538807497!3d-6.974360799999995!2m3!1f0!2f0!3f0!3m2!1sid!2sid!4v1760206567152!5m2!1sid!2sid"
+                            src="https://maps.google.com/maps?q=Gg.+PGA+No.106,+Lengkong,+Kec.+Bojongsoang,+Kabupaten+Bandung&output=embed"
                             width="100%" height="100%"
                             style="border:0;filter:brightness(0.8) contrast(1.1) saturate(0.8);" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-t-xl">
@@ -327,7 +358,7 @@
                                     </svg>
                                     <span><?= lang('App.open_maps') ?></span>
                                 </a>
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=Gg.+PGA+No.106,+Lengkong,+Kec.+Bojongsoang,+Kabupaten+Bandung"
+                                <a href="https://maps.google.com/maps?q=Gg.+PGA+No.106,+Lengkong,+Kec.+Bojongsoang,+Kabupaten+Bandung"
                                     target="_blank" class="btn-glass text-sm px-5 py-2.5 magnetic-btn">
                                     <span><?= lang('App.get_directions') ?></span>
                                 </a>

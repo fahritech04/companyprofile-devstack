@@ -5,10 +5,63 @@
 <!-- About Hero Section -->
 <section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
+    <!-- Netdata-style Hero Background Grid -->
+    <div class="landing-hero-bg-grid"></div>
+
+    <!-- Netdata-style Floating Squares -->
+    <div class="landing-hero-bg-squares">
+        <div class="landing-hero-bg-square" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="landing-hero-bg-square" style="top: 20%; left: 15%; animation-delay: 0.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 30%; left: 25%; animation-delay: 1s;"></div>
+        <div class="landing-hero-bg-square" style="top: 40%; left: 35%; animation-delay: 1.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 50%; left: 45%; animation-delay: 2s;"></div>
+        <div class="landing-hero-bg-square" style="top: 60%; left: 55%; animation-delay: 2.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 70%; left: 65%; animation-delay: 3s;"></div>
+        <div class="landing-hero-bg-square" style="top: 80%; left: 75%; animation-delay: 3.5s;"></div>
+        <div class="landing-hero-bg-square" style="top: 15%; left: 85%; animation-delay: 0.3s;"></div>
+        <div class="landing-hero-bg-square" style="top: 25%; left: 95%; animation-delay: 0.8s;"></div>
+    </div>
+
     <div class="grid-bg"></div>
     <div class="dot-grid-dark"></div>
+    <div class="hex-grid"></div>
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Floating Dots -->
+    <div class="floating-dot" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-dot" style="top: 25%; left: 30%; animation-delay: 0.5s;"></div>
+    <div class="floating-dot" style="top: 35%; left: 50%; animation-delay: 1s;"></div>
+    <div class="floating-dot" style="top: 45%; left: 70%; animation-delay: 1.5s;"></div>
+    <div class="floating-dot" style="top: 55%; left: 90%; animation-delay: 2s;"></div>
+    <div class="floating-dot" style="top: 65%; left: 20%; animation-delay: 2.5s;"></div>
+    <div class="floating-dot" style="top: 75%; left: 40%; animation-delay: 3s;"></div>
+    <div class="floating-dot" style="top: 85%; left: 60%; animation-delay: 3.5s;"></div>
+
+    <!-- Particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Canvas Particle Network -->
+    <canvas id="particle-network-about" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+
+    <!-- Data Stream Lines -->
+    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
+    <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
+
+    <!-- Scan Line Effect -->
+    <div class="scan-line" style="animation-delay: 0s;"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">

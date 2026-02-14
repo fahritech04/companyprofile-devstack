@@ -516,6 +516,18 @@
             }
 
             // ── Netdata-style Effects Initialization ──
+
+            // Scroll indicator click
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollIndicator) {
+                scrollIndicator.addEventListener('click', function() {
+                    const nextSection = document.querySelector('section:nth-of-type(2)');
+                    if (nextSection) {
+                        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+
             // Add pulse dots to cards
             document.querySelectorAll('.card-dark').forEach(card => {
                 if (!card.querySelector('.pulse-dot')) {
