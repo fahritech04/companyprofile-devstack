@@ -28,7 +28,39 @@ $routes->get('auth/verify/(.+)', 'Auth::verify/$1');
 $routes->get('auth/resend-verification', 'Auth::resendVerification');
 $routes->post('auth/resend-verification', 'Auth::resendVerification');
 
-// Admin Routes (require authentication)
+// ═══════════════════════════════════════════════════
+// CLIENT PORTAL ROUTES
+// ═══════════════════════════════════════════════════
+$routes->group('client', ['filter' => 'auth', 'namespace' => 'App\Controllers\Client'], function ($routes) {
+    // Dashboard
+    $routes->get('/', 'DashboardController::index');
+
+    // Orders
+    $routes->get('orders', 'OrderController::index');
+    $routes->get('orders/create', 'OrderController::create');
+    $routes->get('orders/create/(:segment)', 'OrderController::create/$1');
+    $routes->post('orders/store', 'OrderController::store');
+    $routes->get('orders/(:num)', 'OrderController::show/$1');
+
+    // Billing
+    $routes->get('billing', 'BillingController::index');
+    $routes->get('billing/(:num)', 'BillingController::show/$1');
+    $routes->post('billing/(:num)/upload', 'BillingController::uploadProof/$1');
+
+    // Tickets
+    $routes->get('tickets', 'TicketController::index');
+    $routes->get('tickets/create', 'TicketController::create');
+    $routes->post('tickets/store', 'TicketController::store');
+    $routes->get('tickets/(:num)', 'TicketController::show/$1');
+    $routes->post('tickets/(:num)/reply', 'TicketController::reply/$1');
+
+    // Revisions
+    $routes->post('revisions/(:num)', 'RevisionController::store/$1');
+});
+
+// ═══════════════════════════════════════════════════
+// ADMIN ROUTES (require authentication + admin role)
+// ═══════════════════════════════════════════════════
 $routes->group('admin', ['filter' => 'auth', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
     // Dashboard
     $routes->get('/', 'DashboardController::index');
@@ -53,6 +85,23 @@ $routes->group('admin', ['filter' => 'auth', 'namespace' => 'App\Controllers\Adm
     $routes->get('inquiries', 'InquiryController::index');
     $routes->get('inquiries/(:num)', 'InquiryController::show/$1');
     $routes->post('inquiries/delete/(:num)', 'InquiryController::delete/$1');
+
+    // Order Management (SaaS)
+    $routes->get('orders', 'OrderManageController::index');
+    $routes->get('orders/(:num)', 'OrderManageController::show/$1');
+    $routes->post('orders/(:num)/status', 'OrderManageController::updateStatus/$1');
+    $routes->post('orders/(:num)/milestone', 'OrderManageController::updateMilestone/$1');
+
+    // Billing Management (SaaS)
+    $routes->get('billing', 'BillingManageController::index');
+    $routes->get('billing/(:num)', 'BillingManageController::show/$1');
+    $routes->post('billing/(:num)/verify', 'BillingManageController::verify/$1');
+
+    // Ticket Management (SaaS)
+    $routes->get('tickets', 'TicketManageController::index');
+    $routes->get('tickets/(:num)', 'TicketManageController::show/$1');
+    $routes->post('tickets/(:num)/reply', 'TicketManageController::reply/$1');
+    $routes->post('tickets/(:num)/close', 'TicketManageController::close/$1');
 });
 
 // Protected Routes (require authentication)

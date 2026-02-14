@@ -150,18 +150,18 @@ class Auth extends BaseController
         ];
 
         try {
-             $this->userModel->insert($userData);
+            $this->userModel->insert($userData);
 
-             // Send verification email after successful registration
-             $this->sendVerificationEmail($this->request->getPost('email'), $this->request->getPost('first_name'));
+            // Send verification email after successful registration
+            $this->sendVerificationEmail($this->request->getPost('email'), $this->request->getPost('first_name'));
 
-             return redirect()->to('/login')->with('success', 'Registration successful! Please check your email and click the verification link before logging in.');
-         } catch (\Exception $e) {
-             // Log the error for debugging
-             log_message('error', 'Registration error: ' . $e->getMessage());
+            return redirect()->to('/login')->with('success', 'Registration successful! Please check your email and click the verification link before logging in.');
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            log_message('error', 'Registration error: ' . $e->getMessage());
 
-             return redirect()->back()->withInput()->with('error', 'Registration failed. Please try again.');
-         }
+            return redirect()->back()->withInput()->with('error', 'Registration failed. Please try again.');
+        }
     }
 
     /**
@@ -193,17 +193,13 @@ class Auth extends BaseController
             return redirect()->to('/login')->with('error', 'Your session has expired. Please verify your email address first.');
         }
 
-        $data = [
-            'title' => 'Dashboard - SaaS Platform',
-            'user' => [
-                'username' => session()->get('username'),
-                'email' => session()->get('email'),
-                'first_name' => session()->get('first_name'),
-                'last_name' => session()->get('last_name')
-            ]
-        ];
+        // Redirect based on role
+        $role = session()->get('user_role');
+        if ($role === 'admin') {
+            return redirect()->to('/admin');
+        }
 
-        return view('auth/dashboard', $data);
+        return redirect()->to('/client');
     }
 
     /**

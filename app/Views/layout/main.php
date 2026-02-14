@@ -147,7 +147,7 @@
 
                 <!-- CTA Button -->
                 <div class="hidden lg:flex items-center">
-                    <a href="<?= base_url('contact') ?>" class="btn-glow text-sm px-5 py-2.5">
+                    <a href="<?= base_url('login') ?>" class="btn-glow text-sm px-5 py-2.5">
                         <span>Get Started</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -185,7 +185,7 @@
                         class="block px-4 py-3 text-gray-400 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all duration-300 font-medium">Contact</a>
 
                     <div class="pt-4 border-t border-white/5 mt-4 px-4">
-                        <a href="<?= base_url('contact') ?>"
+                        <a href="<?= base_url('login') ?>"
                             class="mobile-cta bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center rounded-xl">
                             Get Started
                         </a>
@@ -291,7 +291,8 @@
                     <!-- Services -->
                     <div class="space-y-4">
                         <h4 class="text-sm font-semibold text-white uppercase tracking-wider">
-                            <?= lang('App.services_footer_title') ?></h4>
+                            <?= lang('App.services_footer_title') ?>
+                        </h4>
                         <ul class="space-y-3">
                             <li><a href="<?= base_url('services') ?>"
                                     class="text-gray-400 hover:text-blue-400 transition-colors text-sm"><?= lang('App.web_development') ?></a>
@@ -520,7 +521,7 @@
             // Scroll indicator click
             const scrollIndicator = document.querySelector('.scroll-indicator');
             if (scrollIndicator) {
-                scrollIndicator.addEventListener('click', function() {
+                scrollIndicator.addEventListener('click', function () {
                     const nextSection = document.querySelector('section:nth-of-type(2)');
                     if (nextSection) {
                         nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -540,10 +541,10 @@
 
             // Add floating label animation to input fields
             document.querySelectorAll('input, textarea').forEach(input => {
-                input.addEventListener('focus', function() {
+                input.addEventListener('focus', function () {
                     this.parentElement.classList.add('input-focused');
                 });
-                input.addEventListener('blur', function() {
+                input.addEventListener('blur', function () {
                     this.parentElement.classList.remove('input-focused');
                 });
             });
@@ -553,7 +554,7 @@
             const portfolioItems = document.querySelectorAll('.portfolio-item');
 
             filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     // Update active state
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');

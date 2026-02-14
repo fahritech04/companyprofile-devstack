@@ -93,7 +93,7 @@
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4" data-aos="fade-up" data-aos-delay="300">
-                <a href="<?= base_url('contact') ?>" class="btn-glow text-base px-8 py-4 magnetic-btn">
+                <a href="<?= base_url('login') ?>" class="btn-glow text-base px-8 py-4 magnetic-btn">
                     <span><?= lang('App.get_started') ?? 'Get Started' ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -580,7 +580,8 @@
 
     <div class="max-w-3xl mx-auto px-4 relative z-10 text-center" data-aos="fade-up">
         <h2 class="text-gradient-blue mb-6 neon-text">
-            <?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?></h2>
+            <?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?>
+        </h2>
         <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
             <?= lang('App.cta_subtitle') ?? 'Let\'s discuss how we can help you achieve your digital goals. Schedule a free consultation today.' ?>
         </p>
