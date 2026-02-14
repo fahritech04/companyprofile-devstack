@@ -61,7 +61,7 @@ $routes->group('client', ['filter' => 'auth', 'namespace' => 'App\Controllers\Cl
 // ═══════════════════════════════════════════════════
 // ADMIN ROUTES (require authentication + admin role)
 // ═══════════════════════════════════════════════════
-$routes->group('admin', ['filter' => 'auth', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
+$routes->group('admin', ['filter' => 'admin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
     // Dashboard
     $routes->get('/', 'DashboardController::index');
 
