@@ -131,72 +131,40 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <?php if (!empty($services)): ?>
-                <?php $delay = 100;
-                foreach ($services as $service): ?>
-                    <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
-                        <div class="icon-box-dark mx-auto mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="<?= esc($service['icon'] ?? 'M13 10V3L4 14h7v7l9-11h-7z') ?>"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 text-white text-center"><?= esc($service['title']) ?></h3>
-                        <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= esc($service['description']) ?>
-                        </p>
-                        <?php
-                        $features = json_decode($service['features'] ?? '[]', true);
-                        if (!empty($features)):
-                            ?>
-                            <div class="space-y-2">
-                                <?php foreach ($features as $feature): ?>
-                                    <div class="flex items-center space-x-2 text-sm text-gray-300">
-                                        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        <span><?= esc($feature) ?></span>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                    <?php $delay += 100; endforeach; ?>
-            <?php else: ?>
-                <!-- Fallback: static services -->
-                <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box-dark mx-auto mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_1_title') ?></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed text-center mb mb-6"><?= lang('App.service_1_desc') ?></p>
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-box-dark mx-auto mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
                 </div>
-                <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon-box-dark mx-auto mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_2_title') ?></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_2_desc') ?></p>
+                <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_1_title') ?></h3>
+                <p class="text-gray-400 text-sm leading-relaxed text-center mb mb-6"><?= lang('App.service_1_desc') ?>
+                </p>
+            </div>
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box-dark mx-auto mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
                 </div>
-                <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box-dark mx-auto mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_3_title') ?></h3>
-                    <p class="text-gray-400 text-sm
+                <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_2_title') ?></h3>
+                <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_2_desc') ?></p>
+            </div>
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box-dark mx-auto mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_3_title') ?></h3>
+                <p class="text-gray-400 text-sm
  leading-relaxed text-center mb-6"><?= lang('App.service_3_desc') ?></p>
-                </div>
-            <?php endif; ?>
+            </div>
         </div>
 
         <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
@@ -239,7 +207,8 @@
             $delay = 0;
             foreach ($industries as $ind):
                 ?>
-                <div class="card-dark p-8 text-center group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
+                <div class="card-dark p-8 text-center group card-glow-hover grid-animate-item" data-aos="fade-up"
+                    data-aos-delay="<?= $delay ?>">
                     <div class="icon-box-dark mx-auto mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<?= $ind['icon'] ?>">

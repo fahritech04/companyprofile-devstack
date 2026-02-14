@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Admin' ?> — DevStack Admin</title>
+    <link rel="icon" href="<?= base_url('images/devstack_icon.svg') ?>" type="image/svg+xml" sizes="any">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -425,13 +426,8 @@
             <!-- Logo -->
             <div class="px-5 py-5 border-b border-white/[0.04]">
                 <a href="<?= base_url('admin') ?>" class="flex items-center gap-3">
-                    <div
-                        class="w-9 h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
+                    <img src="<?= base_url('images/devstack_icon.svg') ?>" alt="DevStack" class="w-9 h-9 rounded-lg"
+                        style="filter: brightness(0) invert(1);">
                     <div>
                         <span class="text-[15px] font-bold text-white">Dev</span><span
                             class="text-[15px] font-bold text-blue-400">Stack</span>

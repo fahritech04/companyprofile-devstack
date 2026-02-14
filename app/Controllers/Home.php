@@ -2,18 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Models\ServiceModel;
 use App\Models\PortfolioModel;
 
 class Home extends BaseController
 {
     public function index()
     {
-        $serviceModel = new ServiceModel();
         $portfolioModel = new PortfolioModel();
 
         $data = [
-            'services' => $serviceModel->getActive(),
             'portfolios' => $portfolioModel->getFeatured(),
         ];
 
@@ -27,13 +24,7 @@ class Home extends BaseController
 
     public function services()
     {
-        $serviceModel = new ServiceModel();
-
-        $data = [
-            'services' => $serviceModel->getActive(),
-        ];
-
-        return view('pages/services', $data);
+        return view('pages/services');
     }
 
     public function portfolio()
