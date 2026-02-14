@@ -458,15 +458,6 @@
                 <p class="px-3 text-[9px] uppercase tracking-[0.15em] text-gray-600 font-semibold mb-2.5 mt-5">Content
                 </p>
 
-                <a href="<?= base_url('admin/services') ?>"
-                    class="sidebar-link <?= ($active ?? '') === 'services' ? 'active' : '' ?>">
-                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                    </svg>
-                    <span>Services</span>
-                </a>
-
                 <a href="<?= base_url('admin/portfolio') ?>"
                     class="sidebar-link <?= ($active ?? '') === 'portfolio' ? 'active' : '' ?>">
                     <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -475,22 +466,6 @@
                         </path>
                     </svg>
                     <span>Portfolio</span>
-                </a>
-
-                <a href="<?= base_url('admin/inquiries') ?>"
-                    class="sidebar-link <?= ($active ?? '') === 'inquiries' ? 'active' : '' ?>">
-                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                    <span>Inquiries</span>
-                    <?php if (isset($unreadCount) && $unreadCount > 0): ?>
-                        <span
-                            class="ml-auto bg-red-500/90 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">
-                            <?= $unreadCount ?>
-                        </span>
-                    <?php endif; ?>
                 </a>
 
                 <p class="px-3 text-[9px] uppercase tracking-[0.15em] text-gray-600 font-semibold mb-2.5 mt-5">SaaS

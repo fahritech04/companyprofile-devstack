@@ -65,14 +65,6 @@ $routes->group('admin', ['filter' => 'admin', 'namespace' => 'App\Controllers\Ad
     // Dashboard
     $routes->get('/', 'DashboardController::index');
 
-    // Services CRUD
-    $routes->get('services', 'ServiceController::index');
-    $routes->get('services/create', 'ServiceController::create');
-    $routes->post('services/store', 'ServiceController::store');
-    $routes->get('services/edit/(:num)', 'ServiceController::edit/$1');
-    $routes->post('services/update/(:num)', 'ServiceController::update/$1');
-    $routes->post('services/delete/(:num)', 'ServiceController::delete/$1');
-
     // Portfolio CRUD
     $routes->get('portfolio', 'PortfolioController::index');
     $routes->get('portfolio/create', 'PortfolioController::create');
@@ -80,11 +72,6 @@ $routes->group('admin', ['filter' => 'admin', 'namespace' => 'App\Controllers\Ad
     $routes->get('portfolio/edit/(:num)', 'PortfolioController::edit/$1');
     $routes->post('portfolio/update/(:num)', 'PortfolioController::update/$1');
     $routes->post('portfolio/delete/(:num)', 'PortfolioController::delete/$1');
-
-    // Inquiries
-    $routes->get('inquiries', 'InquiryController::index');
-    $routes->get('inquiries/(:num)', 'InquiryController::show/$1');
-    $routes->post('inquiries/delete/(:num)', 'InquiryController::delete/$1');
 
     // Order Management (SaaS)
     $routes->get('orders', 'OrderManageController::index');
