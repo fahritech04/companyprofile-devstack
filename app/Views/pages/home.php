@@ -140,12 +140,7 @@
     <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-950 to-transparent"
         style="background: linear-gradient(to top, #040b18, transparent);"></div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-    </div>
+
 </section>
 
 
@@ -191,7 +186,8 @@
                     </div>
                     <h4 class="text-white font-semibold mb-2"><?= lang('App.fast_delivery') ?? 'Fast Delivery' ?></h4>
                     <p class="text-gray-400 text-sm">
-                        <?= lang('App.fast_delivery_desc') ?? 'Agile development with rapid iteration cycles.' ?></p>
+                        <?= lang('App.fast_delivery_desc') ?? 'Agile development with rapid iteration cycles.' ?>
+                    </p>
                 </div>
                 <div class="card-dark p-6 group card-glow-hover">
                     <div class="icon-box-dark mb-4">
@@ -203,7 +199,8 @@
                     <h4 class="text-white font-semibold mb-2"><?= lang('App.secure_reliable') ?? 'Secure & Reliable' ?>
                     </h4>
                     <p class="text-gray-400 text-sm">
-                        <?= lang('App.secure_reliable_desc') ?? 'Enterprise-grade security and 99.9% uptime.' ?></p>
+                        <?= lang('App.secure_reliable_desc') ?? 'Enterprise-grade security and 99.9% uptime.' ?>
+                    </p>
                 </div>
                 <div class="card-dark p-6 group card-glow-hover">
                     <div class="icon-box-dark mb-4">
@@ -213,9 +210,11 @@
                         </svg>
                     </div>
                     <h4 class="text-white font-semibold mb-2">
-                        <?= lang('App.scalable_arch') ?? 'Scalable Architecture' ?></h4>
+                        <?= lang('App.scalable_arch') ?? 'Scalable Architecture' ?>
+                    </h4>
                     <p class="text-gray-400 text-sm">
-                        <?= lang('App.scalable_arch_desc') ?? 'Built to grow with your business needs.' ?></p>
+                        <?= lang('App.scalable_arch_desc') ?? 'Built to grow with your business needs.' ?>
+                    </p>
                 </div>
                 <div class="card-dark p-6 group card-glow-hover">
                     <div class="icon-box-dark mb-4">
@@ -227,7 +226,8 @@
                     <h4 class="text-white font-semibold mb-2"><?= lang('App.dedicated_support') ?? '24/7 Support' ?>
                     </h4>
                     <p class="text-gray-400 text-sm">
-                        <?= lang('App.dedicated_support_desc') ?? 'Round-the-clock assistance when you need it.' ?></p>
+                        <?= lang('App.dedicated_support_desc') ?? 'Round-the-clock assistance when you need it.' ?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -264,22 +264,26 @@
                 <button class="feature-tab-btn active" data-tab="tab-web">
                     <span class="text-sm font-semibold"><?= lang('App.web_development') ?? 'Web Development' ?></span>
                     <p class="text-xs text-gray-500 mt-1">
-                        <?= lang('App.web_dev_short') ?? 'Modern, responsive web applications' ?></p>
+                        <?= lang('App.web_dev_short') ?? 'Modern, responsive web applications' ?>
+                    </p>
                 </button>
                 <button class="feature-tab-btn" data-tab="tab-mobile">
                     <span class="text-sm font-semibold"><?= lang('App.mobile_apps') ?? 'Mobile Apps' ?></span>
                     <p class="text-xs text-gray-500 mt-1">
-                        <?= lang('App.mobile_short') ?? 'iOS & Android native experiences' ?></p>
+                        <?= lang('App.mobile_short') ?? 'iOS & Android native experiences' ?>
+                    </p>
                 </button>
                 <button class="feature-tab-btn" data-tab="tab-cloud">
                     <span class="text-sm font-semibold"><?= lang('App.cloud_solutions') ?? 'Cloud Solutions' ?></span>
                     <p class="text-xs text-gray-500 mt-1">
-                        <?= lang('App.cloud_short') ?? 'Scalable cloud infrastructure' ?></p>
+                        <?= lang('App.cloud_short') ?? 'Scalable cloud infrastructure' ?>
+                    </p>
                 </button>
                 <button class="feature-tab-btn" data-tab="tab-consulting">
                     <span class="text-sm font-semibold"><?= lang('App.consulting') ?? 'Tech Consulting' ?></span>
                     <p class="text-xs text-gray-500 mt-1">
-                        <?= lang('App.consulting_short') ?? 'Strategic technology guidance' ?></p>
+                        <?= lang('App.consulting_short') ?? 'Strategic technology guidance' ?>
+                    </p>
                 </button>
             </div>
 
@@ -476,7 +480,8 @@
                     </svg>
                 </div>
                 <h3 class="text-white text-lg font-semibold mb-3">
-                    <?= lang('App.cutting_edge_tech') ?? 'Cutting-Edge Technology' ?></h3>
+                    <?= lang('App.cutting_edge_tech') ?? 'Cutting-Edge Technology' ?>
+                </h3>
                 <p class="text-gray-400 text-sm leading-relaxed">
                     <?= lang('App.cutting_edge_desc') ?? 'We stay ahead of the curve, leveraging the latest frameworks and tools to build future-proof solutions.' ?>
                 </p>
@@ -496,7 +501,7 @@
                 </p>
             </div>
 
-                       <!-- Card 3 -->
+            <!-- Card 3 -->
             <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box-dark mb-5">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -535,7 +540,8 @@
                     </svg>
                 </div>
                 <h3 class="text-white text-lg font-semibold mb-3">
-                    <?= lang('App.transparent_pricing') ?? 'Transparent Pricing' ?></h3>
+                    <?= lang('App.transparent_pricing') ?? 'Transparent Pricing' ?>
+                </h3>
                 <p class="text-gray-400 text-sm leading-relaxed">
                     <?= lang('App.transparent_desc') ?? 'No hidden fees. Clear project scoping and honest estimates so you always know what to expect.' ?>
                 </p>
@@ -550,7 +556,8 @@
                     </svg>
                 </div>
                 <h3 class="text-white text-lg font-semibold mb-3">
-                    <?= lang('App.ongoing_support') ?? 'Ongoing Support' ?></h3>
+                    <?= lang('App.ongoing_support') ?? 'Ongoing Support' ?>
+                </h3>
                 <p class="text-gray-400 text-sm leading-relaxed">
                     <?= lang('App.ongoing_support_desc') ?? 'We don\'t just build and leave. Our dedicated support ensures your product stays in peak condition.' ?>
                 </p>
@@ -572,7 +579,8 @@
     <div class="absolute inset-0 hex-grid pointer-events-none opacity-50"></div>
 
     <div class="max-w-3xl mx-auto px-4 relative z-10 text-center" data-aos="fade-up">
-        <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?></h2>
+        <h2 class="text-gradient-blue mb-6 neon-text">
+            <?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?></h2>
         <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
             <?= lang('App.cta_subtitle') ?? 'Let\'s discuss how we can help you achieve your digital goals. Schedule a free consultation today.' ?>
         </p>
