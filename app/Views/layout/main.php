@@ -33,6 +33,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/netdata-animations.css') ?>">
 
     <!-- Performance & PWA -->
     <link rel="manifest" href="<?= base_url('manifest.json') ?>">
@@ -381,6 +382,7 @@
 
     <!-- Performance Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="<?= base_url('js/netdata-animations.js') ?>"></script>
     <script>
         // ── Dark Navbar Scroll ──
         const navbar = document.getElementById('main-navbar');
@@ -512,6 +514,51 @@
                     }
                 });
             }
+
+            // ── Netdata-style Effects Initialization ──
+            // Add pulse dots to cards
+            document.querySelectorAll('.card-dark').forEach(card => {
+                if (!card.querySelector('.pulse-dot')) {
+                    const pulseDot = document.createElement('div');
+                    pulseDot.className = 'pulse-dot absolute top-2 right-2 w-2 h-2 bg-blue-400 rounded-full';
+                    card.style.position = 'relative';
+                    card.appendChild(pulseDot);
+                }
+            });
+
+            // Add floating label animation to input fields
+            document.querySelectorAll('input, textarea').forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('input-focused');
+                });
+                input.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('input-focused');
+                });
+            });
+
+            // Portfolio filter functionality
+            const filterButtons = document.querySelectorAll('.portfolio-filter');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                            item.classList.add('fade-in-up');
+                        } else {
+                            item.style.display = 'none';
+                            item.classList.remove('fade-in-up');
+                        }
+                    });
+                });
+            });
         });
 
         // ── Feature Tabs ──

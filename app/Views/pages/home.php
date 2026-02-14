@@ -5,11 +5,12 @@
 <!-- ═══════════════════════════════════════════════════════════════
      HERO SECTION — Netdata-Inspired Dark Navy
      ═══════════════════════════════════════════════════════════════ -->
-<section class="min-h-screen flex items-center relative overflow-hidden"
+<section class="min-h-screen flex items-center relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f 0%, #0a1628 50%, #060e1f 100%);">
     <!-- Animated Grid -->
     <div class="grid-bg"></div>
     <div class="dot-grid-dark"></div>
+    <div class="hex-grid"></div>
 
     <!-- Glow Orbs -->
     <div class="glow-orb glow-orb-1"></div>
@@ -32,21 +33,35 @@
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Canvas Particle Network -->
+    <canvas id="particle-network" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+
+    <!-- Data Stream Lines -->
+    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
+    <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
 
     <!-- Hero Content -->
-    <div class="max-w-7xl mx-auto px-4 relative z-10 w-full py-32">
+    <div class="max-w-7xl mx-auto px-4 relative z-10 w-full py py-32">
         <div class="text-center space-y-8 max-w-4xl mx-auto">
 
             <!-- Animated Badge -->
             <div data-aos="fade-down" data-aos-delay="0">
-                <div class="badge-glow inline-flex items-center">
+                <div class="badge-glow inline-flex items-center animate-glow">
                     <span class="badge-pulse"></span>
                     <?= lang('App.badge_text') ?? 'Enterprise Digital Solutions' ?>
                 </div>
             </div>
 
             <!-- Massive Headline -->
-            <h1 class="text-gradient-blue leading-tight" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-gradient-blue leading-tight hero-text-reveal" data-aos="fade-up" data-aos-delay="100">
                 <?= lang('App.transform_digital_future') ?>
             </h1>
 
@@ -58,14 +73,14 @@
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4" data-aos="fade-up" data-aos-delay="300">
-                <a href="<?= base_url('contact') ?>" class="btn-glow text-base px-8 py-4">
+                <a href="<?= base_url('contact') ?>" class="btn-glow text-base px-8 py-4 magnetic-btn">
                     <span><?= lang('App.get_started') ?? 'Get Started' ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                     </svg>
                 </a>
-                <a href="<?= base_url('portfolio') ?>" class="btn-glass text-base px-8 py-4">
+                <a href="<?= base_url('portfolio') ?>" class="btn-glass text-base px-8 py-4 magnetic-btn">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -104,6 +119,13 @@
     <!-- Bottom fade -->
     <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-950 to-transparent"
         style="background: linear-gradient(to top, #040b18, transparent);"></div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
 </section>
 
 
@@ -140,7 +162,7 @@
 
             <!-- Right - Feature Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-aos="fade-left">
-                <div class="card-dark p-6 group">
+                <div class="card-dark p-6 group card-glow-hover">
                     <div class="icon-box-dark mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -151,7 +173,7 @@
                     <p class="text-gray-400 text-sm">
                         <?= lang('App.fast_delivery_desc') ?? 'Agile development with rapid iteration cycles.' ?></p>
                 </div>
-                <div class="card-dark p-6 group">
+                <div class="card-dark p-6 group card-glow-hover">
                     <div class="icon-box-dark mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -163,7 +185,7 @@
                     <p class="text-gray-400 text-sm">
                         <?= lang('App.secure_reliable_desc') ?? 'Enterprise-grade security and 99.9% uptime.' ?></p>
                 </div>
-                <div class="card-dark p-6 group">
+                <div class="card-dark p-6 group card-glow-hover">
                     <div class="icon-box-dark mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -175,7 +197,7 @@
                     <p class="text-gray-400 text-sm">
                         <?= lang('App.scalable_arch_desc') ?? 'Built to grow with your business needs.' ?></p>
                 </div>
-                <div class="card-dark p-6 group">
+                <div class="card-dark p-6 group card-glow-hover">
                     <div class="icon-box-dark mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -426,7 +448,7 @@
         <!-- Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Card 1 -->
-            <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="0">
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="0">
                 <div class="icon-box-dark mb-5">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -441,7 +463,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-box-dark mb-5">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -454,8 +476,8 @@
                 </p>
             </div>
 
-            <!-- Card 3 -->
-            <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="200">
+                       <!-- Card 3 -->
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box-dark mb-5">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -470,7 +492,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box-dark mb-5">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -485,7 +507,7 @@
             </div>
 
             <!-- Card 5 -->
-            <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="400">
                 <div class="icon-box-dark mb-5">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -500,7 +522,7 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="500">
+            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="500">
                 <div class="icon-box-dark mb-5">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -527,21 +549,22 @@
         style="width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.12),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(100px);">
     </div>
     <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+    <div class="absolute inset-0 hex-grid pointer-events-none opacity-50"></div>
 
     <div class="max-w-3xl mx-auto px-4 relative z-10 text-center" data-aos="fade-up">
-        <h2 class="text-gradient-blue mb-6"><?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?></h2>
+        <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?></h2>
         <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
             <?= lang('App.cta_subtitle') ?? 'Let\'s discuss how we can help you achieve your digital goals. Schedule a free consultation today.' ?>
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="<?= base_url('contact') ?>" class="btn-glow text-base px-10 py-4 animate-glow">
+            <a href="<?= base_url('contact') ?>" class="btn-glow text-base px-10 py-4 animate-glow magnetic-btn">
                 <span><?= lang('App.schedule_call') ?? 'Schedule a Call' ?></span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
                     </path>
                 </svg>
             </a>
-            <a href="<?= base_url('services') ?>" class="btn-glass text-base px-10 py-4">
+            <a href="<?= base_url('services') ?>" class="btn-glass text-base px-10 py-4 magnetic-btn">
                 <span><?= lang('App.explore_services') ?? 'Explore Services' ?></span>
             </a>
         </div>
@@ -552,6 +575,142 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         if (window.initFeatureTabs) window.initFeatureTabs();
+
+        // ═══════════════════════════════════════════════════════════════
+        // Canvas Particle Network (Netdata Style)
+        // ═══════════════════════════════════════════════════════════════
+        const canvas = document.getElementById('particle-network');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouseX = 0;
+            let mouseY = 0;
+
+            function resizeCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                initParticles();
+            }
+
+            function initParticles() {
+                particles = [];
+                const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        radius: Math.random() * 2 + 1,
+                        opacity: Math.random() * 0.5 + 0.2
+                    });
+                }
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach((p, i) => {
+                    // Update position
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    // Bounce off edges
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                    // Mouse interaction
+                    const dx = mouseX - p.x;
+                    const dy = mouseY - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        p.x -= dx * 0.01;
+                        p.y -= dy * 0.01;
+                    }
+
+                    // Draw particle
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(96, 165, 250, ${p.opacity})`;
+                    ctx.fill();
+
+                    // Draw connections
+                    particles.forEach((p2, j) => {
+                        if (i !== j) {
+                            const dx2 = p.x - p2.x;
+                            const dy2 = p.y - p2.y;
+                            const dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+                            if (dist2 < 120) {
+                                ctx.beginPath();
+                                ctx.moveTo(p.x, p.y);
+                                ctx.lineTo(p2.x, p2.y);
+                                ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - dist2 / 120)})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                    });
+                });
+
+                requestAnimationFrame(drawParticles);
+            }
+
+            // Mouse tracking
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            });
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            drawParticles();
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        // Parallax Effect for Hero Elements
+        // ═══════════════════════════════════════════════════════════════
+        const parallaxElements = document.querySelectorAll('.parallax-element');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            parallaxElements.forEach(el => {
+                const speed = parseFloat(el.dataset.speed) || 0.5;
+                el.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════
+        // Magnetic Button Effect
+        // ═══════════════════════════════════════════════════════════════
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════
+        // Text Split Animation for Headlines
+        // ═══════════════════════════════════════════════════════════════
+        const headlines = document.querySelectorAll('.animate-text-split');
+        headlines.forEach(headline => {
+            const text = headline.textContent;
+            headline.innerHTML = '';
+            text.split('').forEach((char, i) => {
+                const span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                span.style.animationDelay = `${i * 0.05}s`;
+                span.className = 'inline-block animate-char';
+                headline.appendChild(span);
+            });
+        });
     });
 </script>
 

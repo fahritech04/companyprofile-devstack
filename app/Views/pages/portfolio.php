@@ -3,12 +3,18 @@
 <?= $this->section('content') ?>
 
 <!-- Portfolio Hero Section -->
-<section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden"
+<section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
     <div class="grid-bg"></div>
     <div class="dot-grid-dark"></div>
+    <div class="hex-grid"></div>
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
@@ -16,27 +22,43 @@
     <div class="particle"></div>
     <div class="particle"></div>
 
+    <!-- Canvas Particle Network -->
+    <canvas id="particle-network-portfolio" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+
+    <!-- Data Stream Lines -->
+    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
+    <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
+
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">
-            <div class="badge-glow inline-flex items-center text-xs">
+            <div class="badge-glow inline-flex items-center text-xs animate-glow">
                 <span class="badge-pulse"></span>
                 <?= lang('App.portfolio_showcase') ?>
             </div>
-            <h1 class="text-gradient-blue leading-tight"><?= lang('App.portfolio_title') ?></h1>
+            <h1 class="text-gradient-blue leading-tight hero-text-reveal">
+                <?= lang('App.portfolio_title') ?>
+            </h1>
             <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 <?= lang('App.portfolio_description') ?>
             </p>
 
             <!-- CTA -->
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="#portfolio-grid" class="btn-glow px-8 py-4">
-                    <span><?= lang('App.view_portfolio') ?></span>
+                <a href="#portfolio-grid" class="btn-glow px-8 py-4 magnetic-btn">
+                    <span>
+                        <?= lang('App.view_portfolio') ?>
+                    </span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </a>
-                <a href="<?= base_url('contact') ?>" class="btn-glass px-8 py-4">
-                    <span><?= lang('App.discuss_project_btn') ?></span>
+                <a href="<?= base_url('contact') ?>" class="btn-glass px-8 py-4 magnetic-btn">
+                    <span>
+                        <?= lang('App.discuss_project_btn') ?>
+                    </span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
@@ -55,22 +77,29 @@
 <!-- Portfolio Grid -->
 <section id="portfolio-grid" class="py-24 relative" style="background: #040b18;">
     <div class="absolute inset-0 dot-grid-dark opacity-20"></div>
+    <div class="absolute inset-0 hex-grid opacity-30"></div>
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.our_portfolio') ?></h2>
+            <h2 class="text-gradient-blue mb-6 neon-text">
+                <?= lang('App.our_portfolio') ?>
+            </h2>
             <div class="separator mx-auto mb-8"></div>
-            <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.portfolio_grid_desc') ?></p>
+            <p class="text-gray-400 text-lg max-w-4xl mx-auto">
+                <?= lang('App.portfolio_grid_desc') ?>
+            </p>
         </div>
 
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100">
-            <button class="btn-glow text-sm px-6 py-2.5 portfolio-filter active"
-                data-filter="all"><?= lang('App.all_projects') ?></button>
+            <button class="btn-glow text-sm px-6 py-2.5 portfolio-filter active" data-filter="all">
+                <?= lang('App.all_projects') ?>
+            </button>
             <?php if (!empty($portfolios)):
                 $categories = array_unique(array_column($portfolios, 'category'));
                 foreach ($categories as $cat): ?>
-                    <button class="btn-glass text-sm px-6 py-2.5 portfolio-filter"
-                        data-filter="<?= esc($cat) ?>"><?= esc(ucwords(str_replace('_', ' ', $cat))) ?></button>
+                    <button class="btn-glass text-sm px-6 py-2.5 portfolio-filter" data-filter="<?= esc($cat) ?>">
+                        <?= esc(ucwords(str_replace('_', ' ', $cat))) ?>
+                    </button>
                 <?php endforeach; endif; ?>
         </div>
 
@@ -79,7 +108,7 @@
             <?php if (!empty($portfolios)): ?>
                 <?php $delay = 0;
                 foreach ($portfolios as $item): ?>
-                    <div class="group relative overflow-hidden rounded-2xl card-dark portfolio-item"
+                    <div class="group relative overflow-hidden rounded-2xl card-dark portfolio-item card-glow-hover grid-animate-item"
                         data-category="<?= esc($item['category'] ?? '') ?>" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
                         <div class="h-64 relative overflow-hidden">
                             <?php if (!empty($item['image'])): ?>
@@ -102,16 +131,23 @@
                             class="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400">
                             <div
                                 class="absolute bottom-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                <h3 class="text-lg font-bold mb-1"><?= esc($item['title']) ?></h3>
+                                <h3 class="text-lg font-bold mb-1">
+                                    <?= esc($item['title']) ?>
+                                </h3>
                                 <p class="text-sm text-blue-300 mb-2">
-                                    <?= esc(ucwords(str_replace('_', ' ', $item['category'] ?? ''))) ?></p>
+                                    <?= esc(ucwords(str_replace('_', ' ', $item['category'] ?? ''))) ?>
+                                </p>
                                 <?php if (!empty($item['client_name'])): ?>
-                                    <p class="text-xs text-gray-400 mb-3">Client: <?= esc($item['client_name']) ?></p>
+                                    <p class="text-xs text-gray-400 mb-3">Client:
+                                        <?= esc($item['client_name']) ?>
+                                    </p>
                                 <?php endif; ?>
                                 <?php if (!empty($item['demo_url'])): ?>
                                     <a href="<?= esc($item['demo_url']) ?>" target="_blank"
                                         class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium">
-                                        <span><?= lang('App.view_project') ?></span>
+                                        <span>
+                                            <?= lang('App.view_project') ?>
+                                        </span>
                                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
@@ -147,30 +183,40 @@
         style="width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.10),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(100px);">
     </div>
     <div class="absolute inset-0 grid-bg"></div>
+    <div class="absolute inset-0 hex-grid opacity-30"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.ready_to_start') ?></h2>
+            <h2 class="text-gradient-blue mb-6 neon-text">
+                <?= lang('App.ready_to_start') ?>
+            </h2>
             <div class="separator mx-auto mb-8"></div>
-            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-10"><?= lang('App.discuss_vision') ?></p>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-10">
+                <?= lang('App.discuss_vision') ?>
+            </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-                <a href="<?= base_url('contact') ?>" class="btn-glow px-10 py-4">
-                    <span><?= lang('App.start_consultation') ?></span>
+                <a href="<?= base_url('contact') ?>" class="btn-glow px-10 py-4 magnetic-btn">
+                    <span>
+                        <?= lang('App.start_consultation') ?>
+                    </span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
                         </path>
                     </svg>
                 </a>
-                <a href="#portfolio-grid" class="btn-glass px-10 py-4">
-                    <span><?= lang('App.view_more_portfolio') ?></span>
+                <a href="#portfolio-grid" class="btn-glass px-10 py-4 magnetic-btn">
+                    <span>
+                        <?= lang('App.view_more_portfolio') ?>
+                    </span>
                 </a>
             </div>
 
             <!-- Contact Info Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="card-dark p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-dark p-6 text-center card-glow-hover grid-animate-item" data-aos="fade-up"
+                    data-aos-delay="100">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -178,10 +224,13 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-white font-semibold mb-1"><?= lang('App.phone') ?></h3>
+                    <h3 class="text-white font-semibold mb-1">
+                        <?= lang('App.phone') ?>
+                    </h3>
                     <p class="text-gray-400 text-sm">+62 812 1424 0287</p>
                 </div>
-                <div class="card-dark p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-dark p-6 text-center card-glow-hover grid-animate-item" data-aos="fade-up"
+                    data-aos-delay="200">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -189,10 +238,13 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-white font-semibold mb-1"><?= lang('App.email') ?></h3>
+                    <h3 class="text-white font-semibold mb-1">
+                        <?= lang('App.email') ?>
+                    </h3>
                     <p class="text-gray-400 text-sm">info@dev-stack.id</p>
                 </div>
-                <div class="card-dark p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-dark p-6 text-center card-glow-hover grid-animate-item" data-aos="fade-up"
+                    data-aos-delay="300">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -202,7 +254,9 @@
                                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-white font-semibold mb-1"><?= lang('App.location') ?></h3>
+                    <h3 class="text-white font-semibold mb-1">
+                        <?= lang('App.location') ?>
+                    </h3>
                     <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
                 </div>
             </div>

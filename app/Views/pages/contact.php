@@ -2,12 +2,18 @@
 
 <?= $this->section('content') ?>
 <!-- Contact Hero Section -->
-<section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden"
+<section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
     <div class="grid-bg"></div>
     <div class="dot-grid-dark"></div>
+    <div class="hex-grid"></div>
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
@@ -15,26 +21,36 @@
     <div class="particle"></div>
     <div class="particle"></div>
 
+    <!-- Canvas Particle Network -->
+    <canvas id="particle-network-contact" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+
+    <!-- Data Stream Lines -->
+    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
+    <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
+
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">
-            <div class="badge-glow inline-flex items-center text-xs">
+            <div class="badge-glow inline-flex items-center text-xs animate-glow">
                 <span class="badge-pulse"></span>
                 <?= lang('App.lets_connect') ?>
             </div>
-            <h1 class="text-gradient-blue leading-tight"><?= lang('App.contact_title') ?></h1>
+            <h1 class="text-gradient-blue leading-tight hero-text-reveal"><?= lang('App.contact_title') ?></h1>
             <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 <?= lang('App.contact_description') ?>
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="#contact-form" class="btn-glow px-8 py-4">
+                <a href="#contact-form" class="btn-glow px-8 py-4 magnetic-btn">
                     <span><?= lang('App.send_message') ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                     </svg>
                 </a>
-                <a href="tel:+6281214240287" class="btn-glass px-8 py-4">
+                <a href="tel:+6281214240287" class="btn-glass px-8 py-4 magnetic-btn">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
@@ -54,16 +70,17 @@
 <!-- Contact Form Section -->
 <section id="contact-form" class="py-24 relative" style="background: #040b18;">
     <div class="absolute inset-0 dot-grid-dark opacity-20"></div>
+    <div class="absolute inset-0 hex-grid opacity-30"></div>
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.contact_us') ?></h2>
+            <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.contact_us') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.contact_form_desc') ?></p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Contact Form -->
-            <div class="card-dark p-8" data-aos="fade-right">
+            <div class="card-dark p-8 card-glow-hover" data-aos="fade-right">
                 <div class="text-center mb-8">
                     <div class="icon-box-dark mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,33 +117,33 @@
                     <div>
                         <label for="name"
                             class="block text-gray-300 font-medium mb-2 text-sm"><?= lang('App.full_name') ?></label>
-                        <input type="text" id="name" name="name" class="form-input-dark w-full"
+                        <input type="text" id="name" name="name" class="form-input-dark w-full focus-ring"
                             value="<?= old('name') ?>" required>
                     </div>
                     <div>
                         <label for="email"
                             class="block text-gray-300 font-medium mb-2 text-sm"><?= lang('App.email') ?></label>
-                        <input type="email" id="email" name="email" class="form-input-dark w-full"
+                        <input type="email" id="email" name="email" class="form-input-dark w-full focus-ring"
                             value="<?= old('email') ?>" required>
                     </div>
                     <div>
                         <label for="phone" class="block text-gray-300 font-medium mb-2 text-sm">Phone (Optional)</label>
-                        <input type="text" id="phone" name="phone" class="form-input-dark w-full"
+                        <input type="text" id="phone" name="phone" class="form-input-dark w-full focus-ring"
                             value="<?= old('phone') ?>">
                     </div>
                     <div>
                         <label for="subject"
                             class="block text-gray-300 font-medium mb-2 text-sm"><?= lang('App.subject') ?></label>
-                        <input type="text" id="subject" name="subject" class="form-input-dark w-full"
+                        <input type="text" id="subject" name="subject" class="form-input-dark w-full focus-ring"
                             value="<?= old('subject') ?>" required>
                     </div>
                     <div>
                         <label for="message"
                             class="block text-gray-300 font-medium mb-2 text-sm"><?= lang('App.message') ?></label>
-                        <textarea id="message" name="message" rows="5" class="form-input-dark w-full resize-none"
+                        <textarea id="message" name="message" rows="5" class="form-input-dark w-full resize-none focus-ring"
                             required><?= old('message') ?></textarea>
                     </div>
-                    <button type="submit" class="btn-glow w-full py-4 text-base">
+                    <button type="submit" class="btn-glow w-full py-4 text-base magnetic-btn">
                         <span><?= lang('App.send_message') ?></span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -139,7 +156,7 @@
             <!-- Contact Information -->
             <div class="space-y-6" data-aos="fade-left">
                 <!-- Info Cards -->
-                <div class="card-dark p-6 group">
+                <div class="card-dark p-6 group card-glow-hover">
                     <div class="flex items-center space-x-4">
                         <div class="icon-box-dark flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +179,7 @@
                     </div>
                 </div>
 
-                <div class="card-dark p-6 group">
+                <div class="card-dark p-6 group card-glow-hover">
                     <div class="flex items-center space-x-4">
                         <div class="icon-box-dark flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +197,7 @@
                     </div>
                 </div>
 
-                <div class="card-dark p-6 group">
+                <div class="card-dark p-6 group card-glow-hover">
                     <div class="flex items-center space-x-4">
                         <div class="icon-box-dark flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,7 +215,7 @@
                 </div>
 
                 <!-- Business Hours -->
-                <div class="card-dark p-6">
+                <div class="card-dark p-6 card-glow-hover">
                     <h3 class="text-white font-semibold mb-4"><?= lang('App.business_hours') ?></h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-white/5">
@@ -217,7 +234,7 @@
                 </div>
 
                 <!-- Social Media -->
-                <div class="card-dark p-6 text-center">
+                <div class="card-dark p-6 text-center card-glow-hover">
                     <h3 class="text-white font-semibold mb-4"><?= lang('App.follow_us') ?></h3>
                     <div class="flex justify-center space-x-3">
                         <a href="https://facebook.com/devstack" target="_blank"
@@ -264,11 +281,12 @@
     <div class="glow-orb"
         style="width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.06),transparent 70%);top:20%;left:-8%;filter:blur(80px);">
     </div>
+    <div class="absolute inset-0 hex-grid opacity-30"></div>
     <div class="divider-glow mb-12"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.our_location') ?></h2>
+            <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.our_location') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-3xl mx-auto"><?= lang('App.location_desc') ?></p>
         </div>
@@ -276,10 +294,10 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Map -->
             <div class="lg:col-span-2" data-aos="fade-right">
-                <div class="card-dark overflow-hidden">
+                <div class="card-dark overflow-hidden card-glow-hover">
                     <div class="h-96 w-full relative">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d457.70649255784986!2d107.63274538807497!3d-6.974360799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9ae1cb7b259%3A0x9beefbbb608cd10d!2sGg.%20PGA%20No.106%2C%20Lengkong%2C%20Kec.%20Bojongsoang%2C%20Kabupaten%20Bandung%2C%20Jawa%20Barat%2040257!5e1!3m2!1sid!2sid!4v1760206567152!5m2!1sid!2sid"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d457.70649255784986!2d107.63274538807497!3d-6.974360799999995!2m3!1f0!2f0!3f0!3m2!1sid!2sid!4v1760206567152!5m2!1sid!2sid"
                             width="100%" height="100%"
                             style="border:0;filter:brightness(0.8) contrast(1.1) saturate(0.8);" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-t-xl">
@@ -301,7 +319,7 @@
                             </div>
                             <div class="flex gap-3">
                                 <a href="https://maps.google.com/maps?q=Gg.+PGA+No.106,+Lengkong,+Kec.+Bojongsoang,+Kabupaten+Bandung"
-                                    target="_blank" class="btn-glow text-sm px-5 py-2.5">
+                                    target="_blank" class="btn-glow text-sm px-5 py-2.5 magnetic-btn">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
@@ -310,7 +328,7 @@
                                     <span><?= lang('App.open_maps') ?></span>
                                 </a>
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=Gg.+PGA+No.106,+Lengkong,+Kec.+Bojongsoang,+Kabupaten+Bandung"
-                                    target="_blank" class="btn-glass text-sm px-5 py-2.5">
+                                    target="_blank" class="btn-glass text-sm px-5 py-2.5 magnetic-btn">
                                     <span><?= lang('App.get_directions') ?></span>
                                 </a>
                             </div>
@@ -321,14 +339,14 @@
 
             <!-- Location Details -->
             <div class="space-y-6" data-aos="fade-left">
-                <div class="card-dark p-6">
+                <div class="card-dark p-6 card-glow-hover">
                     <h3 class="text-white font-semibold mb-4"><?= lang('App.full_location_title') ?></h3>
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
                             <div class="icon-box-dark flex-shrink-0" style="width:36px;height:36px;">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1a1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
                                     </path>
                                 </svg>
                             </div>
@@ -381,7 +399,7 @@
                 </div>
 
                 <!-- Visit CTA -->
-                <div class="card-dark p-6 text-center">
+                <div class="card-dark p-6 text-center card-glow-hover">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -393,7 +411,7 @@
                     </div>
                     <h3 class="text-white font-semibold mb-2"><?= lang('App.visit_us') ?></h3>
                     <p class="text-gray-400 text-sm mb-4"><?= lang('App.visit_desc') ?></p>
-                    <a href="#contact-form" class="btn-glow text-sm px-6 py-2.5 inline-flex">
+                    <a href="#contact-form" class="btn-glow text-sm px-6 py-2.5 inline-flex magnetic-btn">
                         <span><?= lang('App.schedule_visit') ?></span>
                     </a>
                 </div>

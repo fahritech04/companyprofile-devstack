@@ -3,12 +3,14 @@
 <?= $this->section('content') ?>
 
 <!-- Services Hero Section -->
-<section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden"
+<section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
     <div class="grid-bg"></div>
     <div class="dot-grid-dark"></div>
+    <div class="hex-grid"></div>
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
     <!-- Particles -->
     <div class="particle"></div>
     <div class="particle"></div>
@@ -16,14 +18,28 @@
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Canvas Particle Network -->
+    <canvas id="particle-network-services" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+
+    <!-- Data Stream Lines -->
+    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
+    <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">
-            <div class="badge-glow inline-flex items-center text-xs">
+            <div class="badge-glow inline-flex items-center text-xs animate-glow">
                 <span class="badge-pulse"></span>
                 <?= lang('App.expertise_areas') ?>
             </div>
-            <h1 class="text-gradient-blue leading-tight"><?= lang('App.services_main_title') ?></h1>
+            <h1 class="text-gradient-blue leading-tight hero-text-reveal"><?= lang('App.services_main_title') ?></h1>
             <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 <?= lang('App.services_main_description') ?>
             </p>
@@ -50,14 +66,14 @@
 
             <!-- CTA -->
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="<?= base_url('contact') ?>" class="btn-glow px-8 py-4">
-                    <span><?= lang('App.discuss_project') ?></span>
+                <a href="<?= base_url('contact') ?>" class="btn-glow px-8 py-4 magnetic-btn">
+                    <span><?= lang('App.disc_project') ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
                 </a>
-                <a href="#services-list" class="btn-glass px-8 py-4">
+                <a href="#services-list" class="btn-glass px-8 py-4 magnetic-btn">
                     <span><?= lang('App.explore_services') ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -75,9 +91,10 @@
 <!-- Core Services Section -->
 <section id="services-list" class="py-24 relative" style="background: #040b18;">
     <div class="absolute inset-0 dot-grid-dark opacity-20"></div>
+    <div class="absolute inset-0 hex-grid opacity-30"></div>
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.core_services') ?></h2>
+            <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.core_services') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.core_services_desc') ?></p>
         </div>
@@ -86,7 +103,7 @@
             <?php if (!empty($services)): ?>
                 <?php $delay = 100;
                 foreach ($services as $service): ?>
-                    <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
+                    <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
                         <div class="icon-box-dark mx-auto mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -116,7 +133,7 @@
                     <?php $delay += 100; endforeach; ?>
             <?php else: ?>
                 <!-- Fallback: static services -->
-                <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box-dark mx-auto mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -124,9 +141,9 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_1_title') ?></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_1_desc') ?></p>
+                    <p class="text-gray-400 text-sm leading-relaxed text-center mb mb-6"><?= lang('App.service_1_desc') ?></p>
                 </div>
-                <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box-dark mx-auto mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -136,7 +153,7 @@
                     <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_2_title') ?></h3>
                     <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_2_desc') ?></p>
                 </div>
-                <div class="card-dark p-8 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box-dark mx-auto mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -145,13 +162,14 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_3_title') ?></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_3_desc') ?></p>
+                    <p class="text-gray-400 text-sm
+ leading-relaxed text-center mb-6"><?= lang('App.service_3_desc') ?></p>
                 </div>
             <?php endif; ?>
         </div>
 
         <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
-            <a href="<?= base_url('contact') ?>" class="btn-glow px-8 py-4">
+            <a href="<?= base_url('contact') ?>" class="btn-glow px-8 py-4 magnetic-btn">
                 <span><?= lang('App.get_started_today') ?></span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -167,11 +185,12 @@
     <div class="glow-orb"
         style="width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.06),transparent 70%);top:15%;left:-8%;filter:blur(80px);">
     </div>
+    <div class="absolute inset-0 hex-grid opacity-30"></div>
     <div class="divider-glow mb-16"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.industries_serve') ?></h2>
+            <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.industries_serve') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.industries_desc') ?></p>
         </div>
@@ -189,7 +208,7 @@
             $delay = 0;
             foreach ($industries as $ind):
                 ?>
-                <div class="card-dark p-8 text-center group" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
+                <div class="card-dark p-8 text-center group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
                     <div class="icon-box-dark mx-auto mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<?= $ind['icon'] ?>">
