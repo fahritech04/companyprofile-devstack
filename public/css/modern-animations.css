@@ -224,25 +224,50 @@
 
 /* ── Scroll Reveal Base ── */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.revealed {
+.js .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal.revealed,
+.js .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
 .reveal-scale {
-  opacity: 0;
-  transform: scale(0.95);
+  opacity: 1;
+  transform: scale(1);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-scale.revealed {
+.js .reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.reveal-scale.revealed,
+.js .reveal-scale.revealed {
   opacity: 1;
   transform: scale(1);
+}
+
+/* ── Hero Text Reveal Fallback ── */
+.hero-text-reveal span {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.hero-text-reveal span > span {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Simplified Hero Background ── */
@@ -619,5 +644,60 @@
   .stagger-children > * {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* ── Skeleton Loading States ── */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md, 0.75rem);
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.6s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-img {
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md, 0.75rem);
+}
+
+.skeleton-text {
+  height: 1em;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.25rem;
+  margin-bottom: 0.5em;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+.skeleton-text.long {
+  width: 90%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after {
+    animation: none;
   }
 }

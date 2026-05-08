@@ -320,6 +320,18 @@ return [
     'cta_subtitle' => 'Let\'s discuss how we can help you achieve your digital goals. Schedule a free consultation today.',
     'schedule_call' => 'Schedule a Call',
 
+    // About Page - CTA
+    'cta_about_title' => 'Ready to Build Something Amazing?',
+    'cta_about_subtitle' => 'Let\'s collaborate to turn your vision into reality. Our team is ready to help you achieve your digital goals.',
+    'start_project' => 'Start a Project',
+    'our_services' => 'Our Services',
+
+    // Services Page - CTA
+    'cta_services_title' => 'Ready to Transform Your Business?',
+    'cta_services_subtitle' => 'Get a free consultation and discover how our services can help you grow and succeed in the digital era.',
+    'schedule_consultation' => 'Schedule a Consultation',
+    'view_our_work' => 'View Our Work',
+
     // Language Switcher
     'lang_en' => 'English',
     'lang_id' => 'Indonesian'

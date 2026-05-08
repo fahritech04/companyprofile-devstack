@@ -22,7 +22,7 @@
                 <span class="dot"></span>
                 <?= lang('App.lets_connect') ?>
             </div>
-            <h1 class="text-gradient-blue leading-tight hero-text-reveal"><?= lang('App.contact_title') ?></h1>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal"><?= lang('App.contact_title') ?></h1>
             <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 <?= lang('App.contact_description') ?>
             </p>
@@ -53,7 +53,7 @@
 <div class="divider-glow-modern"></div>
 
 <!-- Contact Form Section -->
-<section id="contact-form" class="py-24 relative" style="background: #040b18;">
+<section id="contact-form" class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16 reveal">
             <h2 class="text-gradient-blue mb-6"><?= lang('App.contact_us') ?></h2>
@@ -260,7 +260,7 @@
 </section>
 
 <!-- Map Section -->
-<section class="py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f);">
+<section class="py-16 md:py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f);">
     <div class="hero-bg-modern">
         <div class="orb orb-1" style="width:400px;height:400px;top:20%;left:-8%;"></div>
     </div>

@@ -319,6 +319,18 @@ return [
     'cta_subtitle' => 'Mari diskusikan bagaimana kami dapat membantu Anda mencapai tujuan digital Anda. Jadwalkan konsultasi gratis hari ini.',
     'schedule_call' => 'Jadwalkan Panggilan',
 
+    // About Page - CTA
+    'cta_about_title' => 'Siap Membangun Sesuatu yang Luar Biasa?',
+    'cta_about_subtitle' => 'Mari berkolaborasi untuk mewujudkan visi Anda. Tim kami siap membantu Anda mencapai tujuan digital Anda.',
+    'start_project' => 'Mulai Proyek',
+    'our_services' => 'Layanan Kami',
+
+    // Services Page - CTA
+    'cta_services_title' => 'Siap Mentransformasi Bisnis Anda?',
+    'cta_services_subtitle' => 'Dapatkan konsultasi gratis dan temukan bagaimana layanan kami dapat membantu Anda tumbuh dan sukses di era digital.',
+    'schedule_consultation' => 'Jadwalkan Konsultasi',
+    'view_our_work' => 'Lihat Karya Kami',
+
     // Language Switcher
     'lang_en' => 'Bahasa Inggris',
     'lang_id' => 'Bahasa Indonesia'

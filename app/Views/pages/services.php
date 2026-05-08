@@ -23,7 +23,7 @@
                 <span class="dot"></span>
                 <?= lang('App.expertise_areas') ?>
             </div>
-            <h1 class="text-gradient-blue leading-tight hero-text-reveal"><?= lang('App.services_main_title') ?></h1>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal"><?= lang('App.services_main_title') ?></h1>
             <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 <?= lang('App.services_main_description') ?>
             </p>
@@ -73,7 +73,7 @@
 <div class="divider-glow-modern"></div>
 
 <!-- Core Services Section -->
-<section id="services-list" class="py-24 relative" style="background: #040b18;">
+<section id="services-list" class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16 reveal">
             <h2 class="text-gradient-blue mb-6"><?= lang('App.core_services') ?></h2>
@@ -130,7 +130,7 @@
 </section>
 
 <!-- Industries Section -->
-<section id="industries" class="py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f, #040b18);">
+<section id="industries" class="py-16 md:py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f, #040b18);">
     <div class="divider-glow-modern mb-16"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
@@ -178,6 +178,35 @@
                     </path>
                 </svg>
                 <span><?= lang('App.explore_solutions') ?></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CTA SECTION
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="py-16 md:py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
+    <div class="hero-bg-modern">
+        <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4 relative z-10 text-center">
+        <h2 class="text-gradient-blue mb-6">
+            <?= lang('App.cta_services_title') ?? 'Ready to Transform Your Business?' ?>
+        </h2>
+        <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
+            <?= lang('App.cta_services_subtitle') ?? 'Get a free consultation and discover how our services can help you grow and succeed in the digital era.' ?>
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center stagger-children">
+            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
+                <span><?= lang('App.schedule_consultation') ?? 'Schedule a Consultation' ?></span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+            <a href="<?= base_url('portfolio') ?>" class="btn-glass-modern magnetic-btn">
+                <span><?= lang('App.view_our_work') ?? 'View Our Work' ?></span>
             </a>
         </div>
     </div>

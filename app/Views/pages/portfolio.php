@@ -23,7 +23,7 @@
                 <span class="dot"></span>
                 <?= lang('App.portfolio_showcase') ?>
             </div>
-            <h1 class="text-gradient-blue leading-tight hero-text-reveal">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal">
                 <?= lang('App.portfolio_title') ?>
             </h1>
             <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
@@ -60,7 +60,7 @@
 <div class="divider-glow-modern"></div>
 
 <!-- Portfolio Grid -->
-<section id="portfolio-grid" class="py-24 relative" style="background: #040b18;">
+<section id="portfolio-grid" class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16 reveal">
             <h2 class="text-gradient-blue mb-6">
@@ -157,13 +157,13 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
+<section class="py-16 md:py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
     <div class="hero-bg-modern">
         <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center reveal">
+        <div class="text-center">
             <h2 class="text-gradient-blue mb-6">
                 <?= lang('App.ready_to_start') ?>
             </h2>

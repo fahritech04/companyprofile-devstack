@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <script>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= lang('App.hero_title') ?></title>
 
@@ -31,15 +32,8 @@
 
     <!-- Modern UI Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('css/netdata-animations.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/modern-animations.css') ?>">
-
-    <!-- GSAP + ScrollTrigger + Lenis -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
 
     <!-- Performance & PWA -->
     <link rel="manifest" href="<?= base_url('manifest.json') ?>">
@@ -156,7 +150,7 @@
 
                 <!-- CTA Button -->
                 <div class="hidden lg:flex items-center">
-                    <a href="<?= base_url('login') ?>" class="btn-glow text-sm px-5 py-2.5">
+                    <a href="<?= base_url('login') ?>" class="btn-glow-modern text-sm px-5 py-2.5">
                         <span>Get Started</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -180,7 +174,7 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div class="mobile-menu hidden md:hidden mobile-menu-dark rounded-b-2xl">
+            <div class="mobile-menu hidden md:hidden glass-strong rounded-b-2xl border-t border-white/5">
                 <div class="px-4 py-6 space-y-1">
                     <a href="/"
                         class="block px-4 py-3 text-gray-400 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all duration-300 font-medium">Home</a>
@@ -195,7 +189,7 @@
 
                     <div class="pt-4 border-t border-white/5 mt-4 px-4">
                         <a href="<?= base_url('login') ?>"
-                            class="mobile-cta bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center rounded-xl">
+                            class="block w-full text-center btn-glow-modern text-sm py-3">
                             Get Started
                         </a>
                     </div>
@@ -224,8 +218,6 @@
 
     <!-- ═══ Dark Navy Footer ═══ -->
     <footer class="relative overflow-hidden" style="background: linear-gradient(180deg, #060e1f, #040b18);">
-        <!-- Subtle grid -->
-        <div class="absolute inset-0 dot-grid-dark opacity-30"></div>
         <!-- Top glow line -->
         <div
             class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent">
@@ -238,8 +230,8 @@
                     <h3 class="text-2xl font-bold mb-3 text-white"><?= lang('App.stay_updated') ?></h3>
                     <p class="text-gray-400 mb-8"><?= lang('App.get_insights') ?></p>
                     <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                        <input type="email" placeholder="<?= lang('App.enter_email') ?>" class="form-input-dark flex-1">
-                        <button type="submit" class="btn-glow px-6 py-3 text-sm">
+                        <input type="email" placeholder="<?= lang('App.enter_email') ?>" class="input-glass flex-1 rounded-xl px-4 py-3">
+                        <button type="submit" class="btn-glow-modern px-6 py-3 text-sm">
                             <?= lang('App.subscribe') ?>
                         </button>
                     </form>
@@ -390,9 +382,10 @@
         </div>
     </footer>
 
-    <!-- Performance Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="<?= base_url('js/netdata-animations.js') ?>"></script>
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="<?= base_url('js/modern-animations.js') ?>"></script>
     <script>
         // ── Feature Tabs ──

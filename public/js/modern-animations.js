@@ -130,8 +130,9 @@
         headline.appendChild(wrap);
       });
 
+      const innerSpans = headline.querySelectorAll('span > span');
       gsap.fromTo(
-        headline.querySelectorAll('span > span'),
+        innerSpans,
         { y: '110%', opacity: 0 },
         {
           y: '0%',
@@ -142,6 +143,14 @@
           delay: 0.2,
         }
       );
+
+      // Fallback: ensure text is visible after 2.5s if GSAP fails
+      setTimeout(() => {
+        innerSpans.forEach((s) => {
+          s.style.opacity = '1';
+          s.style.transform = 'translateY(0)';
+        });
+      }, 2500);
     });
 
     // Badge reveal

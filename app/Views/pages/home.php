@@ -20,7 +20,7 @@
     <canvas id="particle-network" class="absolute inset-0 w-full h-full opacity-40"></canvas>
 
     <!-- Hero Content -->
-    <div class="max-w-7xl mx-auto px-4 relative z-10 w-full py-32">
+    <div class="max-w-7xl mx-auto px-4 relative z-10 w-full py-20 md:py-28 lg:py-32">
         <div class="text-center space-y-8 max-w-4xl mx-auto">
 
             <!-- Animated Badge -->
@@ -32,7 +32,7 @@
             </div>
 
             <!-- Massive Headline -->
-            <h1 class="text-gradient-blue leading-tight hero-text-reveal">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal">
                 <?= lang('App.transform_digital_future') ?>
             </h1>
 
@@ -104,7 +104,7 @@
 <!-- ═══════════════════════════════════════════════════════════════
      ABOUT SECTION
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 relative" style="background: #040b18;">
+<section class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <!-- Left -->
@@ -205,12 +205,7 @@
 <!-- ═══════════════════════════════════════════════════════════════
      SERVICES / OFFERINGS — Feature Tabs (Netdata Style)
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f, #040b18);">
-    <!-- Subtle glow -->
-    <div class="glow-orb"
-        style="width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,.08),transparent 70%);top:20%;right:-5%;filter:blur(80px);">
-    </div>
-
+<section class="py-16 md:py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f, #040b18);">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <!-- Header -->
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
@@ -417,10 +412,7 @@
 <!-- ═══════════════════════════════════════════════════════════════
      WHY CHOOSE US — Card Grid
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 relative" style="background: #040b18;">
-    <div class="glow-orb"
-        style="width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,.06),transparent 70%);top:10%;left:-10%;filter:blur(100px);">
-    </div>
+<section class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="divider-glow-modern mb-16"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
@@ -555,13 +547,13 @@
 <!-- ═══════════════════════════════════════════════════════════════
      CTA SECTION
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
+<section class="py-16 md:py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
     <!-- Modern Background -->
     <div class="hero-bg-modern">
         <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
     </div>
 
-    <div class="max-w-3xl mx-auto px-4 relative z-10 text-center reveal">
+    <div class="max-w-3xl mx-auto px-4 relative z-10 text-center">
         <h2 class="text-gradient-blue mb-6">
             <?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?>
         </h2>
