@@ -701,3 +701,522 @@
     animation: none;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   ENHANCED 3D & VISUAL EFFECTS
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Holographic Animated Border ── */
+.holo-border {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.holo-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(59, 130, 246, 0.6) 60deg,
+    rgba(96, 165, 250, 0.4) 120deg,
+    rgba(37, 99, 235, 0.6) 180deg,
+    rgba(59, 130, 246, 0.4) 240deg,
+    rgba(96, 165, 250, 0.6) 300deg,
+    transparent 360deg
+  );
+  animation: rotateBorderFallback 4s linear infinite;
+  z-index: -1;
+}
+
+.holo-border::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: rgba(4, 11, 24, 0.95);
+  z-index: -1;
+}
+
+@keyframes rotateBorderFallback {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Modern browsers with @property support get smoother gradient animation */
+@supports (background: conic-gradient(from var(--angle), red, blue)) {
+  .holo-border::before {
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 0deg,
+      rgba(59, 130, 246, 0.6) 60deg,
+      rgba(96, 165, 250, 0.4) 120deg,
+      rgba(37, 99, 235, 0.6) 180deg,
+      rgba(59, 130, 246, 0.4) 240deg,
+      rgba(96, 165, 250, 0.6) 300deg,
+      transparent 360deg
+    );
+    animation: rotateBorder 4s linear infinite;
+    transform: none;
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes rotateBorder {
+    to { --angle: 360deg; }
+  }
+}
+
+/* ── Card Shine Sweep Effect ── */
+.shine-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.shine-card:hover::before {
+  left: 150%;
+}
+
+/* ── 3D Float Animation ── */
+.float-3d {
+  animation: float3d 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-12px) rotateX(2deg) rotateY(3deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(-1deg) rotateY(-2deg);
+  }
+  75% {
+    transform: translateY(-18px) rotateX(1deg) rotateY(1deg);
+  }
+}
+
+/* ── Glow Text Effect ── */
+.glow-text {
+  text-shadow:
+    0 0 10px rgba(96, 165, 250, 0.5),
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 40px rgba(37, 99, 235, 0.2);
+  transition: text-shadow 0.4s ease;
+}
+
+.glow-text:hover {
+  text-shadow:
+    0 0 20px rgba(96, 165, 250, 0.8),
+    0 0 40px rgba(59, 130, 246, 0.5),
+    0 0 80px rgba(37, 99, 235, 0.3);
+}
+
+/* ── Perspective Container ── */
+.perspective-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* ── 3D Flip Card ── */
+.flip-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ── Mesh Gradient Background ── */
+.mesh-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.mesh-gradient::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background:
+    radial-gradient(at 40% 20%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(96, 165, 250, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(96, 165, 250, 0.1) 0px, transparent 50%);
+  animation: meshMove 20s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes meshMove {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(2%, 2%) rotate(1deg);
+  }
+  66% {
+    transform: translate(-1%, 1%) rotate(-1deg);
+  }
+}
+
+/* ── Text Scramble Cursor ── */
+.scramble-text {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.scramble-text::after {
+  content: '|';
+  animation: cursorBlink 1s step-end infinite;
+  color: #3b82f6;
+  margin-left: 2px;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Particle Trail Cursor ── */
+.particle-cursor {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #60a5fa;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+}
+
+/* ── Radial Progress Ring ── */
+.progress-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.progress-ring svg {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.progress-ring-bg {
+  stroke: rgba(59, 130, 246, 0.1);
+}
+
+.progress-ring-fill {
+  stroke: url(#progressGradient);
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292;
+  transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Neon Pulse Border ── */
+.neon-pulse {
+  position: relative;
+}
+
+.neon-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa, #2563eb);
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.neon-pulse:hover::before {
+  opacity: 0.6;
+}
+
+@keyframes neonPulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.02); opacity: 0.7; }
+}
+
+/* ── Wave Divider ── */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Glitch Text Effect ── */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.glitch-text:hover::before {
+  animation: glitch-1 0.3s ease-in-out;
+  color: #3b82f6;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.glitch-text:hover::after {
+  animation: glitch-2 0.3s ease-in-out;
+  color: #ef4444;
+  opacity: 0.8;
+  z-index: -2;
+}
+
+@keyframes glitch-1 {
+  0% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 2px); }
+  40% { clip-path: inset(50% 0 20% 0); transform: translate(3px, -2px); }
+  60% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 1px); }
+  80% { clip-path: inset(70% 0 5% 0); transform: translate(2px, -1px); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(3px, -2px); }
+  40% { clip-path: inset(20% 0 50% 0); transform: translate(-3px, 2px); }
+  60% { clip-path: inset(40% 0 30% 0); transform: translate(2px, 1px); }
+  80% { clip-path: inset(5% 0 80% 0); transform: translate(-2px, -1px); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+}
+
+/* ── Isometric Card Stack ── */
+.iso-stack {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.iso-stack .iso-card {
+  transform: rotateX(10deg) rotateY(-5deg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iso-stack .iso-card:hover {
+  transform: rotateX(0deg) rotateY(0deg) translateZ(20px);
+}
+
+/* ── Spotlight Hover Effect ── */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  left: var(--spotlight-x, 50%);
+  top: var(--spotlight-y, 50%);
+  z-index: 0;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ── Breathe Animation ── */
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* ── Scroll Progress Bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  z-index: 9999;
+  transform-origin: left;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* ── Feature Tab Enhanced ── */
+.feature-tab-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-tab-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.05), transparent 50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-tab-content:hover::before {
+  opacity: 1;
+}
+
+/* ── 3D Text Depth ── */
+.text-3d {
+  text-shadow:
+    1px 1px 0 rgba(59, 130, 246, 0.2),
+    2px 2px 0 rgba(59, 130, 246, 0.15),
+    3px 3px 0 rgba(59, 130, 246, 0.1),
+    4px 4px 0 rgba(59, 130, 246, 0.05);
+}
+
+/* ── Orbit Animation for decorative elements ── */
+.orbit {
+  animation: orbit 20s linear infinite;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+}
+
+/* ── Counter spin for decorative rings ── */
+.spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Image reveal mask ── */
+.img-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-reveal.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ── Stagger float for grid items ── */
+.stagger-float > *:nth-child(1) { animation-delay: 0s; }
+.stagger-float > *:nth-child(2) { animation-delay: 0.5s; }
+.stagger-float > *:nth-child(3) { animation-delay: 1s; }
+.stagger-float > *:nth-child(4) { animation-delay: 1.5s; }
+.stagger-float > *:nth-child(5) { animation-delay: 2s; }
+.stagger-float > *:nth-child(6) { animation-delay: 2.5s; }
+
+/* ── Hero 3D Canvas container ── */
+#three-hero-container {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#three-hero-container canvas {
+  display: block;
+}
+
+/* ── Enhanced mobile menu ── */
+.mobile-menu {
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.mobile-menu.hidden {
+  transform: scaleY(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mobile-menu:not(.hidden) {
+  transform: scaleY(1);
+  opacity: 1;
+}

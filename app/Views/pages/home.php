@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     HERO SECTION — Modern Glassmorphism
+     HERO SECTION — Modern Glassmorphism with 3D Background
      ═══════════════════════════════════════════════════════════════ -->
 <section class="min-h-screen flex items-center relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f 0%, #0a1628 50%, #060e1f 100%);">
@@ -16,8 +16,8 @@
         <div class="hero-grid-overlay"></div>
     </div>
 
-    <!-- Canvas Particle Network -->
-    <canvas id="particle-network" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+    <!-- Canvas Particle Network (fallback behind Three.js) -->
+    <canvas id="particle-network" class="absolute inset-0 w-full h-full opacity-30" style="z-index:0;"></canvas>
 
     <!-- Hero Content -->
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full py-20 md:py-28 lg:py-32">
@@ -31,19 +31,19 @@
                 </div>
             </div>
 
-            <!-- Massive Headline -->
-            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal">
+            <!-- Massive Headline with 3D text effect -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight hero-text-reveal text-3d">
                 <?= lang('App.transform_digital_future') ?>
             </h1>
 
-            <!-- Subtext -->
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed reveal">
+            <!-- Subtext with scramble effect class -->
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed scramble-text">
                 <?= lang('App.hero_subtitle') ?? 'We deliver cutting-edge technology solutions that transform businesses and accelerate digital growth with precision and innovation.' ?>
             </p>
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4 stagger-children">
-                <a href="<?= base_url('login') ?>" class="btn-glow-modern magnetic-btn">
+                <a href="<?= base_url('login') ?>" class="btn-glow-modern magnetic-btn neon-pulse">
                     <span><?= lang('App.get_started') ?? 'Get Started' ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -63,23 +63,23 @@
             </div>
         </div>
 
-        <!-- Stats Bar -->
+        <!-- Stats Bar with enhanced glow -->
         <div class="max-w-4xl mx-auto mt-20 reveal">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="glass-card p-5 text-center">
-                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 stat-number" data-counter="50" data-suffix="+">0</div>
+                <div class="glass-card p-5 text-center shine-card stat-glow">
+                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 stat-number glow-text" data-counter="50" data-suffix="+">0</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.projects_delivered') ?? 'Projects Delivered' ?></div>
                 </div>
-                <div class="glass-card p-5 text-center">
-                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 stat-number" data-counter="98" data-suffix="%">0</div>
+                <div class="glass-card p-5 text-center shine-card stat-glow">
+                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 stat-number glow-text" data-counter="98" data-suffix="%">0</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.client_satisfaction') ?? 'Client Satisfaction' ?></div>
                 </div>
-                <div class="glass-card p-5 text-center">
-                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 stat-number" data-counter="5" data-suffix="+">0</div>
+                <div class="glass-card p-5 text-center shine-card stat-glow">
+                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 stat-number glow-text" data-counter="5" data-suffix="+">0</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.years_experience') ?? 'Years Experience' ?></div>
                 </div>
-                <div class="glass-card p-5 text-center">
-                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 stat-number">24/7</div>
+                <div class="glass-card p-5 text-center shine-card stat-glow">
+                    <div class="text-2xl md:text-3xl font-bold text-blue-400 mb-1 glow-text">24/7</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.support') ?? 'Support' ?></div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                     <span class="dot"></span>
                     ABOUT US
                 </div>
-                <h2 class="text-gradient-blue"><?= lang('App.about_title') ?? 'Building the Future of Digital' ?></h2>
+                <h2 class="text-gradient-blue text-3d"><?= lang('App.about_title') ?? 'Building the Future of Digital' ?></h2>
                 <div class="separator"></div>
                 <p class="text-gray-400 leading-relaxed">
                     <?= lang('App.about_description') ?? 'We are a team of passionate developers, designers, and strategists who build world-class digital products. Our mission is to empower businesses with technology that drives real results.' ?>
@@ -130,9 +130,9 @@
                 </a>
             </div>
 
-            <!-- Right - Feature Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children">
-                <div class="glass-card p-6 group tilt-card">
+            <!-- Right - Feature Cards with enhanced 3D tilt -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children perspective-container">
+                <div class="glass-card p-6 group tilt-card shine-card">
                     <div class="tilt-card-glow"></div>
                     <div class="tilt-card-inner relative z-10">
                         <div class="icon-box-dark mb-4">
@@ -147,7 +147,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="glass-card p-6 group tilt-card">
+                <div class="glass-card p-6 group tilt-card shine-card">
                     <div class="tilt-card-glow"></div>
                     <div class="tilt-card-inner relative z-10">
                         <div class="icon-box-dark mb-4">
@@ -163,7 +163,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="glass-card p-6 group tilt-card">
+                <div class="glass-card p-6 group tilt-card shine-card">
                     <div class="tilt-card-glow"></div>
                     <div class="tilt-card-inner relative z-10">
                         <div class="icon-box-dark mb-4">
@@ -180,7 +180,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="glass-card p-6 group tilt-card">
+                <div class="glass-card p-6 group tilt-card shine-card">
                     <div class="tilt-card-glow"></div>
                     <div class="tilt-card-inner relative z-10">
                         <div class="icon-box-dark mb-4">
@@ -203,7 +203,7 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SERVICES / OFFERINGS — Feature Tabs (Netdata Style)
+     SERVICES / OFFERINGS — Feature Tabs (Enhanced)
      ═══════════════════════════════════════════════════════════════ -->
 <section class="py-16 md:py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f, #040b18);">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
@@ -213,14 +213,14 @@
                 <span class="dot"></span>
                 OUR SERVICES
             </div>
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.services_title') ?? 'What We Offer' ?></h2>
+            <h2 class="text-gradient-blue mb-6 text-3d"><?= lang('App.services_title') ?? 'What We Offer' ?></h2>
             <p class="text-gray-400">
                 <?= lang('App.services_subtitle') ?? 'End-to-end digital solutions tailored for your business growth and digital transformation.' ?>
             </p>
         </div>
 
-        <!-- Feature Tabs -->
-        <div class="feature-tabs reveal-scale">
+        <!-- Feature Tabs with spotlight effect -->
+        <div class="feature-tabs reveal-scale spotlight">
             <!-- Tab Nav -->
             <div class="feature-tab-nav">
                 <button class="feature-tab-btn active" data-tab="tab-web">
@@ -410,7 +410,7 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════════
-     WHY CHOOSE US — Card Grid
+     WHY CHOOSE US — Card Grid with Enhanced 3D
      ═══════════════════════════════════════════════════════════════ -->
 <section class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="divider-glow-modern mb-16"></div>
@@ -422,16 +422,16 @@
                 <span class="dot"></span>
                 WHY DEVSTACK
             </div>
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.why_choose_us') ?? 'Why Choose Us' ?></h2>
+            <h2 class="text-gradient-blue mb-6 text-3d"><?= lang('App.why_choose_us') ?? 'Why Choose Us' ?></h2>
             <p class="text-gray-400">
                 <?= lang('App.why_choose_subtitle') ?? 'We combine technical excellence with creative innovation to deliver outstanding results.' ?>
             </p>
         </div>
 
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards Grid with enhanced effects -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-container">
             <!-- Card 1 -->
-            <div class="glass-card p-8 group tilt-card">
+            <div class="glass-card p-8 group tilt-card shine-card">
                 <div class="tilt-card-glow"></div>
                 <div class="tilt-card-inner relative z-10">
                     <div class="icon-box-dark mb-5">
@@ -450,7 +450,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="glass-card p-8 group tilt-card">
+            <div class="glass-card p-8 group tilt-card shine-card">
                 <div class="tilt-card-glow"></div>
                 <div class="tilt-card-inner relative z-10">
                     <div class="icon-box-dark mb-5">
@@ -467,7 +467,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="glass-card p-8 group tilt-card">
+            <div class="glass-card p-8 group tilt-card shine-card">
                 <div class="tilt-card-glow"></div>
                 <div class="tilt-card-inner relative z-10">
                     <div class="icon-box-dark mb-5">
@@ -485,7 +485,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="glass-card p-8 group tilt-card">
+            <div class="glass-card p-8 group tilt-card shine-card">
                 <div class="tilt-card-glow"></div>
                 <div class="tilt-card-inner relative z-10">
                     <div class="icon-box-dark mb-5">
@@ -503,7 +503,7 @@
             </div>
 
             <!-- Card 5 -->
-            <div class="glass-card p-8 group tilt-card">
+            <div class="glass-card p-8 group tilt-card shine-card">
                 <div class="tilt-card-glow"></div>
                 <div class="tilt-card-inner relative z-10">
                     <div class="icon-box-dark mb-5">
@@ -522,7 +522,7 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="glass-card p-8 group tilt-card">
+            <div class="glass-card p-8 group tilt-card shine-card">
                 <div class="tilt-card-glow"></div>
                 <div class="tilt-card-inner relative z-10">
                     <div class="icon-box-dark mb-5">
@@ -545,23 +545,23 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════════
-     CTA SECTION
+     CTA SECTION — Mesh Gradient Background
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-16 md:py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
+<section class="py-16 md:py-24 relative overflow-hidden mesh-gradient" style="background: linear-gradient(180deg, #040b18, #0a1628);">
     <!-- Modern Background -->
     <div class="hero-bg-modern">
         <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
     </div>
 
     <div class="max-w-3xl mx-auto px-4 relative z-10 text-center">
-        <h2 class="text-gradient-blue mb-6">
+        <h2 class="text-gradient-blue mb-6 text-3d">
             <?= lang('App.cta_title') ?? 'Ready to Transform Your Business?' ?>
         </h2>
         <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
             <?= lang('App.cta_subtitle') ?? 'Let\'s discuss how we can help you achieve your digital goals. Schedule a free consultation today.' ?>
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center stagger-children">
-            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
+            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn neon-pulse">
                 <span><?= lang('App.schedule_call') ?? 'Schedule a Call' ?></span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">

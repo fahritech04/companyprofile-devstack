@@ -1025,7 +1025,7 @@ a {
 }
 
 .hero-text-reveal {
-H  animation: textReveal 1s var(--ease-out) forwards;
+  animation: textReveal 1s var(--ease-out) forwards;
 }
 
 /* Gradient text shimmer */

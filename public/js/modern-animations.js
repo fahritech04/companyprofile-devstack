@@ -1,6 +1,7 @@
 /**
  * DevStack Modern Animation System
  * GSAP + ScrollTrigger + Lenis for Apple/Linear-grade interactions
+ * Enhanced with 3D effects, text scramble, particle cursor, and more
  */
 
 (function () {
@@ -50,7 +51,34 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 2. GSAP SCROLL REVEALS
+  // 2. SCROLL PROGRESS BAR
+  // ═══════════════════════════════════════════════════════════════
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  progressBar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#2563eb,#60a5fa);z-index:9999;transform-origin:left;width:0%;box-shadow:0 0 10px rgba(59,130,246,0.5);';
+  document.body.appendChild(progressBar);
+
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.to(progressBar, {
+      width: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: true,
+      },
+    });
+  } else {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+    });
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // 3. GSAP SCROLL REVEALS (Enhanced)
   // ═══════════════════════════════════════════════════════════════
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -115,9 +143,8 @@
       });
     });
 
-    // Hero headline text reveal
+    // Hero headline text reveal (word by word)
     document.querySelectorAll('.hero-text-reveal').forEach((headline) => {
-      // Split into words
       const words = headline.textContent.trim().split(/\s+/);
       headline.innerHTML = '';
       words.forEach((word) => {
@@ -144,7 +171,6 @@
         }
       );
 
-      // Fallback: ensure text is visible after 2.5s if GSAP fails
       setTimeout(() => {
         innerSpans.forEach((s) => {
           s.style.opacity = '1';
@@ -194,10 +220,100 @@
         },
       });
     });
+
+    // Enhanced card reveals with rotation
+    document.querySelectorAll('.tilt-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 60, rotateX: 10 },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          duration: 0.9,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 90%',
+            once: true,
+          },
+          delay: i * 0.08,
+        }
+      );
+    });
+
+    // Section title glow on scroll
+    document.querySelectorAll('h2.text-gradient-blue').forEach((title) => {
+      gsap.fromTo(title,
+        { opacity: 0, x: -30, filter: 'blur(8px)' },
+        {
+          opacity: 1,
+          x: 0,
+          filter: 'blur(0px)',
+          duration: 1,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: title,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    });
+
+    // Image reveal clip-path
+    document.querySelectorAll('.img-reveal').forEach((img) => {
+      ScrollTrigger.create({
+        trigger: img,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => img.classList.add('revealed'),
+      });
+    });
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 3. 3D TILT EFFECT
+  // 4. TEXT SCRAMBLE EFFECT
+  // ═══════════════════════════════════════════════════════════════
+  class TextScramble {
+    constructor(el) {
+      this.el = el;
+      this.chars = '!<>-_\\/[]{}—=+*^?#________';
+      this.originalText = el.textContent;
+    }
+
+    scramble() {
+      const length = this.originalText.length;
+      let iteration = 0;
+      const interval = setInterval(() => {
+        this.el.textContent = this.originalText
+          .split('')
+          .map((char, index) => {
+            if (index < iteration) return this.originalText[index];
+            if (char === ' ') return ' ';
+            return this.chars[Math.floor(Math.random() * this.chars.length)];
+          })
+          .join('');
+
+        if (iteration >= length) clearInterval(interval);
+        iteration += 1 / 2;
+      }, 30);
+    }
+  }
+
+  // Apply scramble on hover to glitch-text elements
+  document.querySelectorAll('.glitch-text').forEach((el) => {
+    const scrambler = new TextScramble(el);
+    el.addEventListener('mouseenter', () => scrambler.scramble());
+  });
+
+  // Auto-scramble hero subtitle once
+  document.querySelectorAll('.scramble-text').forEach((el) => {
+    const scrambler = new TextScramble(el);
+    setTimeout(() => scrambler.scramble(), 800);
+  });
+
+  // ═══════════════════════════════════════════════════════════════
+  // 5. 3D TILT EFFECT (Enhanced)
   // ═══════════════════════════════════════════════════════════════
   if (!isTouchDevice && !isReducedMotion) {
     document.querySelectorAll('.tilt-card').forEach((card) => {
@@ -209,10 +325,10 @@
         const y = e.clientY - rect.top;
         const cx = rect.width / 2;
         const cy = rect.height / 2;
-        const rotateX = ((y - cy) / cy) * -8;
-        const rotateY = ((x - cx) / cx) * 8;
+        const rotateX = ((y - cy) / cy) * -10;
+        const rotateY = ((x - cx) / cx) * 10;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
 
         if (glow) {
           glow.style.setProperty('--mouse-x', `${x}px`);
@@ -227,7 +343,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 4. MAGNETIC BUTTON EFFECT
+  // 6. MAGNETIC BUTTON EFFECT (Enhanced)
   // ═══════════════════════════════════════════════════════════════
   if (!isTouchDevice && !isReducedMotion) {
     document.querySelectorAll('.magnetic-btn').forEach((btn) => {
@@ -235,7 +351,7 @@
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        btn.style.transform = `translate(${x * 0.35}px, ${y * 0.35}px)`;
       });
 
       btn.addEventListener('mouseleave', () => {
@@ -245,21 +361,50 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 5. CUSTOM CURSOR GLOW
+  // 7. CUSTOM CURSOR GLOW + PARTICLE TRAIL
   // ═══════════════════════════════════════════════════════════════
   if (!isTouchDevice && !isReducedMotion) {
     const cursor = document.createElement('div');
     cursor.className = 'cursor-glow';
     document.body.appendChild(cursor);
 
+    // Particle trail
+    const trailParticles = [];
+    const maxTrail = 12;
+
+    function createTrailParticle(x, y) {
+      const p = document.createElement('div');
+      p.className = 'particle-cursor';
+      p.style.left = x + 'px';
+      p.style.top = y + 'px';
+      p.style.opacity = '0.8';
+      p.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+      document.body.appendChild(p);
+      trailParticles.push({ el: p, life: 1 });
+
+      if (trailParticles.length > maxTrail) {
+        const old = trailParticles.shift();
+        old.el.remove();
+      }
+    }
+
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
     let cursorX = mouseX;
     let cursorY = mouseY;
+    let lastTrailX = mouseX;
+    let lastTrailY = mouseY;
 
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
+      const dist = Math.hypot(mouseX - lastTrailX, mouseY - lastTrailY);
+      if (dist > 15) {
+        createTrailParticle(mouseX, mouseY);
+        lastTrailX = mouseX;
+        lastTrailY = mouseY;
+      }
     });
 
     document.addEventListener('mouseleave', () => {
@@ -277,13 +422,26 @@
       cursorY += dy * 0.15;
       cursor.style.left = cursorX + 'px';
       cursor.style.top = cursorY + 'px';
+
+      // Update trail particles
+      for (let i = trailParticles.length - 1; i >= 0; i--) {
+        const p = trailParticles[i];
+        p.life -= 0.04;
+        p.el.style.opacity = p.life;
+        p.el.style.transform = `scale(${p.life})`;
+        if (p.life <= 0) {
+          p.el.remove();
+          trailParticles.splice(i, 1);
+        }
+      }
+
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 6. NAVBAR SCROLL EFFECT
+  // 8. NAVBAR SCROLL EFFECT
   // ═══════════════════════════════════════════════════════════════
   const navbar = document.getElementById('main-navbar');
   const navContainer = document.getElementById('navbar-container');
@@ -310,7 +468,6 @@
       },
     });
   } else if (navbar) {
-    // Fallback without GSAP
     window.addEventListener('scroll', () => {
       if (window.scrollY > 30) {
         navbar.classList.add('nav-glass');
@@ -331,7 +488,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 7. CANVAS PARTICLE NETWORK (Unified)
+  // 9. CANVAS PARTICLE NETWORK (Unified)
   // ═══════════════════════════════════════════════════════════════
   function initParticleNetwork(canvasId) {
     const canvas = document.getElementById(canvasId);
@@ -430,7 +587,7 @@
   });
 
   // ═══════════════════════════════════════════════════════════════
-  // 8. PORTFOLIO FILTER ANIMATION
+  // 10. PORTFOLIO FILTER ANIMATION
   // ═══════════════════════════════════════════════════════════════
   const filterButtons = document.querySelectorAll('.portfolio-filter');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -471,7 +628,7 @@
   });
 
   // ═══════════════════════════════════════════════════════════════
-  // 9. MOBILE MENU
+  // 11. MOBILE MENU
   // ═══════════════════════════════════════════════════════════════
   const mobileMenuBtn = document.querySelector('.mobile-menu-button');
   const mobileMenu = document.querySelector('.mobile-menu');
@@ -509,7 +666,7 @@
   });
 
   // ═══════════════════════════════════════════════════════════════
-  // 10. NEWSLETTER FORM
+  // 12. NEWSLETTER FORM
   // ═══════════════════════════════════════════════════════════════
   const newsletterForm = document.querySelector('footer form');
   if (newsletterForm) {
@@ -530,7 +687,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 11. FEATURE TABS (for home page services section)
+  // 13. FEATURE TABS (for home page services section)
   // ═══════════════════════════════════════════════════════════════
   window.initFeatureTabs = function () {
     const btns = document.querySelectorAll('.feature-tab-btn');
@@ -558,7 +715,7 @@
   if (window.initFeatureTabs) window.initFeatureTabs();
 
   // ═══════════════════════════════════════════════════════════════
-  // 12. SCROLL INDICATOR
+  // 14. SCROLL INDICATOR
   // ═══════════════════════════════════════════════════════════════
   const scrollIndicator = document.querySelector('.scroll-indicator-smooth');
   if (scrollIndicator) {
@@ -575,7 +732,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 13. FORM INPUT FOCUS EFFECTS
+  // 15. FORM INPUT FOCUS EFFECTS
   // ═══════════════════════════════════════════════════════════════
   document.querySelectorAll('input, textarea').forEach((input) => {
     input.addEventListener('focus', function () {
@@ -585,4 +742,43 @@
       if (this.parentElement) this.parentElement.classList.remove('input-focused');
     });
   });
+
+  // ═══════════════════════════════════════════════════════════════
+  // 16. SPOTLIGHT EFFECT ON CARDS
+  // ═══════════════════════════════════════════════════════════════
+  if (!isTouchDevice) {
+    document.querySelectorAll('.spotlight').forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty('--spotlight-x', (e.clientX - rect.left) + 'px');
+        el.style.setProperty('--spotlight-y', (e.clientY - rect.top) + 'px');
+      });
+    });
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // 17. FEATURE TAB CONTENT SPOTLIGHT
+  // ═══════════════════════════════════════════════════════════════
+  if (!isTouchDevice) {
+    document.querySelectorAll('.feature-tab-content').forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+        el.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+      });
+    });
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // 18. SHINE CARD TRIGGER
+  // ═══════════════════════════════════════════════════════════════
+  document.querySelectorAll('.shine-card').forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      card.classList.add('shining');
+    });
+    card.addEventListener('animationend', () => {
+      card.classList.remove('shining');
+    });
+  });
+
 })();
