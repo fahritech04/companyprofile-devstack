@@ -34,6 +34,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/netdata-animations.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/modern-animations.css') ?>">
+
+    <!-- GSAP + ScrollTrigger + Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
 
     <!-- Performance & PWA -->
     <link rel="manifest" href="<?= base_url('manifest.json') ?>">
@@ -97,6 +103,9 @@
 
     <!-- Viewport Glow Frame -->
     <div class="viewport-glow"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay" id="page-transition"></div>
 
     <!-- ═══ Dark Glass Navigation ═══ -->
     <nav class="fixed w-full z-50 transition-all duration-500 nav-dark" id="main-navbar">
@@ -384,196 +393,8 @@
     <!-- Performance Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="<?= base_url('js/netdata-animations.js') ?>"></script>
+    <script src="<?= base_url('js/modern-animations.js') ?>"></script>
     <script>
-        // ── Dark Navbar Scroll ──
-        const navbar = document.getElementById('main-navbar');
-        const navContainer = document.getElementById('navbar-container');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) {
-                navbar.classList.add('nav-dark-scrolled');
-                navContainer.classList.remove('h-20');
-                navContainer.classList.add('h-16');
-            } else {
-                navbar.classList.remove('nav-dark-scrolled');
-                navContainer.classList.add('h-20');
-                navContainer.classList.remove('h-16');
-            }
-        });
-
-        // ── AOS Init ──
-        if (window.innerWidth <= 480) {
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelectorAll('[data-aos]').forEach(function (el) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                });
-            });
-        } else {
-            AOS.init({
-                once: true,
-                offset: 50,
-                duration: window.innerWidth <= 768 ? 400 : 700,
-                easing: 'ease-out-cubic',
-                disable: false,
-                throttleDelay: 50
-            });
-        }
-
-        // ── DOMContentLoaded ──
-        document.addEventListener('DOMContentLoaded', function () {
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-            });
-
-            // Intersection Observer for cards
-            if (window.innerWidth > 768) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) entry.target.classList.add('animate-in');
-                    });
-                }, { threshold: 0.1, rootMargin: '50px' });
-
-                document.querySelectorAll('.card-dark, .card-enterprise, .card-modern, .hover-lift').forEach(card => {
-                    observer.observe(card);
-                });
-            }
-
-            // Counter animation
-            const counters = document.querySelectorAll('[data-counter]');
-            if (counters.length > 0) {
-                const counterObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const target = parseInt(entry.target.getAttribute('data-counter'));
-                            const suffix = entry.target.getAttribute('data-suffix') || '';
-                            const prefix = entry.target.getAttribute('data-prefix') || '';
-                            let current = 0;
-                            const increment = target / 40;
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= target) {
-                                    current = target;
-                                    clearInterval(timer);
-                                }
-                                entry.target.textContent = prefix + Math.floor(current) + suffix;
-                            }, 30);
-                            counterObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                counters.forEach(c => counterObserver.observe(c));
-            }
-
-            // Mobile menu
-            const mobileMenuBtn = document.querySelector('.mobile-menu-button');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const menuIcon = document.querySelector('.menu-icon');
-            const closeIcon = document.querySelector('.close-icon');
-
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                    menuIcon.classList.toggle('hidden');
-                    closeIcon.classList.toggle('hidden');
-                });
-            }
-
-            document.addEventListener('click', function (e) {
-                if (mobileMenuBtn && !mobileMenuBtn.contains(e.target) && mobileMenu && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                }
-            });
-
-            window.addEventListener('resize', function () {
-                if (window.innerWidth >= 768 && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                }
-            });
-
-            // Newsletter form
-            const newsletterForm = document.querySelector('footer form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
-                    if (email) {
-                        const button = this.querySelector('button');
-                        const originalHTML = button.innerHTML;
-                        button.innerHTML = '✓ Subscribed!';
-                        button.disabled = true;
-                        setTimeout(() => { button.innerHTML = originalHTML; button.disabled = false; }, 3000);
-                    }
-                });
-            }
-
-            // ── Netdata-style Effects Initialization ──
-
-            // Scroll indicator click
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (scrollIndicator) {
-                scrollIndicator.addEventListener('click', function () {
-                    const nextSection = document.querySelector('section:nth-of-type(2)');
-                    if (nextSection) {
-                        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            }
-
-            // Add pulse dots to cards
-            document.querySelectorAll('.card-dark').forEach(card => {
-                if (!card.querySelector('.pulse-dot')) {
-                    const pulseDot = document.createElement('div');
-                    pulseDot.className = 'pulse-dot absolute top-2 right-2 w-2 h-2 bg-blue-400 rounded-full';
-                    card.style.position = 'relative';
-                    card.appendChild(pulseDot);
-                }
-            });
-
-            // Add floating label animation to input fields
-            document.querySelectorAll('input, textarea').forEach(input => {
-                input.addEventListener('focus', function () {
-                    this.parentElement.classList.add('input-focused');
-                });
-                input.addEventListener('blur', function () {
-                    this.parentElement.classList.remove('input-focused');
-                });
-            });
-
-            // Portfolio filter functionality
-            const filterButtons = document.querySelectorAll('.portfolio-filter');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // Update active state
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    const filter = this.dataset.filter;
-
-                    portfolioItems.forEach(item => {
-                        if (filter === 'all' || item.dataset.category === filter) {
-                            item.style.display = 'block';
-                            item.classList.add('fade-in-up');
-                        } else {
-                            item.style.display = 'none';
-                            item.classList.remove('fade-in-up');
-                        }
-                    });
-                });
-            });
-        });
-
         // ── Feature Tabs ──
         window.initFeatureTabs = function () {
             const btns = document.querySelectorAll('.feature-tab-btn');

@@ -5,69 +5,22 @@
 <!-- Services Hero Section -->
 <section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
-    <!-- Netdata-style Hero Background Grid -->
-    <div class="landing-hero-bg-grid"></div>
 
-    <!-- Netdata-style Floating Squares -->
-    <div class="landing-hero-bg-squares">
-        <div class="landing-hero-bg-square" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="landing-hero-bg-square" style="top: 20%; left: 15%; animation-delay: 0.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 30%; left: 25%; animation-delay: 1s;"></div>
-        <div class="landing-hero-bg-square" style="top: 40%; left: 35%; animation-delay: 1.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 50%; left: 45%; animation-delay: 2s;"></div>
-        <div class="landing-hero-bg-square" style="top: 60%; left: 55%; animation-delay: 2.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 70%; left: 65%; animation-delay: 3s;"></div>
-        <div class="landing-hero-bg-square" style="top: 80%; left: 75%; animation-delay: 3.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 15%; left: 85%; animation-delay: 0.3s;"></div>
-        <div class="landing-hero-bg-square" style="top: 25%; left: 95%; animation-delay: 0.8s;"></div>
+    <!-- Modern Hero Background -->
+    <div class="hero-bg-modern">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="hero-grid-overlay"></div>
     </div>
 
-    <div class="grid-bg"></div>
-    <div class="dot-grid-dark"></div>
-    <div class="hex-grid"></div>
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-
-    <!-- Floating Dots -->
-    <div class="floating-dot" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
-    <div class="floating-dot" style="top: 25%; left: 30%; animation-delay: 0.5s;"></div>
-    <div class="floating-dot" style="top: 35%; left: 50%; animation-delay: 1s;"></div>
-    <div class="floating-dot" style="top: 45%; left: 70%; animation-delay: 1.5s;"></div>
-    <div class="floating-dot" style="top: 55%; left: 90%; animation-delay: 2s;"></div>
-    <div class="floating-dot" style="top: 65%; left: 20%; animation-delay: 2.5s;"></div>
-    <div class="floating-dot" style="top: 75%; left: 40%; animation-delay: 3s;"></div>
-    <div class="floating-dot" style="top: 85%; left: 60%; animation-delay: 3.5s;"></div>
-
-    <!-- Particles -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-
     <!-- Canvas Particle Network -->
-    <canvas id="particle-network-services" class="absolute inset-0 w-full h-full opacity-30"></canvas>
-
-    <!-- Data Stream Lines -->
-    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
-    <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
-    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
-    <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
-
-    <!-- Scan Line Effect -->
-    <div class="scan-line" style="animation-delay: 0s;"></div>
+    <canvas id="particle-network-services" class="absolute inset-0 w-full h-full opacity-40"></canvas>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
-        <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">
-            <div class="badge-glow inline-flex items-center text-xs animate-glow">
-                <span class="badge-pulse"></span>
+        <div class="text-center space-y-8 max-w-4xl mx-auto reveal">
+            <div class="badge-modern">
+                <span class="dot"></span>
                 <?= lang('App.expertise_areas') ?>
             </div>
             <h1 class="text-gradient-blue leading-tight hero-text-reveal"><?= lang('App.services_main_title') ?></h1>
@@ -76,35 +29,35 @@
             </p>
 
             <!-- Stats -->
-            <div class="stats-bar-dark max-w-3xl mx-auto mt-8">
-                <div class="stat-item-dark">
-                    <div class="stat-number-dark" data-counter="50" data-suffix="+">0</div>
-                    <div class="stat-label-dark"><?= lang('App.projects_delivered') ?></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-8">
+                <div class="glass-card p-4 text-center">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number" data-counter="50" data-suffix="+">0</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.projects_delivered') ?></div>
                 </div>
-                <div class="stat-item-dark">
-                    <div class="stat-number-dark" data-counter="25" data-suffix="+">0</div>
-                    <div class="stat-label-dark"><?= lang('App.happy_clients') ?></div>
+                <div class="glass-card p-4 text-center">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number" data-counter="25" data-suffix="+">0</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.happy_clients') ?></div>
                 </div>
-                <div class="stat-item-dark">
-                    <div class="stat-number-dark">99.9%</div>
-                    <div class="stat-label-dark"><?= lang('App.success_rate') ?></div>
+                <div class="glass-card p-4 text-center">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number">99.9%</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.success_rate') ?></div>
                 </div>
-                <div class="stat-item-dark">
-                    <div class="stat-number-dark">24/7</div>
-                    <div class="stat-label-dark"><?= lang('App.expert_support') ?></div>
+                <div class="glass-card p-4 text-center">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number">24/7</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.expert_support') ?></div>
                 </div>
             </div>
 
             <!-- CTA -->
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="<?= base_url('contact') ?>" class="btn-glow px-8 py-4 magnetic-btn">
+                <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
                     <span><?= lang('App.discuss_project') ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
                 </a>
-                <a href="#services-list" class="btn-glass px-8 py-4 magnetic-btn">
+                <a href="#services-list" class="btn-glass-modern magnetic-btn">
                     <span><?= lang('App.explore_services') ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -117,21 +70,19 @@
         style="background: linear-gradient(to top, #040b18, transparent);"></div>
 </section>
 
-<div class="divider-glow"></div>
+<div class="divider-glow-modern"></div>
 
 <!-- Core Services Section -->
 <section id="services-list" class="py-24 relative" style="background: #040b18;">
-    <div class="absolute inset-0 dot-grid-dark opacity-20"></div>
-    <div class="absolute inset-0 hex-grid opacity-30"></div>
     <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.core_services') ?></h2>
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-gradient-blue mb-6"><?= lang('App.core_services') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.core_services_desc') ?></p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card p-8 group service-card-3d">
                 <div class="icon-box-dark mx-auto mb-6">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -139,21 +90,21 @@
                     </svg>
                 </div>
                 <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_1_title') ?></h3>
-                <p class="text-gray-400 text-sm leading-relaxed text-center mb mb-6"><?= lang('App.service_1_desc') ?>
+                <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_1_desc') ?>
                 </p>
             </div>
-            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card p-8 group service-card-3d">
                 <div class="icon-box-dark mx-auto mb-6">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2-2v12a2 2 0 002 2z">
                         </path>
                     </svg>
                 </div>
                 <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_2_title') ?></h3>
                 <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_2_desc') ?></p>
             </div>
-            <div class="card-dark p-8 group card-glow-hover grid-animate-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="glass-card p-8 group service-card-3d">
                 <div class="icon-box-dark mx-auto mb-6">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -162,13 +113,12 @@
                     </svg>
                 </div>
                 <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_3_title') ?></h3>
-                <p class="text-gray-400 text-sm
- leading-relaxed text-center mb-6"><?= lang('App.service_3_desc') ?></p>
+                <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_3_desc') ?></p>
             </div>
         </div>
 
-        <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
-            <a href="<?= base_url('contact') ?>" class="btn-glow px-8 py-4 magnetic-btn">
+        <div class="text-center mt-12 reveal">
+            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
                 <span><?= lang('App.get_started_today') ?></span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -181,15 +131,11 @@
 
 <!-- Industries Section -->
 <section id="industries" class="py-24 relative" style="background: linear-gradient(180deg, #040b18, #060e1f, #040b18);">
-    <div class="glow-orb"
-        style="width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.06),transparent 70%);top:15%;left:-8%;filter:blur(80px);">
-    </div>
-    <div class="absolute inset-0 hex-grid opacity-30"></div>
-    <div class="divider-glow mb-16"></div>
+    <div class="divider-glow-modern mb-16"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6 neon-text"><?= lang('App.industries_serve') ?></h2>
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-gradient-blue mb-6"><?= lang('App.industries_serve') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.industries_desc') ?></p>
         </div>
@@ -204,25 +150,26 @@
                 ['icon' => 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', 'title' => 'manufacturing', 'desc' => 'manufacturing_desc'],
                 ['icon' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'professional_services', 'desc' => 'professional_desc'],
             ];
-            $delay = 0;
             foreach ($industries as $ind):
                 ?>
-                <div class="card-dark p-8 text-center group card-glow-hover grid-animate-item" data-aos="fade-up"
-                    data-aos-delay="<?= $delay ?>">
-                    <div class="icon-box-dark mx-auto mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<?= $ind['icon'] ?>">
-                            </path>
-                        </svg>
+                <div class="glass-card p-8 text-center group tilt-card">
+                    <div class="tilt-card-glow"></div>
+                    <div class="tilt-card-inner relative z-10">
+                        <div class="icon-box-dark mx-auto mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<?= $ind['icon'] ?>">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-white"><?= lang('App.' . $ind['title']) ?></h3>
+                        <p class="text-gray-400 text-sm leading-relaxed"><?= lang('App.' . $ind['desc']) ?></p>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 text-white"><?= lang('App.' . $ind['title']) ?></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed"><?= lang('App.' . $ind['desc']) ?></p>
                 </div>
-                <?php $delay += 100; endforeach; ?>
+                <?php endforeach; ?>
         </div>
 
-        <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="600">
-            <a href="<?= base_url('contact') ?>" class="btn-glass px-8 py-4">
+        <div class="text-center mt-12 reveal">
+            <a href="<?= base_url('contact') ?>" class="btn-glass-modern magnetic-btn">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>

@@ -5,68 +5,22 @@
 <!-- Portfolio Hero Section -->
 <section class="min-h-[60vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
-    <!-- Netdata-style Hero Background Grid -->
-    <div class="landing-hero-bg-grid"></div>
 
-    <!-- Netdata-style Floating Squares -->
-    <div class="landing-hero-bg-squares">
-        <div class="landing-hero-bg-square" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="landing-hero-bg-square" style="top: 20%; left: 15%; animation-delay: 0.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 30%; left: 25%; animation-delay: 1s;"></div>
-        <div class="landing-hero-bg-square" style="top: 40%; left: 35%; animation-delay: 1.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 50%; left: 45%; animation-delay: 2s;"></div>
-        <div class="landing-hero-bg-square" style="top: 60%; left: 55%; animation-delay: 2.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 70%; left: 65%; animation-delay: 3s;"></div>
-        <div class="landing-hero-bg-square" style="top: 80%; left: 75%; animation-delay: 3.5s;"></div>
-        <div class="landing-hero-bg-square" style="top: 15%; left: 85%; animation-delay: 0.3s;"></div>
-        <div class="landing-hero-bg-square" style="top: 25%; left: 95%; animation-delay: 0.8s;"></div>
+    <!-- Modern Hero Background -->
+    <div class="hero-bg-modern">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="hero-grid-overlay"></div>
     </div>
 
-    <div class="grid-bg"></div>
-    <div class="dot-grid-dark"></div>
-    <div class="hex-grid"></div>
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-
-    <!-- Floating Dots -->
-    <div class="floating-dot" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
-    <div class="floating-dot" style="top: 25%; left: 30%; animation-delay: 0.5s;"></div>
-    <div class="floating-dot" style="top: 35%; left: 50%; animation-delay: 1s;"></div>
-    <div class="floating-dot" style="top: 45%; left: 70%; animation-delay: 1.5s;"></div>
-    <div class="floating-dot" style="top: 55%; left: 90%; animation-delay: 2s;"></div>
-    <div class="floating-dot" style="top: 65%; left: 20%; animation-delay: 2.5s;"></div>
-    <div class="floating-dot" style="top: 75%; left: 40%; animation-delay: 3s;"></div>
-    <div class="floating-dot" style="top: 85%; left: 60%; animation-delay: 3.5s;"></div>
-
-    <!-- Particles -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-
     <!-- Canvas Particle Network -->
-    <canvas id="particle-network-portfolio" class="absolute inset-0 w-full h-full opacity-30"></canvas>
-
-    <!-- Data Stream Lines -->
-    <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="data-stream" style="left: 30%; animation-delay: 1s;"></div>
-    <div class="data-stream" style="left: 50%; animation-delay: 2s;"></div>
-    <div class="data-stream" style="left: 70%; animation-delay: 0.5s;"></div>
-    <div class="data-stream" style="left: 90%; animation-delay: 1.5s;"></div>
-
-    <!-- Scan Line Effect -->
-    <div class="scan-line" style="animation-delay: 0s;"></div>
+    <canvas id="particle-network-portfolio" class="absolute inset-0 w-full h-full opacity-40"></canvas>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
-        <div class="text-center space-y-8 max-w-4xl mx-auto" data-aos="fade-up">
-            <div class="badge-glow inline-flex items-center text-xs animate-glow">
-                <span class="badge-pulse"></span>
+        <div class="text-center space-y-8 max-w-4xl mx-auto reveal">
+            <div class="badge-modern">
+                <span class="dot"></span>
                 <?= lang('App.portfolio_showcase') ?>
             </div>
             <h1 class="text-gradient-blue leading-tight hero-text-reveal">
@@ -78,7 +32,7 @@
 
             <!-- CTA -->
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="#portfolio-grid" class="btn-glow px-8 py-4 magnetic-btn">
+                <a href="#portfolio-grid" class="btn-glow-modern magnetic-btn">
                     <span>
                         <?= lang('App.view_portfolio') ?>
                     </span>
@@ -86,7 +40,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </a>
-                <a href="<?= base_url('contact') ?>" class="btn-glass px-8 py-4 magnetic-btn">
+                <a href="<?= base_url('contact') ?>" class="btn-glass-modern magnetic-btn">
                     <span>
                         <?= lang('App.discuss_project_btn') ?>
                     </span>
@@ -103,15 +57,13 @@
         style="background: linear-gradient(to top, #040b18, transparent);"></div>
 </section>
 
-<div class="divider-glow"></div>
+<div class="divider-glow-modern"></div>
 
 <!-- Portfolio Grid -->
 <section id="portfolio-grid" class="py-24 relative" style="background: #040b18;">
-    <div class="absolute inset-0 dot-grid-dark opacity-20"></div>
-    <div class="absolute inset-0 hex-grid opacity-30"></div>
     <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6 neon-text">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-gradient-blue mb-6">
                 <?= lang('App.our_portfolio') ?>
             </h2>
             <div class="separator mx-auto mb-8"></div>
@@ -121,14 +73,14 @@
         </div>
 
         <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100">
-            <button class="btn-glow text-sm px-6 py-2.5 portfolio-filter active" data-filter="all">
+        <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
+            <button class="btn-glow-modern text-sm portfolio-filter active" data-filter="all">
                 <?= lang('App.all_projects') ?>
             </button>
             <?php if (!empty($portfolios)):
                 $categories = array_unique(array_column($portfolios, 'category'));
                 foreach ($categories as $cat): ?>
-                    <button class="btn-glass text-sm px-6 py-2.5 portfolio-filter" data-filter="<?= esc($cat) ?>">
+                    <button class="btn-glass-modern text-sm portfolio-filter" data-filter="<?= esc($cat) ?>">
                         <?= esc(ucwords(str_replace('_', ' ', $cat))) ?>
                     </button>
                 <?php endforeach; endif; ?>
@@ -139,12 +91,12 @@
             <?php if (!empty($portfolios)): ?>
                 <?php $delay = 0;
                 foreach ($portfolios as $item): ?>
-                    <div class="group relative overflow-hidden rounded-2xl card-dark portfolio-item card-glow-hover grid-animate-item"
-                        data-category="<?= esc($item['category'] ?? '') ?>" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
+                    <div class="portfolio-card-modern portfolio-item"
+                        data-category="<?= esc($item['category'] ?? '') ?>">
                         <div class="h-64 relative overflow-hidden">
                             <?php if (!empty($item['image'])): ?>
                                 <img src="<?= base_url('uploads/portfolio/' . $item['image']) ?>" alt="<?= esc($item['title']) ?>"
-                                    class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                    class="absolute inset-0 w-full h-full object-cover"
                                     loading="lazy">
                             <?php else: ?>
                                 <div
@@ -156,12 +108,8 @@
                                     </svg>
                                 </div>
                             <?php endif; ?>
-                            <div class="absolute inset-0 bg-navy-900/60"></div>
-                        </div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400">
-                            <div
-                                class="absolute bottom-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                            <div class="overlay"></div>
+                            <div class="content">
                                 <h3 class="text-lg font-bold mb-1">
                                     <?= esc($item['title']) ?>
                                 </h3>
@@ -189,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php $delay += 100; endforeach; ?>
+                    <?php endforeach; ?>
             <?php else: ?>
                 <!-- Fallback: no portfolios yet -->
                 <div class="col-span-full text-center py-16">
@@ -210,15 +158,13 @@
 
 <!-- CTA Section -->
 <section class="py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
-    <div class="glow-orb"
-        style="width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.10),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(100px);">
+    <div class="hero-bg-modern">
+        <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
     </div>
-    <div class="absolute inset-0 grid-bg"></div>
-    <div class="absolute inset-0 hex-grid opacity-30"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center" data-aos="fade-up">
-            <h2 class="text-gradient-blue mb-6 neon-text">
+        <div class="text-center reveal">
+            <h2 class="text-gradient-blue mb-6">
                 <?= lang('App.ready_to_start') ?>
             </h2>
             <div class="separator mx-auto mb-8"></div>
@@ -226,8 +172,8 @@
                 <?= lang('App.discuss_vision') ?>
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-                <a href="<?= base_url('contact') ?>" class="btn-glow px-10 py-4 magnetic-btn">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 stagger-children">
+                <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
                     <span>
                         <?= lang('App.start_consultation') ?>
                     </span>
@@ -237,7 +183,7 @@
                         </path>
                     </svg>
                 </a>
-                <a href="#portfolio-grid" class="btn-glass px-10 py-4 magnetic-btn">
+                <a href="#portfolio-grid" class="btn-glass-modern magnetic-btn">
                     <span>
                         <?= lang('App.view_more_portfolio') ?>
                     </span>
@@ -245,9 +191,8 @@
             </div>
 
             <!-- Contact Info Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div class="card-dark p-6 text-center card-glow-hover grid-animate-item" data-aos="fade-up"
-                    data-aos-delay="100">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto stagger-children">
+                <div class="glass-card p-6 text-center">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -260,8 +205,7 @@
                     </h3>
                     <p class="text-gray-400 text-sm">+62 812 1424 0287</p>
                 </div>
-                <div class="card-dark p-6 text-center card-glow-hover grid-animate-item" data-aos="fade-up"
-                    data-aos-delay="200">
+                <div class="glass-card p-6 text-center">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -274,8 +218,7 @@
                     </h3>
                     <p class="text-gray-400 text-sm">info@dev-stack.id</p>
                 </div>
-                <div class="card-dark p-6 text-center card-glow-hover grid-animate-item" data-aos="fade-up"
-                    data-aos-delay="300">
+                <div class="glass-card p-6 text-center">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
