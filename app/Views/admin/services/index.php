@@ -2,9 +2,9 @@
 
 <?= $this->section('content') ?>
 
-<div class="flex items-center justify-between mb-6">
+<div class="flex items-center justify-between mb-6 animate-fade-in">
     <p class="text-sm text-gray-500"><?= count($services ?? []) ?> total services</p>
-    <a href="<?= base_url('admin/services/create') ?>" class="btn-primary">
+    <a href="<?= base_url('admin/services/create') ?>" class="btn-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
         </svg>
@@ -12,7 +12,7 @@
     </a>
 </div>
 
-<div class="panel">
+<div class="panel animate-fade-in animate-delay-1 card-shine">
     <div class="overflow-x-auto">
         <table class="table-dark">
             <thead>
@@ -43,7 +43,7 @@
                     </tr>
                 <?php else: ?>
                     <?php foreach ($services as $i => $service): ?>
-                        <tr>
+                        <tr class="animate-fade-in" style="animation-delay: <?= 0.04 * $i ?>s">
                             <td class="text-gray-600 text-sm"><?= $i + 1 ?></td>
                             <td>
                                 <div>
@@ -70,7 +70,7 @@
                             </td>
                             <td>
                                 <div class="flex items-center gap-2">
-                                    <a href="<?= base_url('admin/services/edit/' . $service['id']) ?>" class="btn-secondary">
+                                    <a href="<?= base_url('admin/services/edit/' . $service['id']) ?>" class="btn-secondary transition-all hover:shadow-lg hover:shadow-blue-500/10">
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
@@ -81,7 +81,7 @@
                                     <form action="<?= base_url('admin/services/delete/' . $service['id']) ?>" method="POST"
                                         data-confirm="Delete &quot;<?= esc($service['title']) ?>&quot;? This cannot be undone.">
                                         <?= csrf_field() ?>
-                                        <button type="submit" class="btn-danger">
+                                        <button type="submit" class="btn-danger transition-all hover:shadow-lg hover:shadow-red-500/10">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">

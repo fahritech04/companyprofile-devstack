@@ -2,14 +2,14 @@
 
 <?= $this->section('content') ?>
 
-<a href="/client/tickets" class="text-sm text-gray-400 hover:text-blue-400 flex items-center gap-2 mb-6">
+<a href="/client/tickets" class="text-sm text-gray-400 hover:text-blue-400 flex items-center gap-2 mb-6 transition-colors animate-fade-in">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
     </svg>
     Kembali
 </a>
 
-<div class="card-portal p-6 mb-6">
+<div class="card-portal p-6 mb-6 card-shine animate-fade-in animate-delay-1">
     <h2 class="text-xl font-bold text-white mb-4">New Support Ticket</h2>
 
     <?php if (session()->getFlashdata('errors')): ?>
@@ -63,7 +63,7 @@
                 required><?= old('message') ?></textarea>
         </div>
 
-        <button type="submit" class="btn-primary">
+        <button type="submit" class="btn-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>

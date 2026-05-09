@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<a href="/client/tickets" class="text-sm text-gray-400 hover:text-blue-400 flex items-center gap-2 mb-6">
+<a href="/client/tickets" class="text-sm text-gray-400 hover:text-blue-400 flex items-center gap-2 mb-6 transition-colors animate-fade-in">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
     </svg>
@@ -10,7 +10,7 @@
 </a>
 
 <!-- Ticket Header -->
-<div class="card-portal p-6 mb-6">
+<div class="card-portal p-6 mb-6 card-shine animate-fade-in animate-delay-1">
     <div class="flex items-center justify-between mb-2">
         <h2 class="text-xl font-bold text-white">
             <?= esc($ticket['subject']) ?>
@@ -32,8 +32,9 @@
 
 <!-- Conversation -->
 <div class="space-y-4 mb-8">
-    <?php foreach ($replies as $reply): ?>
-        <div class="card-portal p-5 <?= ($reply['role'] ?? 'user') === 'admin' ? 'border-blue-500/20 ml-4' : 'mr-4' ?>">
+    <?php foreach ($replies as $i => $reply): ?>
+        <div class="card-portal p-5 <?= ($reply['role'] ?? 'user') === 'admin' ? 'border-blue-500/20 ml-4' : 'mr-4' ?> card-shine animate-fade-in"
+             style="animation-delay: <?= 0.08 * $i ?>s">
             <div class="flex items-center gap-3 mb-3">
                 <div
                     class="w-8 h-8 rounded-full <?= ($reply['role'] ?? 'user') === 'admin' ? 'bg-blue-500/20' : 'bg-purple-500/20' ?> flex items-center justify-center">
@@ -57,7 +58,7 @@
             </p>
             <?php if (!empty($reply['attachment'])): ?>
                 <a href="<?= base_url($reply['attachment']) ?>" target="_blank"
-                    class="inline-flex items-center gap-2 mt-3 text-sm text-blue-400 hover:text-blue-300">
+                    class="inline-flex items-center gap-2 mt-3 text-sm text-blue-400 hover:text-blue-300 transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13">
@@ -72,7 +73,7 @@
 
 <!-- Reply Form -->
 <?php if ($ticket['status'] !== 'closed'): ?>
-    <div class="card-portal p-6">
+    <div class="card-portal p-6 card-shine animate-fade-in animate-delay-2">
         <h3 class="text-base font-semibold text-white mb-4">💬 Reply</h3>
         <form action="/client/tickets/<?= $ticket['id'] ?>/reply" method="post" enctype="multipart/form-data">
             <?= csrf_field() ?>
@@ -80,14 +81,14 @@
                 <textarea name="message" rows="4" class="form-input" placeholder="Tulis balasan..." required></textarea>
             </div>
             <div class="flex items-center gap-4">
-                <button type="submit" class="btn-primary">
+                <button type="submit" class="btn-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                     </svg>
                     Kirim
                 </button>
-                <label class="text-sm text-gray-400 cursor-pointer hover:text-blue-400">
+                <label class="text-sm text-gray-400 cursor-pointer hover:text-blue-400 transition-colors">
                     <input type="file" name="attachment" class="hidden">
                     📎 Attach file
                 </label>
@@ -95,7 +96,12 @@
         </form>
     </div>
 <?php else: ?>
-    <div class="card-portal p-6 text-center">
+    <div class="card-portal p-6 text-center card-shine animate-fade-in animate-delay-2">
+        <div class="w-16 h-16 rounded-full bg-gray-500/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
         <p class="text-gray-400">Ticket ini sudah ditutup.</p>
     </div>
 <?php endif; ?>

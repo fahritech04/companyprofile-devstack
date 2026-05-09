@@ -4,7 +4,7 @@
 
 <!-- Stats Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-    <div class="stat-card">
+    <div class="stat-card animate-fade-in animate-delay-1 card-shine">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
                 <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -15,12 +15,12 @@
             </div>
             <span class="text-xs text-gray-500">Total</span>
         </div>
-        <p class="text-3xl font-bold text-white">
-            <?= $totalProjects ?>
+        <p class="text-3xl font-bold text-white stat-number-animate" data-count="<?= $totalProjects ?>" data-suffix="">
+            0
         </p>
         <p class="text-sm text-gray-400 mt-1">Total Projects</p>
     </div>
-    <div class="stat-card">
+    <div class="stat-card animate-fade-in animate-delay-2 card-shine">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center">
                 <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -30,12 +30,12 @@
             </div>
             <span class="text-xs text-gray-500">In Progress</span>
         </div>
-        <p class="text-3xl font-bold text-white">
-            <?= $activeProjects ?>
+        <p class="text-3xl font-bold text-white stat-number-animate" data-count="<?= $activeProjects ?>" data-suffix="">
+            0
         </p>
         <p class="text-sm text-gray-400 mt-1">Active Projects</p>
     </div>
-    <div class="stat-card">
+    <div class="stat-card animate-fade-in animate-delay-3 card-shine">
         <div class="flex items-center justify-between mb-3">
             <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
                 <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,8 +45,8 @@
             </div>
             <span class="text-xs text-gray-500">Done</span>
         </div>
-        <p class="text-3xl font-bold text-white">
-            <?= $completedProjects ?>
+        <p class="text-3xl font-bold text-white stat-number-animate" data-count="<?= $completedProjects ?>" data-suffix="">
+            0
         </p>
         <p class="text-sm text-gray-400 mt-1">Completed</p>
     </div>
@@ -61,7 +61,7 @@
         </div>
 
         <?php if (empty($orders)): ?>
-            <div class="card-portal p-8 text-center">
+            <div class="card-portal p-8 text-center card-shine animate-fade-in animate-delay-2">
                 <svg class="w-12 h-12 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
@@ -77,9 +77,10 @@
                 </a>
             </div>
         <?php else: ?>
-            <?php foreach (array_slice($orders, 0, 5) as $order): ?>
+            <?php foreach (array_slice($orders, 0, 5) as $i => $order): ?>
                 <a href="/client/orders/<?= $order['id'] ?>"
-                    class="card-portal p-5 block hover:border-blue-500/30 transition-all group">
+                    class="card-portal p-5 block hover:border-blue-500/30 transition-all group card-shine animate-fade-in"
+                    style="animation-delay: <?= 0.1 * ($i + 1) ?>s">
                     <div class="flex items-center justify-between mb-3">
                         <div>
                             <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">
@@ -115,13 +116,14 @@
         <div>
             <h2 class="text-lg font-semibold text-white mb-3">Unpaid Invoices</h2>
             <?php if (empty($unpaidInvoices)): ?>
-                <div class="card-portal p-5 text-center">
+                <div class="card-portal p-5 text-center card-shine animate-fade-in animate-delay-2">
                     <p class="text-sm text-gray-400">Tidak ada invoice pending</p>
                 </div>
             <?php else: ?>
-                <?php foreach ($unpaidInvoices as $inv): ?>
+                <?php foreach ($unpaidInvoices as $i => $inv): ?>
                     <a href="/client/billing/<?= $inv['id'] ?>"
-                        class="card-portal p-4 block mb-3 hover:border-blue-500/30 transition-all">
+                        class="card-portal p-4 block mb-3 hover:border-blue-500/30 transition-all card-shine animate-fade-in"
+                        style="animation-delay: <?= 0.15 * ($i + 1) ?>s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-medium text-white">
                                 <?= esc($inv['invoice_number']) ?>
@@ -148,13 +150,14 @@
                 <a href="/client/tickets/create" class="text-sm text-blue-400 hover:text-blue-300">+ New</a>
             </div>
             <?php if (empty($openTickets)): ?>
-                <div class="card-portal p-5 text-center">
+                <div class="card-portal p-5 text-center card-shine animate-fade-in animate-delay-3">
                     <p class="text-sm text-gray-400">Tidak ada ticket aktif</p>
                 </div>
             <?php else: ?>
-                <?php foreach (array_slice($openTickets, 0, 3) as $ticket): ?>
+                <?php foreach (array_slice($openTickets, 0, 3) as $i => $ticket): ?>
                     <a href="/client/tickets/<?= $ticket['id'] ?>"
-                        class="card-portal p-4 block mb-3 hover:border-blue-500/30 transition-all">
+                        class="card-portal p-4 block mb-3 hover:border-blue-500/30 transition-all card-shine animate-fade-in"
+                        style="animation-delay: <?= 0.15 * ($i + 1) ?>s">
                         <div class="flex items-center justify-between">
                             <span class="text-sm font-medium text-white truncate">
                                 <?= esc($ticket['subject']) ?>

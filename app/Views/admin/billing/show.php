@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 
 <a href="<?= base_url('admin/billing') ?>"
-    class="text-sm text-gray-400 hover:text-blue-400 inline-flex items-center gap-2 mb-6">
+    class="text-sm text-gray-400 hover:text-blue-400 inline-flex items-center gap-2 mb-6 transition-colors animate-fade-in">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
     </svg>
@@ -12,7 +12,7 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <!-- Invoice Details -->
-    <div class="panel p-6">
+    <div class="panel p-6 card-shine animate-fade-in animate-delay-1">
         <h2 class="text-lg font-bold text-white mb-6">
             <?= esc($invoice['invoice_number']) ?>
         </h2>
@@ -37,7 +37,7 @@
             </div>
             <div class="flex justify-between py-3 border-b border-white/[0.04]">
                 <span class="text-gray-400 text-sm">Amount</span>
-                <span class="text-xl font-bold text-blue-400">Rp
+                <span class="text-xl font-bold text-blue-400 glow-text">Rp
                     <?= number_format($invoice['amount'], 0, ',', '.') ?>
                 </span>
             </div>
@@ -69,7 +69,7 @@
         </div>
 
         <?php if ($invoice['payment_proof']): ?>
-            <div class="mt-6 p-4 bg-white/[0.02] rounded-xl">
+            <div class="mt-6 p-4 bg-white/[0.02] rounded-xl card-shine">
                 <h4 class="text-sm font-semibold text-white mb-3">Payment Proof</h4>
                 <a href="<?= base_url($invoice['payment_proof']) ?>" target="_blank">
                     <img src="<?= base_url($invoice['payment_proof']) ?>" alt="Payment Proof"
@@ -81,13 +81,13 @@
 
     <!-- Verify Actions -->
     <?php if ($invoice['status'] === 'pending_verification'): ?>
-        <div class="space-y-4">
-            <div class="panel p-6">
+        <div class="space-y-4 animate-fade-in animate-delay-2">
+            <div class="panel p-6 card-shine">
                 <h3 class="text-base font-semibold text-white mb-4">⚡ Verify Payment</h3>
                 <form action="<?= base_url('admin/billing/' . $invoice['id'] . '/verify') ?>" method="post">
                     <?= csrf_field() ?>
                     <input type="hidden" name="action" value="approve">
-                    <button type="submit" class="btn-primary w-full justify-center mb-3">
+                    <button type="submit" class="btn-primary w-full justify-center mb-3 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -102,14 +102,14 @@
                         <textarea name="reject_reason" rows="3" class="form-input"
                             placeholder="Alasan penolakan..."></textarea>
                     </div>
-                    <button type="submit" class="btn-danger w-full justify-center">
+                    <button type="submit" class="btn-danger w-full justify-center transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 hover:-translate-y-0.5">
                         Reject
                     </button>
                 </form>
             </div>
         </div>
     <?php elseif ($invoice['status'] === 'paid'): ?>
-        <div class="panel p-6 text-center">
+        <div class="panel p-6 text-center card-shine animate-fade-in animate-delay-2">
             <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

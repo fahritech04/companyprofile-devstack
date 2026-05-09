@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<div class="panel">
+<div class="panel animate-fade-in card-shine">
     <div class="overflow-x-auto">
         <table class="table-dark">
             <thead>
@@ -30,8 +30,8 @@
                         </td>
                     </tr>
                 <?php else: ?>
-                    <?php foreach ($inquiries as $inquiry): ?>
-                        <tr class="<?= !$inquiry['is_read'] ? 'bg-blue-500/[0.02]' : '' ?>">
+                    <?php foreach ($inquiries as $i => $inquiry): ?>
+                        <tr class="<?= !$inquiry['is_read'] ? 'bg-blue-500/[0.02]' : '' ?> animate-fade-in" style="animation-delay: <?= 0.04 * $i ?>s">
                             <td>
                                 <div class="flex items-center gap-2.5">
                                     <?php if (!$inquiry['is_read']): ?>
@@ -56,7 +56,7 @@
                             </td>
                             <td>
                                 <div class="flex items-center gap-2">
-                                    <a href="<?= base_url('admin/inquiries/' . $inquiry['id']) ?>" class="btn-secondary">
+                                    <a href="<?= base_url('admin/inquiries/' . $inquiry['id']) ?>" class="btn-secondary transition-all hover:shadow-lg hover:shadow-blue-500/10">
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -69,7 +69,7 @@
                                     <form action="<?= base_url('admin/inquiries/delete/' . $inquiry['id']) ?>" method="POST"
                                         data-confirm="Delete this inquiry from <?= esc($inquiry['name']) ?>?">
                                         <?= csrf_field() ?>
-                                        <button type="submit" class="btn-danger">
+                                        <button type="submit" class="btn-danger transition-all hover:shadow-lg hover:shadow-red-500/10">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">

@@ -23,34 +23,34 @@
                 <span class="dot"></span>
                 <?= lang('App.expertise_areas') ?>
             </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal"><?= lang('App.services_main_title') ?></h1>
-            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight hero-text-reveal text-3d"><?= lang('App.services_main_title') ?></h1>
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto scramble-text">
                 <?= lang('App.services_main_description') ?>
             </p>
 
-            <!-- Stats -->
+            <!-- Stats with enhanced glow -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-8">
-                <div class="glass-card p-4 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number" data-counter="50" data-suffix="+">0</div>
+                <div class="glass-card p-4 text-center shine-card stat-glow">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number glow-text" data-counter="50" data-suffix="+">0</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.projects_delivered') ?></div>
                 </div>
-                <div class="glass-card p-4 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number" data-counter="25" data-suffix="+">0</div>
+                <div class="glass-card p-4 text-center shine-card stat-glow">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number glow-text" data-counter="25" data-suffix="+">0</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.happy_clients') ?></div>
                 </div>
-                <div class="glass-card p-4 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number">99.9%</div>
+                <div class="glass-card p-4 text-center shine-card stat-glow">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 glow-text">99.9%</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.success_rate') ?></div>
                 </div>
-                <div class="glass-card p-4 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 stat-number">24/7</div>
+                <div class="glass-card p-4 text-center shine-card stat-glow">
+                    <div class="text-xl md:text-2xl font-bold text-blue-400 mb-1 glow-text">24/7</div>
                     <div class="text-xs text-gray-400 uppercase tracking-wider"><?= lang('App.expert_support') ?></div>
                 </div>
             </div>
 
             <!-- CTA -->
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4 stagger-children">
+                <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn neon-pulse">
                     <span><?= lang('App.discuss_project') ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -76,13 +76,13 @@
 <section id="services-list" class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16 reveal">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.core_services') ?></h2>
+            <h2 class="text-gradient-blue mb-6 text-3d"><?= lang('App.core_services') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.core_services_desc') ?></p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card p-8 group service-card-3d">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 perspective-container">
+            <div class="glass-card p-8 group service-card-3d shine-card">
                 <div class="icon-box-dark mx-auto mb-6">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -93,7 +93,7 @@
                 <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_1_desc') ?>
                 </p>
             </div>
-            <div class="glass-card p-8 group service-card-3d">
+            <div class="glass-card p-8 group service-card-3d shine-card">
                 <div class="icon-box-dark mx-auto mb-6">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -104,7 +104,7 @@
                 <h3 class="text-xl font-bold mb-4 text-white text-center"><?= lang('App.service_2_title') ?></h3>
                 <p class="text-gray-400 text-sm leading-relaxed text-center mb-6"><?= lang('App.service_2_desc') ?></p>
             </div>
-            <div class="glass-card p-8 group service-card-3d">
+            <div class="glass-card p-8 group service-card-3d shine-card">
                 <div class="icon-box-dark mx-auto mb-6">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -118,7 +118,7 @@
         </div>
 
         <div class="text-center mt-12 reveal">
-            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
+            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn neon-pulse">
                 <span><?= lang('App.get_started_today') ?></span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -135,12 +135,12 @@
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16 reveal">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.industries_serve') ?></h2>
+            <h2 class="text-gradient-blue mb-6 text-3d"><?= lang('App.industries_serve') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.industries_desc') ?></p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-container">
             <?php
             $industries = [
                 ['icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', 'title' => 'fintech_banking', 'desc' => 'fintech_desc'],
@@ -152,7 +152,7 @@
             ];
             foreach ($industries as $ind):
                 ?>
-                <div class="glass-card p-8 text-center group tilt-card">
+                <div class="glass-card p-8 text-center group tilt-card shine-card">
                     <div class="tilt-card-glow"></div>
                     <div class="tilt-card-inner relative z-10">
                         <div class="icon-box-dark mx-auto mb-6">
@@ -186,20 +186,20 @@
 <!-- ═══════════════════════════════════════════════════════════════
      CTA SECTION
      ═══════════════════════════════════════════════════════════════ -->
-<section class="py-16 md:py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
+<section class="py-16 md:py-24 relative overflow-hidden mesh-gradient" style="background: linear-gradient(180deg, #040b18, #0a1628);">
     <div class="hero-bg-modern">
         <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
     </div>
 
     <div class="max-w-3xl mx-auto px-4 relative z-10 text-center">
-        <h2 class="text-gradient-blue mb-6">
+        <h2 class="text-gradient-blue mb-6 text-3d">
             <?= lang('App.cta_services_title') ?? 'Ready to Transform Your Business?' ?>
         </h2>
         <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
             <?= lang('App.cta_services_subtitle') ?? 'Get a free consultation and discover how our services can help you grow and succeed in the digital era.' ?>
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center stagger-children">
-            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
+            <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn neon-pulse">
                 <span><?= lang('App.schedule_consultation') ?? 'Schedule a Consultation' ?></span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

@@ -23,16 +23,16 @@
                 <span class="dot"></span>
                 <?= lang('App.portfolio_showcase') ?>
             </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight hero-text-reveal text-3d">
                 <?= lang('App.portfolio_title') ?>
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto scramble-text">
                 <?= lang('App.portfolio_description') ?>
             </p>
 
             <!-- CTA -->
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="#portfolio-grid" class="btn-glow-modern magnetic-btn">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4 stagger-children">
+                <a href="#portfolio-grid" class="btn-glow-modern magnetic-btn neon-pulse">
                     <span>
                         <?= lang('App.view_portfolio') ?>
                     </span>
@@ -48,7 +48,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
                         </path>
-                    </</svg>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -63,7 +63,7 @@
 <section id="portfolio-grid" class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16 reveal">
-            <h2 class="text-gradient-blue mb-6">
+            <h2 class="text-gradient-blue mb-6 text-3d">
                 <?= lang('App.our_portfolio') ?>
             </h2>
             <div class="separator mx-auto mb-8"></div>
@@ -91,7 +91,7 @@
             <?php if (!empty($portfolios)): ?>
                 <?php $delay = 0;
                 foreach ($portfolios as $item): ?>
-                    <div class="portfolio-card-modern portfolio-item"
+                    <div class="portfolio-card-modern portfolio-item shine-card"
                         data-category="<?= esc($item['category'] ?? '') ?>">
                         <div class="h-64 relative overflow-hidden">
                             <?php if (!empty($item['image'])): ?>
@@ -157,14 +157,14 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-16 md:py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #040b18, #0a1628);">
+<section class="py-16 md:py-24 relative overflow-hidden mesh-gradient" style="background: linear-gradient(180deg, #040b18, #0a1628);">
     <div class="hero-bg-modern">
         <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center">
-            <h2 class="text-gradient-blue mb-6">
+            <h2 class="text-gradient-blue mb-6 text-3d">
                 <?= lang('App.ready_to_start') ?>
             </h2>
             <div class="separator mx-auto mb-8"></div>
@@ -173,7 +173,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 stagger-children">
-                <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn">
+                <a href="<?= base_url('contact') ?>" class="btn-glow-modern magnetic-btn neon-pulse">
                     <span>
                         <?= lang('App.start_consultation') ?>
                     </span>
@@ -192,7 +192,7 @@
 
             <!-- Contact Info Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto stagger-children">
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center shine-card">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -205,7 +205,7 @@
                     </h3>
                     <p class="text-gray-400 text-sm">+62 812 1424 0287</p>
                 </div>
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center shine-card">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -218,7 +218,7 @@
                     </h3>
                     <p class="text-gray-400 text-sm">info@dev-stack.id</p>
                 </div>
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center shine-card">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

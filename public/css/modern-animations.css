@@ -1204,6 +1204,48 @@
   display: block;
 }
 
+/* ── Marquee Animation ── */
+.animate-marquee {
+  animation: marqueeScroll 25s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Timeline Styling ── */
+.timeline-dot {
+  position: relative;
+  z-index: 10;
+}
+
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent 70%);
+  animation: timelinePulse 2s ease-in-out infinite;
+}
+
+@keyframes timelinePulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ── Flip Card Height Fix ── */
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ── Iso Stack Hover ── */
+.iso-stack:hover .iso-card {
+  transform: rotateX(0deg) rotateY(0deg) translateZ(20px);
+}
+
 /* ── Enhanced mobile menu ── */
 .mobile-menu {
   transform-origin: top;

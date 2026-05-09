@@ -22,13 +22,13 @@
                 <span class="dot"></span>
                 <?= lang('App.lets_connect') ?>
             </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight reveal"><?= lang('App.contact_title') ?></h1>
-            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-gradient-blue leading-tight hero-text-reveal text-3d"><?= lang('App.contact_title') ?></h1>
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto scramble-text">
                 <?= lang('App.contact_description') ?>
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="#contact-form" class="btn-glow-modern magnetic-btn">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4 stagger-children">
+                <a href="#contact-form" class="btn-glow-modern magnetic-btn neon-pulse">
                     <span><?= lang('App.send_message') ?></span>
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -56,14 +56,14 @@
 <section id="contact-form" class="py-16 md:py-24 relative" style="background: #040b18;">
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16 reveal">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.contact_us') ?></h2>
+            <h2 class="text-gradient-blue mb-6 text-3d"><?= lang('App.contact_us') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-4xl mx-auto"><?= lang('App.contact_form_desc') ?></p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Contact Form -->
-            <div class="glass-card p-8 reveal">
+            <div class="glass-card p-8 reveal shine-card">
                 <div class="text-center mb-8">
                     <div class="icon-box-dark mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +126,7 @@
                         <textarea id="message" name="message" rows="5" class="input-glass w-full resize-none rounded-lg px-4 py-3"
                             required><?= old('message') ?></textarea>
                     </div>
-                    <button type="submit" class="btn-glow-modern w-full py-4 magnetic-btn">
+                    <button type="submit" class="btn-glow-modern w-full py-4 magnetic-btn neon-pulse">
                         <span><?= lang('App.send_message') ?></span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -139,7 +139,7 @@
             <!-- Contact Information -->
             <div class="space-y-6 reveal">
                 <!-- Info Cards -->
-                <div class="glass-card p-6 group">
+                <div class="glass-card p-6 group shine-card">
                     <div class="flex items-center space-x-4">
                         <div class="icon-box-dark flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +162,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-6 group">
+                <div class="glass-card p-6 group shine-card">
                     <div class="flex items-center space-x-4">
                         <div class="icon-box-dark flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-6 group">
+                <div class="glass-card p-6 group shine-card">
                     <div class="flex items-center space-x-4">
                         <div class="icon-box-dark flex-shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,7 +198,7 @@
                 </div>
 
                 <!-- Business Hours -->
-                <div class="glass-card p-6">
+                <div class="glass-card p-6 shine-card">
                     <h3 class="text-white font-semibold mb-4"><?= lang('App.business_hours') ?></h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-white/5">
@@ -217,7 +217,7 @@
                 </div>
 
                 <!-- Social Media -->
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center shine-card">
                     <h3 class="text-white font-semibold mb-4"><?= lang('App.follow_us') ?></h3>
                     <div class="flex justify-center space-x-3">
                         <a href="https://facebook.com/devstack" target="_blank"
@@ -268,7 +268,7 @@
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-12 reveal">
-            <h2 class="text-gradient-blue mb-6"><?= lang('App.our_location') ?></h2>
+            <h2 class="text-gradient-blue mb-6 text-3d"><?= lang('App.our_location') ?></h2>
             <div class="separator mx-auto mb-8"></div>
             <p class="text-gray-400 text-lg max-w-3xl mx-auto"><?= lang('App.location_desc') ?></p>
         </div>
@@ -276,7 +276,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Map -->
             <div class="lg:col-span-2 reveal">
-                <div class="glass-card overflow-hidden p-0">
+                <div class="glass-card overflow-hidden p-0 shine-card">
                     <div class="h-96 w-full relative">
                         <iframe
                             src="https://maps.google.com/maps?q=Gg.+PGA+No.106,+Lengkong,+Kec.+Bojongsoang,+Kabupaten+Bandung&output=embed"
@@ -321,7 +321,7 @@
 
             <!-- Location Details -->
             <div class="space-y-6 reveal">
-                <div class="glass-card p-6">
+                <div class="glass-card p-6 shine-card">
                     <h3 class="text-white font-semibold mb-4"><?= lang('App.full_location_title') ?></h3>
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
@@ -381,7 +381,7 @@
                 </div>
 
                 <!-- Visit CTA -->
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center shine-card">
                     <div class="icon-box-dark mx-auto mb-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

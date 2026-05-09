@@ -7,8 +7,8 @@ $service = $service ?? null;
 $isEdit = $service !== null;
 ?>
 
-<div class="max-w-3xl">
-    <div class="panel p-6 lg:p-8">
+<div class="max-w-3xl animate-fade-in">
+    <div class="panel p-6 lg:p-8 card-shine">
 
         <!-- Form Header -->
         <div class="mb-8 pb-6 border-b border-white/[0.06]">
@@ -97,13 +97,13 @@ $isEdit = $service !== null;
 
             <!-- Actions -->
             <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/[0.06]">
-                <button type="submit" class="btn-primary">
+                <button type="submit" class="btn-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                     <span><?= $isEdit ? 'Update Service' : 'Create Service' ?></span>
                 </button>
-                <a href="<?= base_url('admin/services') ?>" class="btn-secondary">Cancel</a>
+                <a href="<?= base_url('admin/services') ?>" class="btn-secondary transition-all hover:shadow-lg hover:shadow-blue-500/10">Cancel</a>
             </div>
         </form>
     </div>

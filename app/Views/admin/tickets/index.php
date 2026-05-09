@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<div class="panel">
+<div class="panel animate-fade-in card-shine">
     <div class="panel-header">
         <h2 class="text-sm font-semibold text-white">Support Tickets</h2>
     </div>
@@ -26,8 +26,8 @@
                         <td colspan="8" class="text-center py-12 text-gray-500">No tickets yet</td>
                     </tr>
                 <?php else: ?>
-                    <?php foreach ($tickets as $t): ?>
-                        <tr>
+                    <?php foreach ($tickets as $i => $t): ?>
+                        <tr class="animate-fade-in" style="animation-delay: <?= 0.04 * $i ?>s">
                             <td class="font-mono text-xs">
                                 <?= esc($t['ticket_number']) ?>
                             </td>
@@ -60,7 +60,7 @@
                                 <?= date('d M Y', strtotime($t['created_at'])) ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('admin/tickets/' . $t['id']) ?>" class="btn-secondary text-xs">View</a>
+                                <a href="<?= base_url('admin/tickets/' . $t['id']) ?>" class="btn-secondary text-xs transition-all hover:shadow-lg hover:shadow-blue-500/10">View</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

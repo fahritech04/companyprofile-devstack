@@ -3,10 +3,10 @@
 <?= $this->section('content') ?>
 
 <!-- Category Tabs -->
-<div class="flex space-x-1 bg-white/5 rounded-xl p-1 mb-8 max-w-md">
+<div class="flex space-x-1 bg-white/5 rounded-xl p-1 mb-8 max-w-md animate-fade-in">
     <?php foreach (['website' => '🌐 Website', 'mobile' => '📱 Mobile', 'consulting' => '💡 Consulting'] as $key => $label): ?>
         <button onclick="switchCategory('<?= $key ?>')" id="tab-<?= $key ?>"
-            class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all <?= ($activeCategory === $key) ? 'bg-blue-500 text-white' : 'text-gray-400 hover:text-white' ?>">
+            class="flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all <?= ($activeCategory === $key) ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25' : 'text-gray-400 hover:text-white hover:bg-white/5' ?>">
             <?= $label ?>
         </button>
     <?php endforeach; ?>
@@ -16,11 +16,11 @@
 <?php foreach ($packages as $category => $pkgs): ?>
     <div id="category-<?= $category ?>" class="category-section <?= ($activeCategory !== $category) ? 'hidden' : '' ?>">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <?php foreach ($pkgs as $pkg): ?>
-                <div class="card-portal p-6 flex flex-col hover:border-blue-500/30 transition-all relative overflow-hidden">
+            <?php foreach ($pkgs as $i => $pkg): ?>
+                <div class="card-portal p-6 flex flex-col hover:border-blue-500/30 transition-all relative overflow-hidden card-shine animate-fade-in"
+                     style="animation-delay: <?= 0.1 * $i ?>s">
                     <?php if ($pkg['sort_order'] === 2): ?>
-                        <div
-                            class="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-blue-500/20">
                             Popular</div>
                     <?php endif; ?>
 
@@ -66,7 +66,7 @@
                     <!-- Select Button -->
                     <button
                         onclick="selectPackage(<?= $pkg['id'] ?>, '<?= esc($pkg['name']) ?>', <?= $pkg['price'] ?>, <?= $pkg['is_custom_price'] ?>)"
-                        class="<?= $pkg['sort_order'] === 2 ? 'btn-primary' : 'btn-outline' ?> w-full justify-center">
+                        class="<?= $pkg['sort_order'] === 2 ? 'btn-primary' : 'btn-outline' ?> w-full justify-center transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5">
                         <?= $pkg['is_custom_price'] ? 'Konsultasi Dulu' : 'Pilih Paket' ?>
                     </button>
                 </div>
@@ -76,10 +76,10 @@
 <?php endforeach; ?>
 
 <!-- Order Form (hidden until package selected) -->
-<div id="orderForm" class="card-portal p-8 hidden">
+<div id="orderForm" class="card-portal p-8 hidden animate-fade-in card-shine">
     <h2 class="text-xl font-bold text-white mb-6">📝 Form Order</h2>
     <p class="text-sm text-gray-400 mb-6">Paket dipilih: <span id="selectedPackageName"
-            class="text-blue-400 font-semibold"></span></p>
+            class="text-blue-400 font-semibold glow-text"></span></p>
 
     <form action="/client/orders/store" method="post" enctype="multipart/form-data">
         <?= csrf_field() ?>
@@ -113,8 +113,8 @@
 
         <div class="mb-8">
             <label class="form-label">Upload Assets (Logo, Gambar, Dokumen)</label>
-            <div class="border-2 border-dashed border-blue-500/20 rounded-xl p-6 text-center">
-                <svg class="w-10 h-10 text-gray-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="border-2 border-dashed border-blue-500/20 rounded-xl p-6 text-center hover:border-blue-500/40 transition-colors group">
+                <svg class="w-10 h-10 text-gray-600 mx-auto mb-3 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
                     </path>
@@ -141,7 +141,7 @@
         <?php endif; ?>
 
         <div class="flex items-center gap-4">
-            <button type="submit" class="btn-primary">
+            <button type="submit" class="btn-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
@@ -157,19 +157,20 @@
     function switchCategory(cat) {
         document.querySelectorAll('.category-section').forEach(el => el.classList.add('hidden'));
         document.querySelectorAll('[id^=tab-]').forEach(el => {
-            el.classList.remove('bg-blue-500', 'text-white');
+            el.classList.remove('bg-blue-500', 'text-white', 'shadow-lg', 'shadow-blue-500/25');
             el.classList.add('text-gray-400');
         });
         document.getElementById('category-' + cat).classList.remove('hidden');
-        document.getElementById('tab-' + cat).classList.add('bg-blue-500', 'text-white');
+        document.getElementById('tab-' + cat).classList.add('bg-blue-500', 'text-white', 'shadow-lg', 'shadow-blue-500/25');
         document.getElementById('tab-' + cat).classList.remove('text-gray-400');
     }
 
     function selectPackage(id, name, price, isCustom) {
         document.getElementById('packageIdInput').value = id;
         document.getElementById('selectedPackageName').textContent = name + (isCustom ? '' : ' — Rp ' + price.toLocaleString('id-ID'));
-        document.getElementById('orderForm').classList.remove('hidden');
-        document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const form = document.getElementById('orderForm');
+        form.classList.remove('hidden');
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 </script>
 

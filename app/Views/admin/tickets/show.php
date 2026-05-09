@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 
 <a href="<?= base_url('admin/tickets') ?>"
-    class="text-sm text-gray-400 hover:text-blue-400 inline-flex items-center gap-2 mb-6">
+    class="text-sm text-gray-400 hover:text-blue-400 inline-flex items-center gap-2 mb-6 transition-colors animate-fade-in">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
     </svg>
@@ -11,7 +11,7 @@
 </a>
 
 <!-- Ticket Header -->
-<div class="panel p-6 mb-6">
+<div class="panel p-6 mb-6 card-shine animate-fade-in animate-delay-1">
     <div class="flex items-center justify-between mb-2">
         <h2 class="text-lg font-bold text-white">
             <?= esc($ticket['subject']) ?>
@@ -35,8 +35,9 @@
 
 <!-- Conversation -->
 <div class="space-y-4 mb-6">
-    <?php foreach ($replies as $reply): ?>
-        <div class="panel p-5 <?= ($reply['role'] ?? 'user') === 'admin' ? 'border-blue-500/20 ml-8' : 'mr-8' ?>">
+    <?php foreach ($replies as $i => $reply): ?>
+        <div class="panel p-5 <?= ($reply['role'] ?? 'user') === 'admin' ? 'border-blue-500/20 ml-8' : 'mr-8' ?> card-shine animate-fade-in"
+             style="animation-delay: <?= 0.08 * $i ?>s">
             <div class="flex items-center gap-3 mb-3">
                 <div
                     class="w-8 h-8 rounded-full <?= ($reply['role'] ?? 'user') === 'admin' ? 'bg-blue-500/20' : 'bg-purple-500/20' ?> flex items-center justify-center">
@@ -63,9 +64,9 @@
 </div>
 
 <!-- Admin Actions -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 animate-fade-in animate-delay-2">
     <!-- Reply Form -->
-    <div class="lg:col-span-2 panel p-6">
+    <div class="lg:col-span-2 panel p-6 card-shine">
         <h3 class="text-base font-semibold text-white mb-4">Reply</h3>
         <form action="<?= base_url('admin/tickets/' . $ticket['id'] . '/reply') ?>" method="post"
             enctype="multipart/form-data">
@@ -75,8 +76,8 @@
                     required></textarea>
             </div>
             <div class="flex items-center gap-4">
-                <button type="submit" class="btn-primary">Send Reply</button>
-                <label class="text-sm text-gray-400 cursor-pointer hover:text-blue-400">
+                <button type="submit" class="btn-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">Send Reply</button>
+                <label class="text-sm text-gray-400 cursor-pointer hover:text-blue-400 transition-colors">
                     <input type="file" name="attachment" class="hidden">
                     📎 Attach file
                 </label>
@@ -86,11 +87,11 @@
 
     <!-- Close Ticket -->
     <?php if ($ticket['status'] !== 'closed'): ?>
-        <div class="panel p-6">
+        <div class="panel p-6 card-shine">
             <h3 class="text-base font-semibold text-white mb-4">Actions</h3>
             <form action="<?= base_url('admin/tickets/' . $ticket['id'] . '/close') ?>" method="post">
                 <?= csrf_field() ?>
-                <button type="submit" class="btn-danger w-full justify-center"
+                <button type="submit" class="btn-danger w-full justify-center transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 hover:-translate-y-0.5"
                     onclick="return confirm('Close this ticket?')">
                     Close Ticket
                 </button>

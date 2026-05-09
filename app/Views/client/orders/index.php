@@ -3,18 +3,18 @@
 <?= $this->section('content') ?>
 
 <!-- Order Filters -->
-<div class="flex items-center gap-3 mb-6 overflow-x-auto pb-2">
+<div class="flex items-center gap-3 mb-6 overflow-x-auto pb-2 animate-fade-in">
     <a href="/client/orders"
-        class="badge-status <?= !isset($_GET['status']) ? 'bg-blue-500/20 text-blue-400' : 'bg-white/5 text-gray-400 hover:text-white' ?> px-4 py-2 whitespace-nowrap">All</a>
+        class="badge-status <?= !isset($_GET['status']) ? 'bg-blue-500/20 text-blue-400' : 'bg-white/5 text-gray-400 hover:text-white' ?> px-4 py-2 whitespace-nowrap transition-all hover:shadow-lg hover:shadow-blue-500/10">All</a>
     <?php foreach (['pending', 'paid', 'in_progress', 'review', 'completed'] as $s): ?>
-        <a href="/client/orders?status=<?= $s ?>" class="badge-status badge-<?= $s ?> px-4 py-2 whitespace-nowrap">
+        <a href="/client/orders?status=<?= $s ?>" class="badge-status badge-<?= $s ?> px-4 py-2 whitespace-nowrap transition-all hover:shadow-lg hover:shadow-blue-500/10">
             <?= ucfirst(str_replace('_', ' ', $s)) ?>
         </a>
     <?php endforeach; ?>
 </div>
 
 <?php if (empty($orders)): ?>
-    <div class="card-portal p-12 text-center">
+    <div class="card-portal p-12 text-center card-shine animate-fade-in animate-delay-2">
         <svg class="w-16 h-16 text-gray-700 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
@@ -22,13 +22,14 @@
         </svg>
         <h3 class="text-lg font-semibold text-white mb-2">Belum Ada Order</h3>
         <p class="text-gray-400 mb-6">Mulai perjalanan digital Anda dengan memilih layanan kami.</p>
-        <a href="/client/orders/create" class="btn-primary inline-flex">Order Sekarang</a>
+        <a href="/client/orders/create" class="btn-primary inline-flex transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5">Order Sekarang</a>
     </div>
 <?php else: ?>
     <div class="space-y-4">
-        <?php foreach ($orders as $order): ?>
+        <?php foreach ($orders as $i => $order): ?>
             <a href="/client/orders/<?= $order['id'] ?>"
-                class="card-portal p-5 block hover:border-blue-500/30 transition-all group">
+                class="card-portal p-5 block hover:border-blue-500/30 transition-all group card-shine animate-fade-in"
+                style="animation-delay: <?= 0.08 * $i ?>s">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div class="flex-1">
                         <div class="flex items-center gap-3 mb-2">
@@ -64,7 +65,7 @@
                         </div>
                         <div class="w-20">
                             <div class="progress-bar">
-                                <div class="progress-bar-fill" style="width: <?= $order['progress'] ?>%"></div>
+                                <div class="progress-bar-fill transition-all duration-1000 ease-out" style="width: <?= $order['progress'] ?>%"></div>
                             </div>
                             <p class="text-xs text-gray-500 text-center mt-1">
                                 <?= $order['progress'] ?>%
