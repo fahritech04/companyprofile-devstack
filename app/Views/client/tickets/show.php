@@ -97,7 +97,7 @@
     </div>
 <?php else: ?>
     <div class="card-portal p-6 text-center card-shine animate-fade-in animate-delay-2">
-        <div class="w-16 h-16 rounded-full bg-gray-500/10 flex items-center justify-center mx-auto mb-4">
+        <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
             <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>

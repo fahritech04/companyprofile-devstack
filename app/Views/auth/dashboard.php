@@ -211,7 +211,7 @@
                 </div>
                 <div class="mt-4 md:mt-0">
                     <button
-                        class="bg-white text-blue-600 px-6 py-3 rounded-2xl font-semibold hover:bg-blue-50 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                        class="px-6 py-3 rounded-2xl font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
                         Start Tutorial
                     </button>
                 </div>

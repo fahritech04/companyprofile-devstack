@@ -389,14 +389,6 @@ a {
 }
 
 /* Legacy support */
-.card-enterprise {
-  composes: card-dark;
-}
-
-.card-modern {
-  composes: card-dark;
-}
-
 .card-enterprise,
 .card-modern {
   position: relative;

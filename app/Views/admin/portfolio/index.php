@@ -82,7 +82,7 @@
                                 <?php if ($p['is_featured']): ?>
                                     <span class="text-amber-400 text-lg" title="Featured">★</span>
                                 <?php else: ?>
-                                    <span class="text-gray-700 text-lg">☆</span>
+                                    <span class="text-gray-600 text-lg">☆</span>
                                 <?php endif; ?>
                             </td>
                             <td>
