@@ -8,8 +8,9 @@ class CreateUsersTable extends Migration
 {
     public function up()
     {
-        // Check if table already exists
-        if ($this->db->tableExists('users')) {
+        // Check if table already exists using raw query
+        $tableExists = $this->db->query("SHOW TABLES LIKE 'users'")->getResult();
+        if (!empty($tableExists)) {
             log_message('info', 'Users table already exists, skipping migration');
             return;
         }

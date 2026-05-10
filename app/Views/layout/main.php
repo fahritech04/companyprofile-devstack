@@ -404,6 +404,39 @@
                 });
             });
         };
+
+        // ── Page Transition Overlay ──
+        (function() {
+            const overlay = document.getElementById('page-transition');
+            if (!overlay) return;
+
+            // Fade out overlay on page load
+            window.addEventListener('load', () => {
+                overlay.classList.remove('active');
+            });
+
+            // Fade in overlay on link click (internal links only)
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link) return;
+                const href = link.getAttribute('href');
+                if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) return;
+                if (link.target === '_blank') return;
+                overlay.classList.add('active');
+            });
+
+            // Handle form submissions
+            document.addEventListener('submit', (e) => {
+                const form = e.target;
+                if (form.classList.contains('no-loading')) return;
+                form.classList.add('form-loading');
+                const btn = form.querySelector('button[type="submit"]');
+                if (btn) {
+                    btn.dataset.originalText = btn.innerHTML;
+                    btn.innerHTML = '<span class="spinner mr-2"></span>Loading...';
+                }
+            });
+        })();
     </script>
 
     <script async src="//platform.twitter.com/widgets.js"></script>

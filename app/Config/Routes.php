@@ -103,6 +103,31 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
 
 $routes->get('test-reset-user', 'TestAuth::reset_user');
 
+// ═══════════════════════════════════════════════════
+// WEBSITE BUILDER ROUTES
+// ═══════════════════════════════════════════════════
+$routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
+    // Dashboard
+    $routes->get('/', 'Dashboard::index');
+
+    // Website management
+    $routes->get('websites', 'Dashboard::websites');
+    $routes->get('websites/create', 'Dashboard::createWebsite');
+    $routes->post('websites/store', 'Dashboard::storeWebsite');
+    $routes->get('websites/edit/(:num)', 'Dashboard::editWebsite/$1');
+});
+
+// Website Builder API
+$routes->group('api/website-builder', ['filter' => 'auth', 'namespace' => 'App\Controllers\Api'], function ($routes) {
+    $routes->get('/', 'WebsiteBuilder::index');
+    $routes->post('create', 'WebsiteBuilder::create');
+    $routes->get('show/(:num)', 'WebsiteBuilder::show/$1');
+    $routes->post('update/(:num)', 'WebsiteBuilder::update/$1');
+    $routes->post('update-pages/(:num)', 'WebsiteBuilder::updatePages/$1');
+    $routes->post('publish/(:num)', 'WebsiteBuilder::publish/$1');
+    $routes->post('delete/(:num)', 'WebsiteBuilder::delete/$1');
+});
+
 // Route untuk pergantian bahasa
 $routes->get('language/switch/(:segment)', 'Language::switch/$1');
 

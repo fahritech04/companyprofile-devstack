@@ -84,7 +84,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     // Batch reveal for cards, sections
-    const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .card-dark, .glass-card, .service-card-3d');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .card-dark, .glass-card:not(.animate-fade-in), .service-card-3d:not(.animate-fade-in)');
     if (revealElements.length > 0) {
       ScrollTrigger.batch(revealElements, {
         onEnter: (elements) => {
@@ -179,8 +179,8 @@
       }, 2500);
     });
 
-    // Badge reveal
-    document.querySelectorAll('.badge-modern, .badge-glow').forEach((badge) => {
+    // Badge reveal (skip elements that already have CSS animate-fade-in)
+    document.querySelectorAll('.badge-modern:not(.animate-fade-in), .badge-glow:not(.animate-fade-in)').forEach((badge) => {
       gsap.fromTo(
         badge,
         { opacity: 0, scale: 0.9 },
@@ -771,14 +771,8 @@
 
   // ═══════════════════════════════════════════════════════════════
   // 18. SHINE CARD TRIGGER
+  //    .shine-card hover effect is handled purely by CSS (::before)
+  //    No JS needed — keeps DOM clean and avoids undefined classes.
   // ═══════════════════════════════════════════════════════════════
-  document.querySelectorAll('.shine-card').forEach((card) => {
-    card.addEventListener('mouseenter', () => {
-      card.classList.add('shining');
-    });
-    card.addEventListener('animationend', () => {
-      card.classList.remove('shining');
-    });
-  });
 
 })();

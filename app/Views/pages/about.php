@@ -5,7 +5,7 @@
 <!-- ═══════════════════════════════════════════════════════════════
      ABOUT HERO — 3D Particle + Text Reveal
      ═══════════════════════════════════════════════════════════════ -->
-<section class="min-h-[70vh] flex items-center pt-28 pb-20 relative overflow-hidden hero-section"
+<section class="min-h-[70vh] flex items-center pt-20 md:pt-28 pb-16 md:pb-20 relative overflow-hidden hero-section"
     style="background: linear-gradient(180deg, #060e1f, #0a1628);">
 
     <!-- Modern Hero Background -->
@@ -17,7 +17,7 @@
     </div>
 
     <!-- Canvas Particle Network -->
-    <canvas id="particle-network-about" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+    <canvas id="particle-network-about" class="absolute inset-0 w-full h-full opacity-20"></canvas>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
         <div class="text-center space-y-8 max-w-4xl mx-auto">
@@ -174,7 +174,7 @@
 
         <div class="relative">
             <!-- Vertical Line -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/40 via-blue-500/20 to-transparent hidden md:block"></div>
+            <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/20 via-blue-500/10 to-transparent hidden md:block"></div>
 
             <!-- Timeline Items -->
             <?php
@@ -186,51 +186,67 @@
                 ['year' => '2024', 'title' => 'Global Reach', 'desc' => 'Expanded services to international markets with remote-first operations.'],
                 ['year' => '2025', 'title' => 'Innovation Hub', 'desc' => 'Launched R&D division focused on AI and next-gen web technologies.'],
             ];
+            $lastIdx = count($milestones) - 1;
+
+            foreach ($milestones as $i => $ms):
+                $isEven = $i % 2 === 0;
+                $delay  = 0.15 * $i;
+                $year   = $ms['year'];
+                $title  = $ms['title'];
+                $desc   = $ms['desc'];
             ?>
-            <?php foreach ($milestones as $i => $ms): ?>
-                <div class="relative flex items-center mb-12 md:mb-0 md:h-48 animate-fade-in" style="animation-delay: <?= 0.15 * $i ?>s">
-                    <!-- Left Content -->
-                    <div class="hidden md:block w-5/12 <?= $i % 2 === 0 ? 'text-right pr-12' : 'order-3 text-left pl-12' ?>">
-                        <?php if ($i % 2 === 0): ?>
-                            <h3 class="text-2xl font-bold text-white glow-text"><?= $ms['year'] ?></h3>
-                            <p class="text-blue-400 font-semibold mt-1"><?= $ms['title'] ?></p>
-                            <p class="text-gray-400 text-sm mt-2"><?= $ms['desc'] ?></p>
-                        <?php else: ?>
-                            <p class="text-gray-400 text-sm"><?= $ms['desc'] ?></p>
+
+                <!-- Timeline Item -->
+                <div class="relative flex items-center mb-12 md:mb-0 md:min-h-[12rem] animate-fade-in" style="animation-delay: <?= $delay ?>s">
+
+                    <!-- Desktop: Left Side -->
+                    <div class="hidden md:block w-5/12 <?= $isEven ? 'text-right pr-12' : '' ?>">
+                        <?php if ($isEven): ?>
+                        <div class="inline-block text-left glass-card p-5 shine-card">
+                            <h3 class="text-2xl font-bold text-white glow-text"><?= $year ?></h3>
+                            <p class="text-blue-400 font-semibold mt-1"><?= $title ?></p>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed"><?= $desc ?></p>
+                        </div>
                         <?php endif; ?>
                     </div>
 
-                    <!-- Center Dot -->
-                    <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 z-10">
-                        <div class="w-4 h-4 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50 border-2 border-white/20"></div>
+                    <!-- Center Marker -->
+                    <div class="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div class="relative flex items-center justify-center w-5 h-5">
+                        </div>
                     </div>
 
-                    <!-- Right Content -->
-                    <div class="hidden md:block w-5/12 <?= $i % 2 === 0 ? 'order-3 text-left pl-12' : 'text-right pr-12' ?>">
-                        <?php if ($i % 2 === 1): ?>
-                            <h3 class="text-2xl font-bold text-white glow-text"><?= $ms['year'] ?></h3>
-                            <p class="text-blue-400 font-semibold mt-1"><?= $ms['title'] ?></p>
-                            <p class="text-gray-400 text-sm mt-2"><?= $ms['desc'] ?></p>
-                        <?php else: ?>
-                            <p class="text-gray-400 text-sm"><?= $ms['desc'] ?></p>
+                    <!-- Desktop: Right Side -->
+                    <div class="hidden md:block w-5/12 <?= !$isEven ? 'text-left pl-12' : '' ?>">
+                        <?php if (!$isEven): ?>
+                        <div class="inline-block text-left glass-card p-5 shine-card">
+                            <h3 class="text-2xl font-bold text-white glow-text"><?= $year ?></h3>
+                            <p class="text-blue-400 font-semibold mt-1"><?= $title ?></p>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed"><?= $desc ?></p>
+                        </div>
                         <?php endif; ?>
                     </div>
 
                     <!-- Mobile Layout -->
                     <div class="md:hidden flex items-start gap-4 w-full">
-                        <div class="flex flex-col items-center pt-1">
-                            <div class="w-3 h-3 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50"></div>
-                            <?php if ($i < count($milestones) - 1): ?>
-                                <div class="w-px h-full bg-blue-500/20 mt-2"></div>
+                        <div class="flex flex-col items-center pt-2">
+                            <div class="relative flex items-center justify-center w-4 h-4">
+                                <div class="relative w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.5)]"></div>
+                            </div>
+                            <?php if ($i < $lastIdx): ?>
+                            <div class="w-px flex-1 bg-gradient-to-b from-blue-500/20 to-transparent mt-2"></div>
                             <?php endif; ?>
                         </div>
                         <div class="pb-8">
-                            <h3 class="text-xl font-bold text-white glow-text"><?= $ms['year'] ?></h3>
-                            <p class="text-blue-400 font-semibold mt-1"><?= $ms['title'] ?></p>
-                            <p class="text-gray-400 text-sm mt-2"><?= $ms['desc'] ?></p>
+                            <div class="glass-card p-4 shine-card">
+                                <h3 class="text-xl font-bold text-white glow-text"><?= $year ?></h3>
+                                <p class="text-blue-400 font-semibold mt-1"><?= $title ?></p>
+                                <p class="text-gray-400 text-sm mt-2 leading-relaxed"><?= $desc ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             <?php endforeach; ?>
         </div>
     </div>
@@ -333,8 +349,8 @@
             ];
             foreach ($team as $i => $member):
             ?>
-            <div class="flip-card group animate-fade-in" style="animation-delay: <?= 0.12 * $i ?>s">
-                <div class="flip-card-inner">
+            <div class="flip-card group animate-fade-in" style="animation-delay: <?= 0.12 * $i ?>s; min-height: 280px;">
+                <div class="flip-card-inner" style="min-height: 280px;">
                     <!-- Front -->
                     <div class="flip-card-front glass-card p-6 text-center shine-card flex flex-col items-center justify-center" style="min-height: 280px;">
                         <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-2xl font-bold text-white mb-4 shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-shadow">
@@ -398,7 +414,7 @@
             ?>
             <div class="glass-card p-4 flex flex-col items-center justify-center text-center group shine-card float-3d animate-fade-in" style="animation-delay: <?= 0.05 * $i ?>s; min-height: 100px;">
                 <svg class="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="<?= $tech['icon'] ?>"/>
                 </svg>
                 <span class="text-xs text-gray-400 group-hover:text-white transition-colors"><?= $tech['name'] ?></span>
             </div>
@@ -457,7 +473,7 @@
      ═══════════════════════════════════════════════════════════════ -->
 <section class="py-20 md:py-28 relative overflow-hidden mesh-gradient" style="background: linear-gradient(180deg, #040b18, #0a1628);">
     <div class="hero-bg-modern">
-        <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+        <div class="orb orb-1" style="width:500px;height:500px;top:50%;left:50%;margin-top:-250px;margin-left:-250px;"></div>
     </div>
 
     <div class="max-w-3xl mx-auto px-4 relative z-10 text-center">
@@ -483,9 +499,11 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.stat-number-animate');
+
         // Initialize counter animations for about page
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            document.querySelectorAll('.stat-number-animate').forEach(counter => {
+            counters.forEach(counter => {
                 const target = parseInt(counter.dataset.count);
                 const suffix = counter.dataset.suffix || '';
                 if (isNaN(target)) return;
@@ -505,6 +523,15 @@
                         });
                     }
                 });
+            });
+        } else {
+            // Fallback: show final values immediately when GSAP is unavailable
+            counters.forEach(counter => {
+                const target = counter.dataset.count;
+                const suffix = counter.dataset.suffix || '';
+                if (target && !isNaN(parseInt(target))) {
+                    counter.textContent = target + suffix;
+                }
             });
         }
     });
