@@ -15,6 +15,7 @@ use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\LanguageFilter;
 use App\Filters\AuthFilter;
 use App\Filters\AdminFilter;
+use App\Filters\SecurityHeadersFilter;
 
 class Filters extends BaseFilters
 {
@@ -38,6 +39,7 @@ class Filters extends BaseFilters
         'language' => LanguageFilter::class,
         'auth' => AuthFilter::class,
         'admin' => AdminFilter::class,
+        'securityheaders' => SecurityHeadersFilter::class,
         'pagecache' => PageCache::class,
         'performance' => PerformanceMetrics::class,
     ];
@@ -85,8 +87,8 @@ class Filters extends BaseFilters
         ],
         'after' => [
             'toolbar',
+            'securityheaders',
             // 'honeypot',
-            // 'secureheaders',
         ]
     ];
 

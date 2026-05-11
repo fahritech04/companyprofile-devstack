@@ -3,33 +3,58 @@
 namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
-use App\Models\WebsiteModel;
+use App\Libraries\BlockRegistry;
+use App\Libraries\WebsiteTemplateRegistry;
+use App\Services\WebsiteService;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class WebsiteBuilder extends BaseController
 {
-    protected $websiteModel;
+    protected WebsiteService $service;
 
     public function __construct()
     {
-        $this->websiteModel = new WebsiteModel();
+        $this->service = service('website');
         helper(['form', 'url']);
     }
 
     /**
-     * Get all websites for authenticated user
+     * Return 401 JSON for unauthenticated requests.
+     */
+    protected function requireUser(): ?int
+    {
+        $userId = session()->get('user_id');
+        return $userId ? (int) $userId : null;
+    }
+
+    protected function unauthorized(): ResponseInterface
+    {
+        return $this->response->setStatusCode(401)->setJSON([
+            'success' => false,
+            'message' => 'Unauthorized',
+        ]);
+    }
+
+    protected function notFound(): ResponseInterface
+    {
+        return $this->response->setStatusCode(404)->setJSON([
+            'success' => false,
+            'message' => 'Website not found',
+        ]);
+    }
+
+    /**
+     * Get all websites for the authenticated user.
      */
     public function index(): ResponseInterface
     {
-        $userId = session()->get('user_id');
+        $userId = $this->requireUser();
         if (!$userId) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Unauthorized',
-            ])->setStatusCode(401);
+            return $this->unauthorized();
         }
 
-        $websites = $this->websiteModel->getByUser($userId);
+        $model    = new \App\Models\WebsiteModel();
+        $websites = $model->getByUser($userId);
 
         return $this->response->setJSON([
             'success' => true,
@@ -38,73 +63,63 @@ class WebsiteBuilder extends BaseController
     }
 
     /**
-     * Create new website
+     * Create a new website.
      */
     public function create(): ResponseInterface
     {
-        $userId = session()->get('user_id');
+        $userId = $this->requireUser();
         if (!$userId) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Unauthorized',
-            ])->setStatusCode(401);
+            return $this->unauthorized();
         }
+
+        $allowed = implode(',', WebsiteTemplateRegistry::allowedKeys());
 
         $rules = [
             'site_name' => 'required|min_length[3]|max_length[100]',
-            'template'  => 'required|in_list[default,business,portfolio,ecommerce,saas,landing]',
+            'template'  => 'required|in_list[' . $allowed . ']',
         ];
 
         if (!$this->validate($rules)) {
-            return $this->response->setJSON([
+            return $this->response->setStatusCode(422)->setJSON([
                 'success' => false,
                 'errors'  => $this->validator->getErrors(),
-            ])->setStatusCode(422);
+            ]);
         }
 
-        $siteName = $this->request->getPost('site_name');
-        $slug     = $this->websiteModel->createSlug($siteName);
+        $id = $this->service->createForUser(
+            $userId,
+            (string) $this->request->getPost('site_name'),
+            (string) $this->request->getPost('template')
+        );
 
-        $data = [
-            'user_id'     => $userId,
-            'site_name'   => $siteName,
-            'slug'        => $slug,
-            'template'    => $this->request->getPost('template'),
-            'status'      => 'draft',
-            'config'      => $this->getDefaultConfig($this->request->getPost('template')),
-            'pages'       => $this->getDefaultPages($this->request->getPost('template')),
-            'meta_title'  => $siteName,
-        ];
-
-        $websiteId = $this->websiteModel->insert($data);
-
-        if (!$websiteId) {
-            return $this->response->setJSON([
+        if (!$id) {
+            return $this->response->setStatusCode(500)->setJSON([
                 'success' => false,
                 'message' => 'Failed to create website',
-            ])->setStatusCode(500);
+            ]);
         }
 
+        $model = new \App\Models\WebsiteModel();
         return $this->response->setJSON([
             'success' => true,
             'message' => 'Website created successfully',
-            'data'    => $this->websiteModel->find($websiteId),
+            'data'    => $model->find($id),
         ]);
     }
 
     /**
-     * Get single website
+     * Get a single website.
      */
     public function show($id): ResponseInterface
     {
-        $userId = session()->get('user_id');
-        $website = $this->websiteModel->find($id);
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
+        }
 
-        if (!$website || $website['user_id'] != $userId) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Website not found',
-            ])->setStatusCode(404);
+        $website = $this->service->findOwned((int) $id, $userId);
+        if (!$website) {
+            return $this->notFound();
         }
 
         return $this->response->setJSON([
@@ -114,81 +129,72 @@ class WebsiteBuilder extends BaseController
     }
 
     /**
-     * Update website
+     * Update a website.
+     *
+     * Note: we read JSON bodies AND urlencoded form bodies, and we treat a
+     * present-but-empty value (e.g. meta_description="") as an intentional clear,
+     * which the old "if truthy" check incorrectly rejected.
      */
     public function update($id): ResponseInterface
     {
-        $userId = session()->get('user_id');
-        $website = $this->websiteModel->find($id);
-
-        if (!$website || $website['user_id'] != $userId) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Website not found',
-            ])->setStatusCode(404);
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
         }
 
-        $data = [];
-
-        if ($this->request->getPost('site_name')) {
-            $data['site_name'] = $this->request->getPost('site_name');
-        }
-        if ($this->request->getPost('meta_title')) {
-            $data['meta_title'] = $this->request->getPost('meta_title');
-        }
-        if ($this->request->getPost('meta_description')) {
-            $data['meta_description'] = $this->request->getPost('meta_description');
-        }
-        if ($this->request->getPost('config')) {
-            $data['config'] = $this->request->getPost('config');
-        }
-        if ($this->request->getPost('pages')) {
-            $data['pages'] = $this->request->getPost('pages');
-        }
-        if ($this->request->getPost('custom_domain')) {
-            $data['custom_domain'] = $this->request->getPost('custom_domain');
+        if (!$this->service->findOwned((int) $id, $userId)) {
+            return $this->notFound();
         }
 
-        if (empty($data)) {
-            return $this->response->setJSON([
+        $allowed = ['site_name', 'meta_title', 'meta_description', 'config', 'pages', 'custom_domain'];
+        $payload = $this->collectPayload($allowed);
+
+        if (empty($payload)) {
+            return $this->response->setStatusCode(422)->setJSON([
                 'success' => false,
                 'message' => 'No data to update',
-            ])->setStatusCode(422);
+            ]);
         }
 
-        $this->websiteModel->update($id, $data);
+        $ok = $this->service->updateOwned((int) $id, $userId, $payload);
+        if (!$ok) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'success' => false,
+                'message' => 'Update failed',
+            ]);
+        }
 
+        $model = new \App\Models\WebsiteModel();
         return $this->response->setJSON([
             'success' => true,
             'message' => 'Website updated successfully',
-            'data'    => $this->websiteModel->find($id),
+            'data'    => $model->find($id),
         ]);
     }
 
     /**
-     * Update website pages
+     * Update only the pages array.
      */
     public function updatePages($id): ResponseInterface
     {
-        $userId = session()->get('user_id');
-        $website = $this->websiteModel->find($id);
-
-        if (!$website || $website['user_id'] != $userId) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Website not found',
-            ])->setStatusCode(404);
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
         }
 
-        $pages = $this->request->getPost('pages');
-        if (!$pages) {
-            return $this->response->setJSON([
+        if (!$this->service->findOwned((int) $id, $userId)) {
+            return $this->notFound();
+        }
+
+        $pages = $this->request->getJsonVar('pages') ?? $this->request->getPost('pages');
+        if (!is_array($pages) || empty($pages)) {
+            return $this->response->setStatusCode(422)->setJSON([
                 'success' => false,
                 'message' => 'Pages data is required',
-            ])->setStatusCode(422);
+            ]);
         }
 
-        $this->websiteModel->updatePages($id, $pages);
+        $this->service->updatePagesOwned((int) $id, $userId, $pages);
 
         return $this->response->setJSON([
             'success' => true,
@@ -197,21 +203,18 @@ class WebsiteBuilder extends BaseController
     }
 
     /**
-     * Publish website
+     * Publish a website.
      */
     public function publish($id): ResponseInterface
     {
-        $userId = session()->get('user_id');
-        $website = $this->websiteModel->find($id);
-
-        if (!$website || $website['user_id'] != $userId) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Website not found',
-            ])->setStatusCode(404);
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
         }
 
-        $this->websiteModel->publish($id);
+        if (!$this->service->publishOwned((int) $id, $userId)) {
+            return $this->notFound();
+        }
 
         return $this->response->setJSON([
             'success' => true,
@@ -220,21 +223,18 @@ class WebsiteBuilder extends BaseController
     }
 
     /**
-     * Delete website
+     * Archive a website (soft-delete via status).
      */
     public function delete($id): ResponseInterface
     {
-        $userId = session()->get('user_id');
-        $website = $this->websiteModel->find($id);
-
-        if (!$website || $website['user_id'] != $userId) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Website not found',
-            ])->setStatusCode(404);
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
         }
 
-        $this->websiteModel->update($id, ['status' => 'archived']);
+        if (!$this->service->archiveOwned((int) $id, $userId)) {
+            return $this->notFound();
+        }
 
         return $this->response->setJSON([
             'success' => true,
@@ -243,203 +243,197 @@ class WebsiteBuilder extends BaseController
     }
 
     /**
-     * Get default config by template
+     * Collect only whitelisted keys from JSON or POST body.
+     * Preserves empty-string values (e.g. clearing meta_description).
+     *
+     * @param string[] $allowed
+     * @return array<string, mixed>
      */
-    protected function getDefaultConfig(string $template): array
+    private function collectPayload(array $allowed): array
     {
-        $configs = [
-            'default' => [
-                'colors' => [
-                    'primary'   => '#3b82f6',
-                    'secondary' => '#1e40af',
-                    'accent'    => '#60a5fa',
-                    'text'      => '#e2e8f0',
-                    'bg'        => '#040b18',
-                ],
-                'typography' => [
-                    'heading' => 'Inter',
-                    'body'    => 'Inter',
-                ],
-                'layout' => [
-                    'max_width' => '1200px',
-                    'padding'   => '2rem',
-                ],
-            ],
-            'business' => [
-                'colors' => [
-                    'primary'   => '#0f172a',
-                    'secondary' => '#334155',
-                    'accent'    => '#3b82f6',
-                    'text'      => '#f8fafc',
-                    'bg'        => '#020617',
-                ],
-                'typography' => [
-                    'heading' => 'Inter',
-                    'body'    => 'Inter',
-                ],
-                'layout' => [
-                    'max_width' => '1280px',
-                    'padding'   => '1.5rem',
-                ],
-            ],
-            'portfolio' => [
-                'colors' => [
-                    'primary'   => '#18181b',
-                    'secondary' => '#27272a',
-                    'accent'    => '#a855f7',
-                    'text'      => '#fafafa',
-                    'bg'        => '#09090b',
-                ],
-                'typography' => [
-                    'heading' => 'Inter',
-                    'body'    => 'Inter',
-                ],
-                'layout' => [
-                    'max_width' => '1400px',
-                    'padding'   => '2rem',
-                ],
-            ],
-            'ecommerce' => [
-                'colors' => [
-                    'primary'   => '#059669',
-                    'secondary' => '#047857',
-                    'accent'    => '#10b981',
-                    'text'      => '#f0fdf4',
-                    'bg'        => '#022c22',
-                ],
-                'typography' => [
-                    'heading' => 'Inter',
-                    'body'    => 'Inter',
-                ],
-                'layout' => [
-                    'max_width' => '1280px',
-                    'padding'   => '1.5rem',
-                ],
-            ],
-            'saas' => [
-                'colors' => [
-                    'primary'   => '#6366f1',
-                    'secondary' => '#4f46e5',
-                    'accent'    => '#818cf8',
-                    'text'      => '#eef2ff',
-                    'bg'        => '#1e1b4b',
-                ],
-                'typography' => [
-                    'heading' => 'Inter',
-                    'body'    => 'Inter',
-                ],
-                'layout' => [
-                    'max_width' => '1200px',
-                    'padding'   => '2rem',
-                ],
-            ],
-            'landing' => [
-                'colors' => [
-                    'primary'   => '#f59e0b',
-                    'secondary' => '#d97706',
-                    'accent'    => '#fbbf24',
-                    'text'      => '#fffbeb',
-                    'bg'        => '#451a03',
-                ],
-                'typography' => [
-                    'heading' => 'Inter',
-                    'body'    => 'Inter',
-                ],
-                'layout' => [
-                    'max_width' => '1100px',
-                    'padding'   => '2rem',
-                ],
-            ],
-        ];
+        $json = $this->request->getJSON(true) ?? [];
+        $post = $this->request->getPost() ?? [];
+        $data = [];
 
-        return $configs[$template] ?? $configs['default'];
+        foreach ($allowed as $key) {
+            if (array_key_exists($key, $json)) {
+                $data[$key] = $json[$key];
+            } elseif (array_key_exists($key, $post)) {
+                $data[$key] = $post[$key];
+            }
+        }
+
+        return $data;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // Block-level endpoints
+    // ─────────────────────────────────────────────────────────────
+
+    /**
+     * GET /api/website-builder/blocks/available
+     * Returns the catalog of block types for the block-picker UI.
+     */
+    public function availableBlocks(): ResponseInterface
+    {
+        if (!$this->requireUser()) {
+            return $this->unauthorized();
+        }
+
+        $catalog = [];
+        foreach (BlockRegistry::listForPicker() as $key => $meta) {
+            $catalog[$key] = [
+                'name'   => $meta['name'],
+                'icon'   => $meta['icon'],
+                'schema' => BlockRegistry::schema($key),
+            ];
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'data'    => $catalog,
+        ]);
     }
 
     /**
-     * Get default pages by template
+     * POST /api/website-builder/{id}/pages/{pageId}/blocks
+     * Body: { "type": "hero" }
      */
-    protected function getDefaultPages(string $template): array
+    public function addBlock($websiteId, $pageId): ResponseInterface
     {
-        $commonPages = [
-            [
-                'id'      => 'home',
-                'name'    => 'Home',
-                'slug'    => '/',
-                'order'   => 1,
-                'visible' => true,
-                'blocks'  => [],
-            ],
-            [
-                'id'      => 'about',
-                'name'    => 'About',
-                'slug'    => 'about',
-                'order'   => 2,
-                'visible' => true,
-                'blocks'  => [],
-            ],
-            [
-                'id'      => 'contact',
-                'name'    => 'Contact',
-                'slug'    => 'contact',
-                'order'   => 99,
-                'visible' => true,
-                'blocks'  => [],
-            ],
-        ];
-
-        $templatePages = [
-            'ecommerce' => [
-                [
-                    'id'      => 'products',
-                    'name'    => 'Products',
-                    'slug'    => 'products',
-                    'order'   => 3,
-                    'visible' => true,
-                    'blocks'  => [],
-                ],
-                [
-                    'id'      => 'cart',
-                    'name'    => 'Cart',
-                    'slug'    => 'cart',
-                    'order'   => 98,
-                    'visible' => true,
-                    'blocks'  => [],
-                ],
-            ],
-            'portfolio' => [
-                [
-                    'id'      => 'works',
-                    'name'    => 'Works',
-                    'slug'    => 'works',
-                    'order'   => 3,
-                    'visible' => true,
-                    'blocks'  => [],
-                ],
-            ],
-            'saas' => [
-                [
-                    'id'      => 'features',
-                    'name'    => 'Features',
-                    'slug'    => 'features',
-                    'order'   => 3,
-                    'visible' => true,
-                    'blocks'  => [],
-                ],
-                [
-                    'id'      => 'pricing',
-                    'name'    => 'Pricing',
-                    'slug'    => 'pricing',
-                    'order'   => 4,
-                    'visible' => true,
-                    'blocks'  => [],
-                ],
-            ],
-        ];
-
-        if (isset($templatePages[$template])) {
-            return array_merge($commonPages, $templatePages[$template]);
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
         }
 
-        return $commonPages;
+        $type = $this->request->getJsonVar('type') ?? $this->request->getPost('type');
+        if (!is_string($type) || $type === '') {
+            return $this->response->setStatusCode(422)->setJSON([
+                'success' => false,
+                'message' => 'Block type is required',
+            ]);
+        }
+
+        if (!BlockRegistry::has($type)) {
+            return $this->response->setStatusCode(422)->setJSON([
+                'success' => false,
+                'message' => 'Unknown block type: ' . $type,
+            ]);
+        }
+
+        $block = $this->service->addBlock((int) $websiteId, $userId, (string) $pageId, $type);
+        if (!$block) {
+            return $this->response->setStatusCode(404)->setJSON([
+                'success' => false,
+                'message' => 'Website or page not found',
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Block added',
+            'data'    => $block,
+        ]);
+    }
+
+    /**
+     * POST /api/website-builder/{id}/pages/{pageId}/blocks/{blockId}
+     * Body: { "data": { ... } }
+     */
+    public function updateBlock($websiteId, $pageId, $blockId): ResponseInterface
+    {
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
+        }
+
+        $data = $this->request->getJsonVar('data') ?? $this->request->getPost('data');
+        if (!is_array($data)) {
+            return $this->response->setStatusCode(422)->setJSON([
+                'success' => false,
+                'message' => 'Block data must be an object',
+            ]);
+        }
+
+        $ok = $this->service->updateBlock(
+            (int) $websiteId, $userId, (string) $pageId, (string) $blockId, $data
+        );
+
+        if (!$ok) {
+            return $this->response->setStatusCode(404)->setJSON([
+                'success' => false,
+                'message' => 'Website, page or block not found',
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Block updated',
+        ]);
+    }
+
+    /**
+     * POST /api/website-builder/{id}/pages/{pageId}/blocks/{blockId}/delete
+     */
+    public function deleteBlock($websiteId, $pageId, $blockId): ResponseInterface
+    {
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
+        }
+
+        $ok = $this->service->deleteBlock(
+            (int) $websiteId, $userId, (string) $pageId, (string) $blockId
+        );
+
+        if (!$ok) {
+            return $this->response->setStatusCode(404)->setJSON([
+                'success' => false,
+                'message' => 'Block not found',
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Block deleted',
+        ]);
+    }
+
+    /**
+     * POST /api/website-builder/{id}/pages/{pageId}/blocks/reorder
+     * Body: { "order": ["blockId1", "blockId2", ...] }
+     */
+    public function reorderBlocks($websiteId, $pageId): ResponseInterface
+    {
+        $userId = $this->requireUser();
+        if (!$userId) {
+            return $this->unauthorized();
+        }
+
+        $order = $this->request->getJsonVar('order') ?? $this->request->getPost('order');
+        if (!is_array($order) || empty($order)) {
+            return $this->response->setStatusCode(422)->setJSON([
+                'success' => false,
+                'message' => 'Order array is required',
+            ]);
+        }
+
+        $ids = array_values(array_filter(array_map('strval', $order)));
+
+        $ok = $this->service->reorderBlocks(
+            (int) $websiteId, $userId, (string) $pageId, $ids
+        );
+
+        if (!$ok) {
+            return $this->response->setStatusCode(404)->setJSON([
+                'success' => false,
+                'message' => 'Website or page not found',
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Blocks reordered',
+        ]);
     }
 }

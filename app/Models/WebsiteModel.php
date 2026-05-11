@@ -34,9 +34,9 @@ class WebsiteModel extends Model
     protected bool $updateOnlyChanged = true;
 
     protected array $casts = [
-        'config' => 'json-array',
-        'pages'  => 'json-array',
-        'assets' => 'json-array',
+        'config' => '?json-array',
+        'pages'  => '?json-array',
+        'assets' => '?json-array',
     ];
 
     // Dates

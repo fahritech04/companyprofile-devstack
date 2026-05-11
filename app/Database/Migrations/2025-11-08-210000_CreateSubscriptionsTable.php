@@ -99,7 +99,8 @@ class CreateSubscriptionsTable extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addKey('user_id');
-        $this->forge->addKey('slug');
+        // Note: `slug` is already declared UNIQUE above, so an extra KEY would
+        // produce a duplicate index name on MySQL — skip adding it here.
         $this->forge->createTable('websites');
     }
 

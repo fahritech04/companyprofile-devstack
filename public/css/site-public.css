@@ -1,0 +1,315 @@
+/* ======================================================================
+   DevStack Website Builder — public site stylesheet.
+
+   All user-rendered sites share this file. Theme colors, fonts, and
+   layout measurements come from CSS custom properties set inline by
+   the renderer (see public_site/layout.php), so the same CSS adapts
+   per-site without per-site stylesheets.
+   ====================================================================== */
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--c-bg, #040b18);
+    color: var(--c-text, #e2e8f0);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading, 'Inter', sans-serif);
+    color: var(--c-text, #fff);
+    margin: 0 0 .75rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+a {
+    color: var(--c-accent, #60a5fa);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+.site-container {
+    max-width: var(--layout-max, 1200px);
+    margin: 0 auto;
+    padding-left: var(--layout-pad, 2rem);
+    padding-right: var(--layout-pad, 2rem);
+}
+
+/* ----- Top nav --------------------------------------------------------- */
+.site-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--c-bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.site-nav__inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1rem; padding-bottom: 1rem;
+}
+.site-nav__brand {
+    font-weight: 700; font-size: 1.1rem;
+    color: var(--c-text); text-decoration: none;
+    font-family: var(--font-heading);
+}
+.site-nav__menu { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.site-nav__link {
+    color: color-mix(in srgb, var(--c-text) 70%, transparent);
+    font-size: .9rem; font-weight: 500;
+    text-decoration: none;
+    transition: color .15s ease;
+}
+.site-nav__link:hover,
+.site-nav__link.is-active { color: var(--c-accent); }
+
+/* ----- Generic section header ----------------------------------------- */
+.site-section { padding: 5rem 0; }
+.site-section__header {
+    text-align: center; margin-bottom: 3rem;
+    max-width: 720px; margin-left: auto; margin-right: auto;
+}
+.site-section__heading { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.site-section__subheading {
+    color: color-mix(in srgb, var(--c-text) 70%, transparent);
+    font-size: 1.1rem;
+    margin-top: .5rem;
+}
+
+/* ----- Buttons -------------------------------------------------------- */
+.site-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: .85rem 1.75rem;
+    border-radius: .6rem;
+    font-weight: 600; font-size: .95rem;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.site-btn:hover { transform: translateY(-1px); text-decoration: none; }
+.site-btn--primary {
+    background: var(--c-primary);
+    color: #fff;
+    box-shadow: 0 10px 25px -10px color-mix(in srgb, var(--c-primary) 70%, transparent);
+}
+.site-btn--primary:hover {
+    background: color-mix(in srgb, var(--c-primary) 85%, white);
+}
+.site-btn--outline {
+    background: transparent;
+    color: var(--c-text);
+    border-color: color-mix(in srgb, var(--c-text) 25%, transparent);
+}
+.site-btn--outline:hover {
+    border-color: var(--c-accent);
+    color: var(--c-accent);
+}
+.site-btn--lg { padding: 1rem 2.25rem; font-size: 1rem; }
+
+/* ----- Hero ----------------------------------------------------------- */
+.site-hero {
+    padding: 6rem 0 5rem;
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--c-primary) 15%, var(--c-bg)),
+        var(--c-bg));
+    text-align: center;
+}
+.site-hero__inner { max-width: 780px; margin: 0 auto; }
+.site-hero__eyebrow {
+    display: inline-block;
+    padding: .35rem .85rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--c-accent) 15%, transparent);
+    color: var(--c-accent);
+    font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.site-hero__heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+}
+.site-hero__subheading {
+    color: color-mix(in srgb, var(--c-text) 75%, transparent);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: 2rem;
+}
+
+/* ----- Features ------------------------------------------------------- */
+.site-features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+.site-feature-card {
+    padding: 1.75rem;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 1rem;
+    background: rgba(255,255,255,.03);
+    transition: border-color .2s ease, transform .2s ease;
+}
+.site-feature-card:hover {
+    border-color: color-mix(in srgb, var(--c-accent) 40%, transparent);
+    transform: translateY(-2px);
+}
+.site-feature-card__icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: .6rem;
+    background: color-mix(in srgb, var(--c-accent) 15%, transparent);
+    color: var(--c-accent);
+    margin-bottom: 1rem;
+}
+.site-feature-card__icon svg { width: 22px; height: 22px; }
+.site-feature-card__title { font-size: 1.15rem; margin-bottom: .5rem; }
+.site-feature-card__desc {
+    color: color-mix(in srgb, var(--c-text) 70%, transparent);
+    margin: 0;
+}
+
+/* ----- Pricing -------------------------------------------------------- */
+.site-pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.site-pricing-card {
+    position: relative;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 1rem;
+    background: rgba(255,255,255,.03);
+    display: flex; flex-direction: column;
+}
+.site-pricing-card.is-featured {
+    border-color: var(--c-accent);
+    box-shadow: 0 20px 50px -20px color-mix(in srgb, var(--c-accent) 60%, transparent);
+    transform: scale(1.02);
+}
+.site-pricing-card__badge {
+    position: absolute; top: -12px; right: 1.5rem;
+    background: var(--c-accent); color: var(--c-bg);
+    padding: .25rem .75rem; border-radius: 999px;
+    font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+}
+.site-pricing-card__name { font-size: 1.1rem; margin-bottom: 1rem; }
+.site-pricing-card__price { display: flex; align-items: baseline; gap: .25rem; margin-bottom: 1.25rem; }
+.site-pricing-card__amount { font-size: 2.5rem; font-weight: 700; color: var(--c-text); font-family: var(--font-heading); }
+.site-pricing-card__period { color: color-mix(in srgb, var(--c-text) 60%, transparent); }
+.site-pricing-card__features {
+    list-style: none; padding: 0; margin: 0 0 1.5rem;
+    flex: 1;
+}
+.site-pricing-card__features li {
+    padding: .4rem 0;
+    color: color-mix(in srgb, var(--c-text) 85%, transparent);
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.site-pricing-card__features li:last-child { border-bottom: none; }
+.site-pricing-card .site-btn { width: 100%; }
+
+/* ----- CTA ------------------------------------------------------------ */
+.site-cta { background: linear-gradient(135deg, color-mix(in srgb, var(--c-primary) 25%, transparent), transparent); }
+.site-cta__inner { text-align: center; max-width: 680px; margin: 0 auto; }
+.site-cta__heading { font-size: clamp(1.75rem, 3vw, 2.25rem); }
+.site-cta__subheading {
+    color: color-mix(in srgb, var(--c-text) 75%, transparent);
+    font-size: 1.1rem;
+    margin-bottom: 1.75rem;
+}
+
+/* ----- Text ----------------------------------------------------------- */
+.site-text__inner { max-width: 720px; margin: 0 auto; }
+.site-text__heading { font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 1rem; }
+.site-text__p {
+    margin: 0 0 1rem;
+    color: color-mix(in srgb, var(--c-text) 85%, transparent);
+    font-size: 1.05rem;
+}
+
+/* ----- Image / Gallery ------------------------------------------------ */
+.site-image-block__figure {
+    margin: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.site-image-block__img { width: 100%; display: block; }
+.site-image-block__caption {
+    margin-top: .5rem;
+    text-align: center;
+    color: color-mix(in srgb, var(--c-text) 60%, transparent);
+    font-size: .9rem;
+}
+.site-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: .75rem;
+}
+.site-gallery__item {
+    margin: 0;
+    border-radius: .6rem;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+.site-gallery__item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .3s ease;
+}
+.site-gallery__item:hover img { transform: scale(1.05); }
+
+/* ----- Footer --------------------------------------------------------- */
+.site-footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 3rem;
+    margin-top: 4rem;
+    background: color-mix(in srgb, var(--c-bg) 95%, black);
+}
+.site-footer__inner {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 2rem; flex-wrap: wrap;
+    padding-bottom: 2rem;
+}
+.site-footer__name { font-weight: 700; font-family: var(--font-heading); font-size: 1.1rem; }
+.site-footer__tagline {
+    color: color-mix(in srgb, var(--c-text) 60%, transparent);
+    font-size: .9rem; margin-top: .25rem;
+}
+.site-footer__nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.site-footer__link {
+    color: color-mix(in srgb, var(--c-text) 70%, transparent);
+    text-decoration: none; font-size: .9rem;
+}
+.site-footer__link:hover { color: var(--c-accent); }
+.site-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,.05);
+    padding: 1.25rem 0;
+    color: color-mix(in srgb, var(--c-text) 50%, transparent);
+    font-size: .8rem;
+    text-align: center;
+}
+
+/* ----- Builder attribution ------------------------------------------- */
+.site-attribution {
+    text-align: center;
+    padding: 1rem;
+    font-size: .75rem;
+    color: color-mix(in srgb, var(--c-text) 40%, transparent);
+    background: rgba(0,0,0,.25);
+}
+.site-attribution a { color: color-mix(in srgb, var(--c-text) 70%, transparent); }
+
+/* ----- Empty-page placeholder ---------------------------------------- */
+.site-empty {
+    padding: 6rem 0; text-align: center;
+    color: color-mix(in srgb, var(--c-text) 60%, transparent);
+}
+.site-empty__title { font-size: 1.5rem; margin-bottom: .5rem; }

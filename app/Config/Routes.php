@@ -126,7 +126,21 @@ $routes->group('api/website-builder', ['filter' => 'auth', 'namespace' => 'App\C
     $routes->post('update-pages/(:num)', 'WebsiteBuilder::updatePages/$1');
     $routes->post('publish/(:num)', 'WebsiteBuilder::publish/$1');
     $routes->post('delete/(:num)', 'WebsiteBuilder::delete/$1');
+
+    // Block management
+    $routes->get('blocks/available', 'WebsiteBuilder::availableBlocks');
+    $routes->post('(:num)/pages/(:segment)/blocks', 'WebsiteBuilder::addBlock/$1/$2');
+    $routes->post('(:num)/pages/(:segment)/blocks/reorder', 'WebsiteBuilder::reorderBlocks/$1/$2');
+    $routes->post('(:num)/pages/(:segment)/blocks/(:segment)', 'WebsiteBuilder::updateBlock/$1/$2/$3');
+    $routes->post('(:num)/pages/(:segment)/blocks/(:segment)/delete', 'WebsiteBuilder::deleteBlock/$1/$2/$3');
 });
+
+// ═══════════════════════════════════════════════════
+// PUBLIC SITE RENDERER
+// Serves user-built websites at /s/{slug} and /s/{slug}/{pageSlug}.
+// ═══════════════════════════════════════════════════
+$routes->get('s/(:segment)', 'PublicSite::show/$1');
+$routes->get('s/(:segment)/(:any)', 'PublicSite::show/$1/$2');
 
 // Route untuk pergantian bahasa
 $routes->get('language/switch/(:segment)', 'Language::switch/$1');

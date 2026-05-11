@@ -20,7 +20,14 @@ class User extends Model
         'last_name',
         'is_active',
         'role',
-        'email_verified_at'
+        'email_verified_at',
+        'verification_token',
+        'verification_token_expires_at',
+        'failed_login_attempts',
+        'locked_until',
+        'last_login_at',
+        'last_login_ip',
+        'password_changed_at',
     ];
 
     protected bool $allowEmptyInserts = false;

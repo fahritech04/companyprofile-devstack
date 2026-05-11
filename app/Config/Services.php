@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Services\AuthService;
+use App\Services\WebsiteService;
 use CodeIgniter\Config\BaseService;
 
 /**
@@ -11,22 +13,34 @@ use CodeIgniter\Config\BaseService;
  * to do its job. This is used by CodeIgniter to allow the core of the
  * framework to be swapped out easily without affecting the usage within
  * the rest of your application.
- *
- * This file holds any application-specific services, or service overrides
- * that you might need. An example has been included with the general
- * method format you should use for your service methods. For more examples,
- * see the core Services file at system/Config/Services.php.
  */
 class Services extends BaseService
 {
-    /*
-     * public static function example($getShared = true)
-     * {
-     *     if ($getShared) {
-     *         return static::getSharedInstance('example');
-     *     }
+    /**
+     * Authentication service (verification tokens, lockout, password policy).
      *
-     *     return new \CodeIgniter\Example();
-     * }
+     * Usage: service('auth')->issueVerificationToken($userId);
      */
+    public static function auth(bool $getShared = true): AuthService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('auth');
+        }
+
+        return new AuthService();
+    }
+
+    /**
+     * Website builder service (ownership checks, template registry integration).
+     *
+     * Usage: service('website')->createForUser($userId, $name, $template);
+     */
+    public static function website(bool $getShared = true): WebsiteService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('website');
+        }
+
+        return new WebsiteService();
+    }
 }
