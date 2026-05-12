@@ -132,4 +132,49 @@ class Dashboard extends BaseController
             'website' => $website,
         ]);
     }
+
+    /**
+     * Visual page editor. URL: /dashboard/websites/editor/{id}[/{pageId}]
+     *
+     * Uses the REST API for persistence; this controller just hands the
+     * initial website data to the Alpine.js editor.
+     */
+    public function editor($id, ?string $pageId = null)
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login')->with('error', 'Please login to edit your website.');
+        }
+
+        $userId  = (int) session()->get('user_id');
+        $website = $this->websiteService->findOwned((int) $id, $userId);
+
+        if (!$website) {
+            return redirect()->to('/dashboard/websites')->with('error', 'Website not found.');
+        }
+
+        $pages = is_array($website['pages'] ?? null) ? $website['pages'] : [];
+        if (empty($pages)) {
+            return redirect()->to('/dashboard/websites')->with('error', 'This website has no pages.');
+        }
+
+        $activePage = null;
+        if ($pageId) {
+            foreach ($pages as $p) {
+                if (($p['id'] ?? null) === $pageId) { $activePage = $p; break; }
+            }
+        }
+        if (!$activePage) {
+            foreach ($pages as $p) {
+                if (($p['id'] ?? null) === 'home') { $activePage = $p; break; }
+            }
+            $activePage = $activePage ?? $pages[0];
+        }
+
+        return view('dashboard/editor', [
+            'title'      => 'Editor — ' . esc($website['site_name']),
+            'website'    => $website,
+            'pages'      => $pages,
+            'activePage' => $activePage,
+        ]);
+    }
 }

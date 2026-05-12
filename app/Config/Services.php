@@ -3,6 +3,7 @@
 namespace Config;
 
 use App\Services\AuthService;
+use App\Services\MediaService;
 use App\Services\WebsiteService;
 use CodeIgniter\Config\BaseService;
 
@@ -42,5 +43,19 @@ class Services extends BaseService
         }
 
         return new WebsiteService();
+    }
+
+    /**
+     * Media library service (uploads, quotas, file serving).
+     *
+     * Usage: service('media')->storeUpload($file, $userId);
+     */
+    public static function media(bool $getShared = true): MediaService
+    {
+        if ($getShared) {
+            return static::getSharedInstance('media');
+        }
+
+        return new MediaService();
     }
 }

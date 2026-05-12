@@ -115,6 +115,10 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
     $routes->get('websites/create', 'Dashboard::createWebsite');
     $routes->post('websites/store', 'Dashboard::storeWebsite');
     $routes->get('websites/edit/(:num)', 'Dashboard::editWebsite/$1');
+
+    // Visual editor (page builder)
+    $routes->get('websites/editor/(:num)', 'Dashboard::editor/$1');
+    $routes->get('websites/editor/(:num)/(:segment)', 'Dashboard::editor/$1/$2');
 });
 
 // Website Builder API
@@ -141,6 +145,18 @@ $routes->group('api/website-builder', ['filter' => 'auth', 'namespace' => 'App\C
 // ═══════════════════════════════════════════════════
 $routes->get('s/(:segment)', 'PublicSite::show/$1');
 $routes->get('s/(:segment)/(:any)', 'PublicSite::show/$1/$2');
+
+// ═══════════════════════════════════════════════════
+// MEDIA LIBRARY
+// Public URL for stored files + auth'd REST API for managing them.
+// ═══════════════════════════════════════════════════
+$routes->get('uploads/(:any)', 'Api\Media::serve/$1');
+
+$routes->group('api/media', ['filter' => 'auth', 'namespace' => 'App\Controllers\Api'], function ($routes) {
+    $routes->get('/',              'Media::index');
+    $routes->post('upload',        'Media::upload');
+    $routes->post('(:num)/delete', 'Media::delete/$1');
+});
 
 // Route untuk pergantian bahasa
 $routes->get('language/switch/(:segment)', 'Language::switch/$1');
